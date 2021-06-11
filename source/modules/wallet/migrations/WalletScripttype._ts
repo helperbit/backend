@@ -1,0 +1,27 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+const Wallet = require('../wallet.model');
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing wallet scripttype fix');
+
+	Wallet.find({}, (err, wallets) => {
+		wallets.forEach((w) => {
+			log.job.debug('Migration', `Updating wallet ${w.address} scripttype ${w.scripttype}`);
+
+			if (w.segwit)
+				w.scripttype = 'p2sh-p2wsh';
+			else
+				w.scripttype = 'p2sh';
+
+			w.save((err) => {
+				if (err)
+					log.job.error('Migration', `Failed to update ${w.address}`);
+			});
+		});
+	});
+};
+

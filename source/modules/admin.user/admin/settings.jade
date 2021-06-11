@@ -1,0 +1,99 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		if locals.privileges.indexOf('kyc-thirdparty') == -1
+			include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Admin User -&nbsp;
+						span= user.username
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li Admin User
+						li.active= user.username
+
+				// Main content
+				section.content
+					.row
+						.col-md-6
+							.box.box-info
+								.box-header.with-border
+									h3.box-title Admin informations
+								// /.box-header
+								.box-body.no-padding
+									table.table.table-hover
+										tr
+											td 
+												b Username
+											td= user.username
+										tr
+											td 
+												b Email
+											td= user.email
+										tr
+											td 
+												b Privileges
+											td= user.privileges
+										tr
+											td 
+												b Last password change
+											td= locals.formatDate(user.lastpasswordchange)
+						.col-md-6
+							.box.box-success
+								.box-header.with-border
+									h3.box-title Change Password
+								// /.box-header
+								.box-body
+									p Password should be longer than 12 characters and should contains letter (uppercase and lowercase) and numbers.
+									input.form-control#oldpassword(type="password", placeholder="Old password")
+									br
+									input.form-control#newpassword(type="password", placeholder="New password")
+									br
+									input.form-control#newpassword2(type="password", placeholder="Repeat new password")
+									br
+									button.btn.btn-danger.btn-block#changeButton Change Password																		
+
+	script.
+		$('#changeButton').click (function () {
+			var preg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/;
+			var oldp = $('#oldpassword').val();
+			var np = $('#newpassword').val();
+			var np2 = $('#newpassword2').val();
+
+			if (np != np2)
+				return alert ('Passwords does not match');
+			if (np.length < 12)
+				return alert ('Password should be longer than 12 characters');
+			if (!preg.test(np))
+				return alert ('Password should contains uppercase, lowercase and numbers');
+			if (np == oldp)
+				return alert ('Old password and new password can\'t be the same');
+
+			$.ajax({
+			    url: '/admin/adminuser/changepassword',
+			    type: 'POST',
+			    data: JSON.stringify({oldpassword: oldp, newpassword: np}),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					alert('Password changed!');
+				},
+				error: function(msg) {
+					alert('Error: incorrect old password')
+				}
+			});
+		});
+
+
+if locals.privileges.indexOf('kyc-thirdparty') != -1
+	script.
+		$('.sidebar-toggle').click();

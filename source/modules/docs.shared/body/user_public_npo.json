@@ -1,0 +1,61 @@
+			{
+				"_id": "583a6b850b5b64003ad65644",
+				"username": "helperbit",
+				"regdate": "2016-11-27T05:13:41.347Z",
+				"supportedevents": [],
+				"donated": 0.01308957,
+				"donateddonations": 5,
+				"received": 0.40335627,
+				"receiveddonations": 11,
+				"avatar": "583b34f23d6a3c003a6a213b",
+				"country": "ITA",
+				"receiveaddress": "38KMFLaiAiJT4dN3Gye7Tmd2DJDzwCwWbs",
+				"usertype": "npo",
+				"bio": {
+					"en": "Helperbit is an Italian startup that uses the Blockchain technology to allow people to donate digital and local currencies to charities and to people in need all over the world, trace their donation and how it is used, offering full transparency of economic flows.\n\nIt even reverses the traditional home insurance model for natural disasters, thanks to a service powered by blockchain that will empowers users to customize their premium, allowing also microinsurance, offering a fast, fair and transparent refund."
+				},
+				"trustlevel": 60,
+				"locked": false,
+				"risk": {
+					"earthquake": {
+						"class": "medium",
+						"source": "DPC"
+					},
+					"flood": {
+						"class": "na",
+						"source": "helperbit"
+					},
+					"wildfire": {
+						"class": "low",
+						"source": "helperbit"
+					}
+				},
+				"mobile": "",
+				"website": "https://helperbit.com",
+				"newsletter": false,
+				"birthdate": "2016-04-19T04:00:00.000Z",
+				"city": "Roma",
+				"zipcode": "00136",
+				"street": "Via Giancarlo Bitossi",
+				"streetnr": "34",
+				"region": "Lazio",
+				"location": {
+					"coordinates": [
+						12.4390872,
+						41.9268674
+					],
+					"type": "Point"
+				},
+				"tags": [
+					"natural-disaster-recovery"
+				],
+				"operators": "2-10",
+				"vat": "13844091002",
+				"subtype": "none",
+				"fullname": "Helperbit",
+				"countries": [
+					"ITA"
+				],
+				"telephone": "",
+				"photo": null
+			}

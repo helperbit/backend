@@ -1,0 +1,82 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Transactions -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li Transactions
+						li.active= title
+				// Main content
+				section.content
+					div.box							
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Time
+										+sort(pagination, 'time')
+									th From
+										+sort(pagination, 'from')
+									th To
+										+sort(pagination, 'to')
+									th Status
+										+sort(pagination, 'status')
+									th Signatures
+									th
+								each t in txs
+									tr
+										td #{prettyDateTime(t.time)}
+										td= t.from
+										td= t.to 
+										td
+											if t.status == 'waiting'
+													span.label.label-default Waiting
+
+											if t.status == 'signing'
+												span.label.label-warning Signing
+													
+											if t.status == 'signed'
+												span.label.label-warning Signed
+												
+											if t.status == 'broadcasted'
+												span.label.label-info Broadcasted
+												
+											if t.status == 'confirmed'
+												span.label.label-success Confirmed
+												
+											if t.status == 'refused'
+												span.label.label-danger Refused
+											
+											if t.status == 'doublespent'
+												span.label.label-danger Doublespent
+												
+											if t.status == 'hidden'
+												span.label.label-danger Hidden
+
+										td
+											span= t.signers.length
+											span &nbsp;(
+												span= t.n
+												span &nbsp;of 
+												span= t.admins.length + 1
+											span )
+										td
+											a.btn.btn-xs.btn-primary(href="/admin/transaction/"+t._id+"/") Details
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

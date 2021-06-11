@@ -1,0 +1,99 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Fiat donation -&nbsp;
+						span= fd._id
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li Donation
+						li Fiat
+						li.active= fd._id
+				// Main content
+				section.content
+					div.box					
+						div.box-body.row
+							div.col-md-4
+								span Status:&nbsp;
+								b= fd.status
+
+							div.col-md-4
+								span Refill Status:&nbsp;
+								b= fd.refillstatus
+
+							div.col-md-4
+								span Provider:&nbsp;
+								b= fd.provider
+
+							div.col-md-4
+								span Exchange:&nbsp;
+								b= fd.exchange
+
+							div.col-md-6
+								span To user:&nbsp;
+								b= fd.touser
+
+							div.col-md-6
+								span To address:&nbsp;
+								b= fd.toaddress
+
+							div.col-md-6
+								span From email:&nbsp;
+								b= fd.email
+
+							div.col-md-6
+								span From fullname:&nbsp;
+								b= fd.fullname
+
+							div.col-md-4
+								span Value:&nbsp;
+								b= fd.value
+
+							div.col-md-4
+								span Currency:&nbsp;
+								b= fd.currency
+
+							div.col-md-4
+								span Value (BTC):&nbsp;
+								b= fd.valuebtc
+
+							div.col-md-12
+								span TXID:&nbsp;
+								b= fd.txid
+
+							div.col-md-6
+								span Time:&nbsp;
+								b= fd.time
+
+						br
+						div
+							textarea.form-control(rows="12")= fd
+
+						br
+						if locals.checkPriv (locals, 'admin')
+							div.row
+								div.col-md-6 
+									if fd.status == 'sent' && fd.refillstatus == 'pending'
+										p Disable refill for this fiat donation
+										a.btn.btn-danger.btn-block(href="/admin/fiatdonation/"+fd._id+"/setrefillnone") Set as no refill
+
+								div.col-md-6
+									if fd.status == 'paid' || fd.status == 'paidinvalidbtc' || fd.status == 'paidcheckfailed' || fd.status == 'paidtowronguser'
+										p You should first manually refund this user from Mistralpay
+										a.btn.btn-danger.btn-block(href="/admin/fiatdonation/"+fd._id+"/setrefunded") Set as Refunded
+
+
+								div.col-md-6
+									if fd.status == 'paidinvalidbtc' || fd.status == 'paidcheckfailed'
+										p This action will set this fiatdonation as valid, and will proced to withdraw of BTC
+										a.btn.btn-danger.btn-block(href="/admin/fiatdonation/"+fd._id+"/setpaid") Set as Paid

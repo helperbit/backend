@@ -1,0 +1,16 @@
+			{
+				"__v": 0,
+				"_id": "56164e5fe95adc274ae56a1f",
+				"date": "2015-09-24T15:56:55.890Z",
+				"epicenter": {
+				"coordinates": [
+					160.5217,
+					-10.1737,
+					23.54
+				],
+				"type": "Point"
+				},
+				"event": "56164e54e95adc274ae56886",
+				"magnitude": 6.1,
+				"originid": "273574"
+			}

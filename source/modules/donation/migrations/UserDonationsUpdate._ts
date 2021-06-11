@@ -1,0 +1,53 @@
+import log = require('../../../log');
+
+const Donation = require('../donation.model');
+import { User } from '../../user/user.model';
+
+const donationController = require('../donation.controller');
+
+export = () => {
+	log.job.debug('Migration', 'Executing users stats update');
+
+	User.find({}, (err, users) => {
+		users.forEach((u) => {
+			Donation.aggregate()
+				.match({ 'to.user': u.username })
+				.group({
+					_id: "$to.user",
+					donationsconfirmed: {
+						"$sum": { "$cond": [{ "$eq": ["$status", "confirmed"] }, "$value", 0] }
+					},
+					donations: {
+						"$sum": {
+							"$cond": [{
+								"$or": [
+									{ "$eq": ["$status", "confirmed"] },
+									{ "$eq": ["$status", "broadcasted"] }
+								]
+							}, "$value", 0]
+						}
+					},
+					receiveddonations: {
+						"$sum": {
+							"$cond": [{
+								"$or": [
+									{ "$eq": ["$status", "confirmed"] },
+									{ "$eq": ["$status", "broadcasted"] }
+								]
+							}, 1, 0]
+						}
+					},
+				})
+				.cursor({})
+				.exec((err, v) => {
+					if (v.length > 0) {
+						u.received = v[0].donationsconfirmed;
+						u.receiveddonations = v[0].receiveddonations;
+						log.job.debug('Migration', `Updating user ${u.username} - ${u.received} / ${u.receiveddonations}`);
+						u.save();
+					}
+				});
+		});
+	});
+};
+

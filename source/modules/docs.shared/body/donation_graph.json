@@ -1,0 +1,117 @@
+			{
+				"nodes": {
+					"test": {
+						"usertype": "singleuser",
+						"username": "test",
+						"avatar": null,
+						"fullname": "",
+						"received": 0.05,
+						"donated": 0.01162164
+					},
+					"testmexb10qwxrcw": {
+						"usertype": "npo",
+						"username": "testmexb10qwxrcw",
+						"avatar": null,
+						"fullname": "",
+						"received": 0.0026495900000000003,
+						"donated": 0
+					},
+					"testmexb1v77r9-": {
+						"usertype": "singleuser",
+						"username": "testmexb1v77r9-",
+						"avatar": null,
+						"fullname": "",
+						"received": 0.00411427,
+						"donated": 0
+					},
+					"testmexbyuzmb5w": {
+						"usertype": "npo",
+						"username": "testmexbyuzmb5w",
+						"avatar": null,
+						"fullname": "",
+						"received": 0.00234743,
+						"donated": 0
+					},
+					"testmexhk3rwqbqz": {
+						"usertype": "npo",
+						"username": "testmexhk3rwqbqz",
+						"avatar": null,
+						"fullname": "",
+						"received": 0.0021150699999999997,
+						"donated": 0
+					}
+				},
+				"edges": [{
+					"type": "donation",
+					"time": "2017-09-12T10:37:26.572Z",
+					"id": "0726281853df6facedec2224f9ac97d1f6e8aba4d7550bf988651cfc20fddfb9",
+					"from": "test",
+					"value": 0.00115927,
+					"altdonation": false,
+					"fiatdonation": false,
+					"to": [{
+						"value": 0.0003,
+						"username": "testmexb10qwxrcw"
+					}, {
+						"value": 0.0003,
+						"username": "testmexb1v77r9-"
+					}, {
+						"value": 0.0002,
+						"username": "testmexbyuzmb5w"
+					}, {
+						"value": 0.0002,
+						"username": "testmexhk3rwqbqz"
+					}, {
+						"value": 0,
+						"username": "helperbit"
+					}]
+				}, {
+					"type": "donation",
+					"time": "2017-09-12T10:21:27.326Z",
+					"id": "e7bded18ac1e2937dcca75bcbde3e9b845944edea0272f55422852b1146defdb",
+					"from": "test",
+					"value": 0.00116159,
+					"altdonation": false,
+					"fiatdonation": false,
+					"to": [{
+						"value": 0.0003,
+						"username": "testmexb10qwxrcw"
+					}, {
+						"value": 0.0004,
+						"username": "testmexb1v77r9-"
+					}, {
+						"value": 0.0001,
+						"username": "testmexbyuzmb5w"
+					}, {
+						"value": 0.0002,
+						"username": "testmexhk3rwqbqz"
+					}, {
+						"value": 0,
+						"username": "helperbit"
+					}]
+				}, {
+					"type": "donation",
+					"time": "2017-09-12T09:28:58.228Z",
+					"id": "f14253d4418c8d6f40c57f4cc2cdc4d187ec68046856b3a05a36580c98b682c0",
+					"from": "test",
+					"value": 0.00930078,
+					"altdonation": false,
+					"fiatdonation": false,
+					"to": [{
+						"value": 0.002,
+						"username": "testmexb10qwxrcw"
+					}, {
+						"value": 0.0033,
+						"username": "testmexb1v77r9-"
+					}, {
+						"value": 0.0018,
+						"username": "testmexbyuzmb5w"
+					}, {
+						"value": 0.0016,
+						"username": "testmexhk3rwqbqz"
+					}, {
+						"value": 0.0003,
+						"username": "helperbit"
+					}]
+				}]
+			}

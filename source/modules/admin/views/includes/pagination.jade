@@ -1,0 +1,32 @@
+if pagination.count >= 0
+	div(align="center")
+		ul.no-margin.pagination.pagination-sm
+			li.active
+				a(href="#")= (pagination.page * 25) + ' - ' + (pagination.page * 25 + 25) + ' of ' + pagination.count
+
+		span &nbsp;
+		span &nbsp;
+
+		ul.pagination.pagination-sm.no-margin
+				if pagination.page != 0
+					li
+						a(href=pagination.prev)
+							span(aria-hidden="true") &laquo;
+
+				- var p = (pagination.count/pagination.limit) > 10 ? pagination.page - 5 : 0
+				- var limit = (pagination.count/pagination.limit) > 10 && (p + 10) < (pagination.count/pagination.limit)  ? p + 10 : (pagination.count/pagination.limit)
+			
+				while p < limit
+					if p >= 0
+						if p == pagination.page
+							li.active
+								a(href)= p+1
+						else
+							li
+								a(href=`?start=${(p * 25)}` + (pagination.sort ? `&sort=${pagination.sort}&by=${pagination.by}` : ''))= p+1
+					- p++
+
+				if pagination.page < (pagination.count/pagination.limit) - 1
+					li
+						a(href=pagination.next)
+							span(aria-hidden="true") &raquo;

@@ -1,0 +1,24 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+const Wallet = require('../wallet.model');
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing wallet signature number fix');
+
+	Wallet.find({ segwit: { $exists: false } }, (err, wallets) => {
+		wallets.forEach((w) => {
+			log.job.debug('Migration', `Updating wallet ${w.address} segwit status`);
+
+			w.segwit = false;
+
+			w.save((err) => {
+				if (err)
+					log.job.error('Migration', `Failed to update ${w.address}`);
+			});
+		});
+	});
+};
+

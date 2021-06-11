@@ -1,0 +1,30 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+import { User } from '../../user/user.model';
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing users streetnr update');
+
+	User.find({ $or: [{ streetnr: '' }, { streetnr: null }] }, (err, users) => {
+		log.job.debug('Migration', `Found ${users.length} users for streetnr update`);
+
+		users.forEach((u) => {
+			if (u.trustlevel >= 50 || u.locked)
+				u.streetnr = ' ';
+			else
+				u.streetnr = '';
+
+			u.save(function (err) {
+				if (err != null) {
+					return log.job.error('Migration', `Failed to change streetnr for ${u.username}`);
+				}
+
+				log.job.debug('Migration', `Changed streenr for ${u.username}`);
+			});
+		});
+	});
+};
+

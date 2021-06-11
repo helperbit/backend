@@ -1,0 +1,60 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Proposed NPO
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li.active Proposed NPO
+				// Main content
+				section.content
+					div.box							
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Name
+										+sort(pagination, 'name')
+									th Link
+									th Reporter
+										+sort(pagination, 'reporter')
+									th Country
+										+sort(pagination, 'country')
+									th Endorsment
+										+sort(pagination, 'endorsment')
+									th Status
+										+sort(pagination, 'verified')
+									th
+								each mw in proposednpo
+									tr
+										td= mw.name
+										td= mw.link
+										td= mw.reporter
+										td= mw.country
+										td= mw.endorsment
+										td
+											if mw.verified
+												span.label.label-success Visible
+											else
+												span.label.label-danger Hidden
+										td
+											div.btn-group(role="group")
+												a.btn.btn-xs.btn-warning(href="/admin/proposednpo/"+mw._id) Edit
+												if locals.checkPriv (locals, 'operator')
+													a.btn.btn-xs.btn-primary(href="/admin/proposednpo/"+mw._id+"/change") Change state
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

@@ -1,0 +1,18 @@
+table.table.table-hover
+	tr
+		th Time
+		th Value Secured
+		th Status
+	each t in tltxs
+		tr
+			td #{prettyDateTime(t.time)}
+			td= t.value
+			td
+				if t.status == 'creation'
+						span.label.label-danger Creation
+
+				if t.status == 'signing'
+					span.label.label-warning Signing
+						
+				if t.status == 'signed'
+					span.label.label-success Signed

@@ -1,0 +1,80 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Projects -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Projects
+						li.active= title
+				// Main content
+				section.content
+					div.box
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th ID
+									th Status
+										+sort(pagination, 'status')
+									th Owner
+										+sort(pagination, 'owner')
+									th Title
+										+sort(pagination, 'title.en')
+									th Start
+										+sort(pagination, 'start')
+									th End
+										+sort(pagination, 'end')
+									th Received
+										+sort(pagination, 'received')
+									th Target
+										+sort(pagination, 'target')
+									th
+								each p in projects
+									tr
+										td
+											span(style="font-size: 70%")= p._id
+										td
+											if p.status == 'draft'
+												span.label.label-info Draft
+											if p.status == 'approved'
+												span.label.label-success Approved
+											if p.status == 'rejected'
+												span.label.label-danger Rejected
+											if p.status == 'submitted'
+												span.label.label-warning Submitted
+										td= p.owner
+										td
+											span(style="font-size: 80%")= p.title.en
+										td
+											span #{prettyDateTime(p.start)}
+										td
+											if p.end
+												span #{prettyDateTime(p.end)}
+											else
+												span None
+										td= p.received
+										td
+											span= p.target
+											span &nbsp;
+											span= p.currency
+										td
+											a.btn.btn-xs.btn-primary(href="/admin/project/"+p._id) View
+
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

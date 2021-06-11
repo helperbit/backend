@@ -1,0 +1,46 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+import moment = require('moment');
+import fs = require('fs');
+const Metrics = require('../../models/admin/metrics');
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing import of twitter followers');
+	fs.readFile('./source/data/migrations/followers.csv', 'utf8', function (e, c) {
+		const data = {};
+		const content = c.split('\n');
+
+		for (let i = 0; i < content.length; i++) {
+			const ll = content[i].split(',');
+			const d = moment(ll[0]);
+			const v = parseInt(ll[1]);
+
+			if (v && v > 0)
+				data[d.format('YYYY-MM-DD').toString()] = v;
+		}	
+
+		Object.keys(data).forEach(async k => {
+			const today = Metrics();
+			today.time = k;
+			today.date = moment(k.split('-')).add(1, 'hour');
+			today.social = {
+				twitter: data[k],
+				facebook: 0,
+				linkedin: 0,
+				googleplus: 0,
+				instragram: 0
+			};
+		
+			try {
+				await today.save();
+				log.job.debug('Migration', `Executing import of twitter followers: ${k} ${data[k]}`);
+			} catch (err) {
+
+			}
+		});
+	});
+};
+

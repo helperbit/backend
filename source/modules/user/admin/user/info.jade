@@ -1,0 +1,117 @@
+div.row
+	if user.banned > 0
+		.col-md-12
+			.alert.alert-danger
+				strong Ban!
+				span &nbsp;This user is banned
+
+	if ipusers.length > 0
+		.col-md-12
+			.alert.alert-danger
+				strong IP Conflict!
+				span &nbsp;This User has IP conflicts with #{ipusers.length} other users
+
+	div.col-md-6
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Username
+				a.pull-right= user.username
+
+			.list-group-item
+				b Email
+				a.pull-right= user.email
+
+			.list-group-item
+				b Newsletter
+				a.pull-right= user.newsletter
+
+			.list-group-item
+				b Mobile
+				a.pull-right= user.mobile
+
+			.list-group-item
+				b Website
+				a.pull-right= user.website
+
+			.list-group-item
+				b Birth date
+				a.pull-right= locals.formatDate(user.birthdate)
+
+			.list-group-item
+				b Reg date
+				a.pull-right= locals.formatDate(user.regdate)
+
+			.list-group-item
+				b Last login
+				a.pull-right= locals.formatDate(user.lastlogin)
+
+		hr
+		if user.bio && user.bio.en && user.bio.en.length > 0
+			b Bio
+			p.text-muted= user.bio.en
+
+
+	div.col-md-6
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Country
+				a.pull-right= user.country
+
+			.list-group-item
+				b Region
+				a.pull-right= user.region
+
+			.list-group-item
+				b City
+				a.pull-right= user.city
+
+			.list-group-item
+				b ZIP
+				a.pull-right= user.zipcode
+
+			.list-group-item
+				b Street
+				a.pull-right= user.street
+
+			.list-group-item
+				b Street number
+				a.pull-right= user.streetnr
+
+			if user.usertype === 'npo'
+				.list-group-item
+					b Tags
+					a.pull-right= user.tags
+
+
+
+	if user.usertype === 'npo'
+		div.col-md-12
+			h2 Referent
+			div.row
+				div.col-md-6
+					.list-group.list-group-unbordered
+						.list-group-item
+							b First name
+							a.pull-right= user.referent.firstname
+							
+					.list-group.list-group-unbordered
+						.list-group-item
+							b Last name
+							a.pull-right= user.referent.lastname
+
+				div.col-md-6
+					.list-group.list-group-unbordered
+						.list-group-item
+							b Email
+							a.pull-right= user.referent.email
+							
+					.list-group.list-group-unbordered
+						.list-group-item
+							b ID Number
+							a.pull-right= user.referent.idnumber
+
+
+	div.col-md-12
+			if !user.activation.status
+				if locals.checkPriv (locals, 'admin')
+					a.btn-block.btn.btn-danger#activate() Activate the account

@@ -1,0 +1,93 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Proposed NPO 
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Proposed NPO
+						li.active Edit
+				// Main content
+				section.content
+					div.box					
+						div.box-body
+							p Links should have the "http://" or "https://" part.
+							br
+							form.row
+								div.col-md-3.form-group
+									label(for="inputVisible") Verified:
+									select.form-control#inputVisible
+										option(selected=proposednpo.verified == true) true
+										option(selected=proposednpo.verified == false) false
+
+								div.col-md-3.form-group
+									label(for="inputCountry") Country:
+									select.form-control#inputCountry
+										option(selected=country == 'WRL') WRL
+										for country in countries
+											option(selected=country == proposednpo.country)= country
+
+								div.col-md-6.form-group
+									label(for="inputName") Name:
+									input.form-control#inputName(type="text",value=proposednpo.name)
+
+								div.col-md-6.form-group
+									label(for="inputLink") Link:
+									input.form-control#inputLink(type="text",value=proposednpo.link)
+
+								div.col-md-6.form-group
+									label(for="inputDate") Submission date:
+									input.form-control#inputDate(type="text",value=proposednpo.time)
+
+								div.col-md-3.form-group
+									label(for="inputTwitter") Twitter user (without @):
+									input.form-control#inputTwitter(type="text",value=proposednpo.social.twitter)
+
+								div.col-md-3.form-group
+									label(for="inputFacebook") Facebook user:
+									input.form-control#inputFacebook(type="text",value=proposednpo.social.facebook)
+
+								div.col-md-3.form-group
+									label(for="inputGoogleplus") Google+ user:
+									input.form-control#inputGoogleplus(type="text",value=proposednpo.social.googleplus)
+					
+								if locals.checkPriv (locals, 'operator')
+									div.col-md-12.form-group
+										br
+										a.btn-block.btn.btn-primary#submitBase Save
+
+	script.
+		$('#submitBase').click (function () {
+			var data = {};
+
+			data['country'] = $('#inputCountry').val ();
+			data['verified'] = $('#inputVerified').val ();
+			data['name'] = $('#inputName').val ();
+			data['link'] = $('#inputLink').val ();
+			data['social.twitter'] = $('#inputTwitter').val ();
+			data['social.facebook'] = $('#inputFacebook').val ();
+			data['social.googleplus'] = $('#inputGoogleplus').val ();
+
+			$.ajax({
+			    url: '/admin/proposednpo/#{proposednpo._id}/edit',
+			    type: 'POST',
+			    data: JSON.stringify(data),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function() {
+					window.location = '/admin/proposednpo/#{proposednpo._id}';
+			    }
+			});
+		});

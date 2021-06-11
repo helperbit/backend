@@ -1,0 +1,35 @@
+
+import log = require('../../../log');
+const blockchain = require('../../../blockchain');
+
+const Donation = require('../donation.model');
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing migration \'DonationFromAddress\'');
+
+	Donation.find({ fromaddress: { $eq: null } }, (err, donations) => {
+		if (err !== null)
+			return log.job.error('Migration', 'Failed to get donations');
+
+		log.job.debug('Migration', `Got ${donations.length} donations with null fromaddress`);
+
+		donations.forEach((d) => {
+			blockchain.tx(d.txid)
+				.then(tx => {
+					if (tx.from.length == 0)
+						return log.job.error('Migration', `Unable to get a valid from address for ${d.txid}`);
+
+					d.fromaddress = tx.from[0];
+					d.save((err) => {
+						if (err === null)
+							log.job.debug('Migration', `Set ${d.txid} -> ${tx.from[0]}`);
+					});
+				})
+				.catch(err => {
+					return log.job.error('Migration', `Unable to retrieve from address for ${d.txid}`);
+				});
+		});
+	});
+};
+

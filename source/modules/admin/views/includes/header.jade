@@ -1,0 +1,87 @@
+header.main-header
+	// Logo
+	a.logo(href='/admin')
+		// mini logo for sidebar mini 50x50 pixels
+		span.logo-mini
+			b A
+			| HB
+		// logo for regular state and mobile devices
+		span.logo-lg
+			b Admin
+			| HB
+	// Header Navbar: style can be found in header.less
+	nav.navbar.navbar-static-top
+		// Sidebar toggle button
+		a.sidebar-toggle(href='#', data-toggle='push-menu', role='button')
+			span.sr-only Toggle navigation
+		// Navbar Right Menu
+		.navbar-custom-menu
+			ul.nav.navbar-nav
+				// Notifications: style can be found in dropdown.less
+				if locals.privileges.indexOf('kyc-thirdparty') == -1
+					li.dropdown.notifications-menu
+						a.dropdown-toggle(href='#', data-toggle='dropdown')
+							i.fa.fa-bell-o
+							span.label.label-warning= locals.tasks.total
+						ul.dropdown-menu
+							li.header= 'You have ' + locals.tasks.total + ' pending tasks'
+							li
+								ul.menu
+									if locals.tasks.project > 0
+										li
+											a(href='/admin/projects/bystatus/submitted')
+												i.fa.fa-gift.text-green
+												span= locals.tasks.project + ' pending projects'
+									if locals.tasks.npo > 0
+										li
+											a(href='/admin/users/verify/npo/pending')
+												i.fa.fa-users.text-red
+												span= locals.tasks.npo + ' pending npo verification'
+									if locals.tasks.npostatute > 0
+										li
+											a(href='/admin/users/verify/npostatute/pending')
+												i.fa.fa-users.text-red
+												span= locals.tasks.npo + ' pending npo statute verification'
+									if locals.tasks.npomemorandum > 0
+										li
+											a(href='/admin/users/verify/npomemorandum/pending')
+												i.fa.fa-users.text-red
+												span= locals.tasks.npo + ' pending npo memorandum statute verification'
+									if locals.tasks.npoadmins > 0
+										li
+											a(href='/admin/users/verify/npoadmins/pending')
+												i.fa.fa-users.text-red
+												span= locals.tasks.npo + ' pending npo admins verification'
+									if locals.tasks.otc > 0
+										li
+											a(href='/admin/users/verify/otc/pending')
+												i.fa.fa-user.text-yellow
+												span= locals.tasks.otc + ' pending otc verification'
+									if locals.tasks.document > 0
+										li
+											a(href='/admin/users/verify/document/pending')
+												i.fa.fa-user.text-yellow
+												span= locals.tasks.document + ' pending documents verification'
+									if locals.tasks.residency > 0
+										li
+											a(href='/admin/users/verify/residency/pending')
+												i.fa.fa-user.text-yellow
+												span= locals.tasks.residency + ' pending residency verification'
+									if locals.tasks.merchandise > 0
+										li
+											a(href='/admin/ambassadors/merchandise')
+												i.fa.fa-trophy.text-red
+												span= locals.tasks.merchandise + ' pending merchandise shipments'
+								
+				// User Account: style can be found in dropdown.less
+				li(class=(page=='AdminUser'? 'active' : ''))
+					a(href='/admin/adminuser')
+						span.hidden-xs= locals.adminname
+
+				// Control Sidebar Toggle Button
+				li.dropdown.user.user-menu
+					a.dropdown-toggle(href='#', data-toggle='dropdown')
+						i.fa.fa-gears
+					ul.dropdown-menu
+						li.user-footer
+							a.btn.btn-default.btn-flat(href='/admin/logout') Sign out

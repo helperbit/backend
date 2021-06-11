@@ -1,0 +1,105 @@
+div.row
+	div.col-md-6
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Signup IP
+				a.pull-right= user.regip
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Signup Date
+				a.pull-right= locals.formatDate(user.regdate)
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Last login IP
+				a.pull-right= user.lastip
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Last login Date
+				a.pull-right= locals.formatDate(user.lastlogin)
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Referred by
+				a.pull-right= user.refby
+
+	div.col-md-6
+		h2 Ban
+		if user.banned
+			.alert.alert-danger
+				strong Ban!
+				span &nbsp;This user is banned
+
+			if locals.checkPriv (locals, 'kyc')
+				hr
+				p UnBan this User (a mail with motivation will be sent)
+				textarea.form-control(id="unbanreason", rows="2")
+					| You are now unbanned from Helperbit.com
+				button.btn.btn-danger.btn-block(id="unban") Unban
+		else
+			if locals.checkPriv (locals, 'kyc')
+				p Ban this User for terms violation (a mail with motivation will be sent)
+				textarea.form-control(id="banreason", rows="2")
+					| You are banned from Helperbit.com for violating ToS and fraudulent activity
+				button.btn.btn-danger.btn-block(id="ban") Ban
+
+	div.col-md-6
+		table.table.table-hover
+			tr
+				th IP History
+			each ip in user.iphistory
+				tr
+					td= ip
+
+	if ipusers.length > 0
+		.col-md-12
+			h3 Conflicting IPs
+			table.table.table-hover
+				tr
+					th Username
+					th Usertype
+					th Regdate
+				each u in ipusers
+					tr
+						td
+							a(href="/admin/user/" + u.username)= u.username
+						td= u.usertype
+						td= u.regdate
+
+script.
+	$('#ban').click (function () {
+		if (window.confirm("Are you sure?")) {
+			$.ajax({
+				url: '/admin/user/#{user.username}/ban',
+				type: 'POST',
+				data: JSON.stringify({reason: $('#banreason').val()}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					alert('User banned');
+					window.location = '/admin/user/#{user.username}';
+				},
+				failure: function (response, status) {
+					alert ('Error: ' + status + response);
+				}
+			});
+		}
+	});
+	$('#unban').click (function () {
+		if (window.confirm("Are you sure?")) {
+			$.ajax({
+				url: '/admin/user/#{user.username}/unban',
+				type: 'POST',
+				data: JSON.stringify({reason: $('#unbanreason').val()}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					alert('User unbanned');
+					window.location = '/admin/user/#{user.username}';
+				},
+				failure: function (response, status) {
+					alert ('Error: ' + status + response);
+				}
+			});
+		}
+	});

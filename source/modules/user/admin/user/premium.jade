@@ -1,0 +1,45 @@
+if user.premium.enabled
+	div.row
+		.col-md-12
+			.alert.alert-info
+				strong Premium
+				span &nbsp;This user is a premium user
+
+form.row
+	div.col-md-3.form-group
+		label(for="inputEnabled") Enabled
+		select.form-control#inputEnabled
+			option(selected=user.premium.enabled == true) true
+			option(selected=user.premium.enabled == false) false
+	div.col-md-3.form-group
+		label(for="inputStart") Start date
+		input.form-control#inputStart(type="date",value=user.premium.start ? locals.formatDate(user.premium.start) : Date())
+	div.col-md-3.form-group
+		label(for="inputExpiration") Expiration date
+		input.form-control#inputExpiration(type="date",value=user.premium.expiration ? locals.formatDate(user.premium.expiration) : Date())
+
+	if locals.checkPriv (locals, 'operator')
+		div.col-md-3.form-group
+			a.btn-block.btn.btn-primary#submitPremium Save
+
+script.
+	$('#submitPremium').click (function () {
+		var data = {};
+
+		data['enabled'] = $('#inputEnabled').val ();
+		data['expiration'] = $('#inputExpiration').val ();
+		data['start'] = $('#inputStart').val ();
+
+		$.ajax({
+			url: '/admin/user/#{user.username}/premium',
+			type: 'POST',
+			data: JSON.stringify(data),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(msg) {
+				alert('Updated.');
+				window.location = '/admin/user/#{user.username}';
+			}
+		});
+	});

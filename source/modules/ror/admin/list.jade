@@ -1,0 +1,55 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Rors
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li.active Rors
+				// Main content
+				section.content
+					div.box							
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Time
+										+sort(pagination, 'time')
+									th From
+										+sort(pagination, 'from')
+									th To
+										+sort(pagination, 'to')
+									th Status
+										+sort(pagination, 'status')
+									th Amount
+										+sort(pagination, 'value')
+									th BTC Amount
+										+sort(pagination, 'valuebtc')
+									th
+								each r in rors
+									tr
+										td #{prettyDateTime(r.time)}
+										td= r.from
+										td= r.to 
+										td= r.status
+										td
+											span= r.value
+											span= r.currency
+										td= r.valuebtc
+										td
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

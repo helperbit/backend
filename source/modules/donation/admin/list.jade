@@ -1,0 +1,91 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Donations
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li.active Donations
+				// Main content
+				section.content
+					div.box								
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Time
+										+sort(pagination, 'time')
+									th Tx ID
+									th From
+										+sort(pagination, 'from')
+									th To
+									th 
+									th Status
+										+sort(pagination, 'status')
+									th
+								each t in donations
+									tr
+										td(style="font-size: 90%") #{prettyDateTime(t.time)}
+										td(style="font-size: 90%")= t.txid
+										td
+											if t.from
+												span= t.from 
+											else
+												span(style="font-size: 90%")= t.fromaddress
+										td
+											each to in t.to
+												span= to.user
+												br
+
+										td
+											if t.fiatdonation
+												i.fa.fa-credit-card
+											if t.altdonation
+												i.fa.fa-ticket
+
+										td
+											if t.status == 'waiting'
+												span.label.label-default Waiting
+
+											if t.status == 'signing'
+												span.label.label-warning Signing
+											
+											if t.status == 'broadcasted'
+												span.label.label-info Broadcasted
+											
+											if t.status == 'confirmed'
+												span.label.label-success Confirmed
+											
+											if t.status == 'refused'
+												span.label.label-danger Refused
+											
+											if t.status == 'doublespent'
+												span.label.label-danger Doublespent
+											
+											if t.status == 'hidden'
+												span.label.label-danger Hidden
+
+										if locals.checkPriv (locals, 'admin')
+											td
+												if t.status == 'broadcasted'
+													a.btn.btn-xs.btn-danger(href="/admin/donation/"+t.txid+"/hidedoublespent") Double Spent
+												if t.status == 'confirmed'
+													a.btn.btn-xs.btn-danger(href="/admin/donation/"+t.txid+"/hide") Hide
+												if t.status == 'hidden'
+													a.btn.btn-xs.btn-success(href="/admin/donation/"+t.txid+"/show") Show
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

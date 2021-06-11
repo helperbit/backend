@@ -1,0 +1,62 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Online users
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Users
+						li.active Online
+				// Main content
+				section.content
+					div.row
+						div.col-md-3
+							div.box				
+								div.box-body.no-padding.table-responsive
+									table.table.table-striped.table-condensed
+										tr
+											th Username
+											th IP
+
+										each ip, user in online
+											tr
+												td
+													a(href="/admin/user/"+user,target="_blank")= user
+												td= ip
+						div.col-md-9
+							div.box					
+								div.box-body.no-padding
+									div#map(style="height:380px; width:100%;")
+
+	script.
+		var map = L.map('map').setView([36, 0], 1);
+
+		L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+			subdomains:['mt0','mt1','mt2','mt3'],
+		    attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		    maxZoom: 18,
+		}).addTo(map);
+
+		$.each (!{JSON.stringify(online)}, function (user, ip) {
+			if (ip.indexOf (',') != -1)
+				ip = ip.split (',')[0].replace (' ', '');
+				
+			$.getJSON("https://freegeoip.net/json/"+ip, function (data) {
+				if (data.status != 'fail') {
+					var marker = L.marker([data['latitude'], data['longitude']]).addTo(map).bindPopup(user);
+				}
+			});			
+		});	
+

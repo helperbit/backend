@@ -1,0 +1,37 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+
+const AdminUser = require('../user.model');
+
+export = async () => {
+	const emails = {
+		"gessa": "gessa@helperbit.com",
+		"guido": "guido@helperbit.com",
+		"plaza": "security@helperbit.com",
+		"menegaldo": "menegaldo@helperbit.com",
+		"matteo": "matteo@helperbit.com"
+	}
+	log.job.debug('Migration', 'Importing admin users to the database');
+
+	Object.keys(conf.backoffice.admins).forEach(a => {
+		const aob = conf.backoffice.admins[a];
+		const auser = AdminUser();
+		auser.username = a;
+		auser.email = emails[a];
+		auser.password = aob.password;
+		auser.privileges = aob.privileges;
+		auser.keyhandle = aob.keyHandle;
+		auser.publickey = aob.publicKey;
+		auser.lastpasswordchange = new Date();
+
+		auser.save(err => {
+			if (err)
+				log.job.error('Migration', `Error importing admin ${a} to mongo: ${err}`);
+			else
+				log.job.debug('Migration', `User ${a} imorted to mongo`);
+		});
+	});
+};
+

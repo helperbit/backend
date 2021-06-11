@@ -1,0 +1,88 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Search -&nbsp;
+						span= query
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Search
+						li.active= query
+				// Main content
+				section.content
+					div.box							
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Type
+									th Field 1
+									th Field 2
+									th Field 3
+									th Field 4
+									th Field 5
+									th Link
+								each u in users
+									tr
+										td
+											span.label.label-primary User
+										td= u._id
+										td= u.username
+										td= u.email
+										td #{prettyDateTime(u.regdate)}
+										td= u.usertype
+										td
+											a(href="/admin/user/"+u.username) View 
+								each p in projects
+									tr
+										td
+											span.label.label-danger Project
+										td= p._id
+										td= p.title.en
+										td= p.owner
+										td #{prettyDateTime(p.start)}
+										td
+										td
+											a(href="/admin/project/"+p._id) View 
+								each d in donations
+									tr
+										td
+											span.label.label-warning Donation
+										td= d._id
+										td= d.txid
+										td= d.from
+										td #{prettyDateTime(d.time)}
+										td
+										td
+								each d in transactions
+									tr
+										td
+											span.label.label-warning Transaction
+										td= d._id
+										td= d.txid
+										td= d.from
+										td #{prettyDateTime(d.time)}
+										td
+										td
+											a(href="/admin/transaction/" + d._id) View
+								each e in events
+									tr
+										td
+											span.label.label-success Event
+										td= e._id
+										td= e.affectedcountries
+										td #{prettyDateTime(e.lastshakedate)}
+										td
+										td
+										td
+											a(href="/admin/event/" + e._id) View

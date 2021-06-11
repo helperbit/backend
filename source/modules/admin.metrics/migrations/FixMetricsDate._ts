@@ -1,0 +1,19 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+import moment = require('moment');
+import fs = require('fs');
+const Metrics = require('../../models/admin/metrics');
+
+
+export = async () => {
+	const metrics = await Metrics.find ({}).exec();
+	log.job.debug('Migration', `Fixing metrics date ${metrics.length}`);
+
+	metrics.forEach(async m => {
+		m.date = moment(m.time, ['YYYY-MM-DD'], true).add(1, 'hour');
+		await m.save ();
+	});
+};
+

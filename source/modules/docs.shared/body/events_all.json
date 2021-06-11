@@ -1,0 +1,274 @@
+			{
+			   "events" : [
+			      {
+			         "type" : "earthquake",
+			         "affectedcountries" : [
+			            "PAN"
+			         ],
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               -82.6576,
+			               5.9440089248267,
+			               8
+			            ]
+			         },
+			         "lastshakedate" : "2015-01-07T05:07:07.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "maxmagnitude" : 6.5,
+			         "_id" : "56b31551fbc6b41959faa42e"
+			      },
+			      {
+			         "type" : "earthquake",
+			         "affectedcountries" : [
+			            "VUT"
+			         ],
+			         "epicenter" : {
+			            "coordinates" : [
+			               170.158,
+			               -21.3754791043806,
+			               7.08
+			            ],
+			            "type" : "Point"
+			         },
+			         "_id" : "56b31551fbc6b41959faa417",
+			         "lastshakedate" : "2015-01-30T17:57:56.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "maxmagnitude" : 6
+			      },
+			      {
+			         "epicenter" : {
+			            "coordinates" : [
+			               -67.1231,
+			               -32.893496405438,
+			               172
+			            ],
+			            "type" : "Point"
+			         },
+			         "affectedcountries" : [
+			            "ARG"
+			         ],
+			         "type" : "earthquake",
+			         "maxmagnitude" : 6.3,
+			         "lastshakedate" : "2015-02-02T10:49:48.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "_id" : "56b31551fbc6b41959faa3dd"
+			      },
+			      {
+			         "maxmagnitude" : 6.7,
+			         "lastshakedate" : "2015-02-11T18:57:22.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "_id" : "56b31551fbc6b41959faa3e9",
+			         "affectedcountries" : [
+			            "ARG"
+			         ],
+			         "type" : "earthquake",
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               -66.688,
+			               -23.2517411390318,
+			               223
+			            ]
+			         }
+			      },
+			      {
+			         "lastshakedate" : "2015-02-13T18:59:12.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "maxmagnitude" : 7.1,
+			         "_id" : "56b31551fbc6b41959faa400",
+			         "affectedcountries" : [
+			            "NAO"
+			         ],
+			         "type" : "earthquake",
+			         "epicenter" : {
+			            "coordinates" : [
+			               -31.9016,
+			               52.8340100054168,
+			               16.68
+			            ],
+			            "type" : "Point"
+			         }
+			      },
+			      {
+			         "maxmagnitude" : 6.2,
+			         "lastshakedate" : "2015-02-13T20:06:32.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "_id" : "56b31551fbc6b41959faa3f4",
+			         "epicenter" : {
+			            "coordinates" : [
+			               121.427,
+			               22.7744159950107,
+			               30
+			            ],
+			            "type" : "Point"
+			         },
+			         "type" : "earthquake",
+			         "affectedcountries" : [
+			            "TWN"
+			         ]
+			      },
+			      {
+			         "_id" : "56b31551fbc6b41959faa40b",
+			         "maxmagnitude" : 6.2,
+			         "lastshakedate" : "2015-02-16T22:00:53.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "affectedcountries" : [
+			            "SGS"
+			         ],
+			         "type" : "earthquake",
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               -28.2591,
+			               -55.6992417124022,
+			               13
+			            ]
+			         }
+			      },
+			      {
+			         "affectedcountries" : [
+			            "SLB"
+			         ],
+			         "type" : "earthquake",
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               164.1216,
+			               -10.830603246369,
+			               10
+			            ]
+			         },
+			         "maxmagnitude" : 6.1,
+			         "lastshakedate" : "2015-02-18T09:32:26.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "_id" : "56b31551fbc6b41959faa3e2"
+			      },
+			      {
+			         "type" : "earthquake",
+			         "affectedcountries" : [
+			            "VUT"
+			         ],
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               168.52,
+			               -17.1389641976365,
+			               219.96
+			            ]
+			         },
+			         "_id" : "56b31551fbc6b41959faa422",
+			         "lastshakedate" : "2015-02-19T13:18:32.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "maxmagnitude" : 6.8
+			      },
+			      {
+			         "affectedcountries" : [
+			            "JPN"
+			         ],
+			         "type" : "earthquake",
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               142.8808,
+			               40.045155492102,
+			               23
+			            ]
+			         },
+			         "lastshakedate" : "2015-02-21T10:13:53.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "maxmagnitude" : 6.7,
+			         "_id" : "56b31551fbc6b41959faa424"
+			      },
+			      {
+			         "_id" : "56b31551fbc6b41959faa3eb",
+			         "lastshakedate" : "2015-02-22T14:23:12.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "maxmagnitude" : 6.2,
+			         "affectedcountries" : [
+			            "MEX"
+			         ],
+			         "type" : "earthquake",
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               -106.848,
+			               18.7936475473388,
+			               5
+			            ]
+			         }
+			      },
+			      {
+			         "_id" : "56b31551fbc6b41959faa42f",
+			         "maxmagnitude" : 7,
+			         "lastshakedate" : "2015-02-27T13:45:05.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "type" : "earthquake",
+			         "affectedcountries" : [
+			            "IDN"
+			         ],
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               122.5348,
+			               -7.34544056857164,
+			               552.06
+			            ]
+			         }
+			      },
+			      {
+			         "maxmagnitude" : 6.1,
+			         "lastshakedate" : "2015-03-03T10:37:30.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "_id" : "56b31550fbc6b41959faa3d3",
+			         "type" : "earthquake",
+			         "affectedcountries" : [
+			            "IDN"
+			         ],
+			         "epicenter" : {
+			            "coordinates" : [
+			               98.7161000000002,
+			               -0.784148739628073,
+			               28
+			            ],
+			            "type" : "Point"
+			         }
+			      },
+			      {
+			         "epicenter" : {
+			            "type" : "Point",
+			            "coordinates" : [
+			               80.6046,
+			               -41.5065228564555,
+			               10
+			            ]
+			         },
+			         "type" : "earthquake",
+			         "affectedcountries" : [
+			            "IOC"
+			         ],
+			         "maxmagnitude" : 6,
+			         "lastshakedate" : "2015-03-06T08:22:18.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "_id" : "56b31551fbc6b41959faa418"
+			      },
+			      {
+			         "_id" : "56b31551fbc6b41959faa401",
+			         "maxmagnitude" : 6.2,
+			         "lastshakedate" : "2015-03-10T20:55:44.000Z",
+			   		 "timezone": "UTC-10:00",
+			         "epicenter" : {
+			            "coordinates" : [
+			               -72.9875,
+			               6.8209352834402,
+			               155
+			            ],
+			            "type" : "Point"
+			         },
+			         "type" : "earthquake",
+			         "affectedcountries" : [
+			            "COL"
+			         ]
+			      }
+			   ]
+			}

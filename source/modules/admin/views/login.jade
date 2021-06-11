@@ -1,0 +1,93 @@
+include includes/head.jade
+include includes/u2f.jade
+
+body.hold-transition.login-page
+	.login-box
+		.login-logo
+			a(href='#')
+				b Admin
+				| HB
+		// /.login-logo
+		.login-box-body
+			p.login-box-msg Sign in to start your session
+			.callout.callout-danger.row#logerror
+				h4 Auth failed
+				p 
+					span Wrong user or password 
+					if u2f
+						span or u2fkey
+			.form-group.has-feedback
+					input.form-control#inputUser(type='text', placeholder='User')
+					span.glyphicon.glyphicon-envelope.form-control-feedback
+			.form-group.has-feedback
+					input.form-control#inputPassword(type='password', placeholder='Password')
+					span.glyphicon.glyphicon-lock.form-control-feedback
+			.callout.callout-info.row#u2finfo
+				.col-md-2
+					i.fa.fa-lock.fa-3x
+				.col-md-10
+					h4 U2F Auth
+					p 
+						i.fa.fa-spin.fa-refresh
+						span &nbsp;Waiting for u2f key reply...
+			.row
+					.col-xs-8
+					// /.col
+					.col-xs-4
+						button.btn.btn-primary.btn-block.btn-flat#submit Sign In
+					// /.col
+
+
+
+
+script(type='text/javascript').
+	var u2fen = #{u2f};
+
+	$('#u2finfo').hide();
+	$('#logerror').hide();
+	
+	$('#submit').click (function () {
+		$.ajax({
+		    url: '/admin/login',
+		    type: 'POST',
+		    data: JSON.stringify({user: $('#inputUser').val (), password: $('#inputPassword').val ()}),
+		    contentType: 'application/json; charset=utf-8',
+		    dataType: 'json',
+		    async: false,
+			error: function(msg) {
+				$('#logerror').show();
+			},
+		    success: function(request) {
+				$('#logerror').hide();
+				if (!u2fen) {
+					return window.location = '/admin';
+				}
+
+				$('#u2finfo').show();
+				$('#submit').attr('disabled', 'disabled');
+
+				console.log("sign: ", request);
+				var appId = request.appId;
+				var challenge = request.challenge;
+				var registeredKeys = [{version: request.version, keyHandle: request.keyHandle}];
+
+				u2f.sign(appId, challenge, registeredKeys, function(deviceResponse) {
+					console.log(deviceResponse);
+					$.ajax({
+						url: '/admin/login/u2f',
+						type: 'POST',
+						data: JSON.stringify(deviceResponse),
+						contentType: 'application/json; charset=utf-8',
+						dataType: 'json',
+						async: false,
+						success: function(msg) {
+							return window.location = '/admin';
+						},
+						error: function(msg) {
+							$('#logerror').show();
+						}
+					});
+				});
+		    }
+		});
+	});

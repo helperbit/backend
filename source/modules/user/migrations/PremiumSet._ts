@@ -1,0 +1,26 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+const User = require('../user.model');
+
+export = () => {
+	log.job.debug('Migration', 'Executing users premium update');
+
+	User.find({}, (err, users) => {
+		log.job.debug('Migration', `Found ${users.length} users for premium update`);
+
+		users.forEach((u) => {
+			u.premium = { enabled: false, start: null, expiration: null };
+
+			u.save(function (err) {
+				if (err != null) {
+					return log.job.error('Migration', `Failed to change premium status for ${u.username}`);
+				}
+
+				log.job.debug('Migration', `Changed premium status for ${u.username}`);
+			});
+		});
+	});
+};
+

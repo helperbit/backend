@@ -1,0 +1,22 @@
+import { Wallet } from "../../wallet/wallet.model";
+
+import log = require('../../../log');
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing wallet signature number fix');
+
+	Wallet.find({ ismultisig: true }, (err, wallets) => {
+		wallets.forEach((w) => {
+			log.job.debug('Migration', `Updating wallet ${w.address} signature n: ${w.multisig.n} -> ${w.multisig.n + 1}`);
+
+			w.multisig.n = w.multisig.n + 1;
+
+			w.save((err) => {
+				if (err)
+					log.job.error('Migration', `Failed to update ${w.address}`);
+			});
+		});
+	});
+};
+

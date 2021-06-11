@@ -1,0 +1,63 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Wallets -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Wallets
+						li.active= title
+				// Main content
+				section.content
+					div.box							
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Address
+									th Owner
+										+sort(pagination, 'owner')
+									th Label
+									th Creation Date
+										+sort(pagination, 'creationdate')
+									th Type
+									th
+								each w in wallets
+									tr
+										td(style="font-size: 70%")= w.address
+										td
+											a(href="/admin/user/"+w.owner)= w.owner
+										td= w.label
+										td= locals.formatDate(w.creationdate)
+										td
+											if w.ismultisig
+												span.label.label-success Multisig
+												&nbsp;
+												span.label.label-warning= w.multisig.n + ' of ' + w.multisig.admins.length
+												&nbsp;
+												if !w.multisig.active
+													span.label.label-danger Not active
+													&nbsp;
+											else
+												span.label.label-info Singlesig
+												&nbsp;
+											span.label.label-default= w.scripttype
+										td
+											a.btn.btn-xs.btn-primary(href="/admin/wallet/"+w._id) Inspect
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

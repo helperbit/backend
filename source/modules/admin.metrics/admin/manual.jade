@@ -1,0 +1,151 @@
+include ../../admin/views/includes/head.jade
+
+style.
+	.info-box-small {
+		min-height: 60px !important;
+		cursor: pointer;
+	}
+	.box-metric-disabled {
+		background: #ccc;
+		font-size:50%;
+	}
+	.box-metric-disabled > .info-box-icon {
+		background-color: #777 !important;
+	}
+	.info-box-small > .info-box-icon {
+		height: 60px !important;
+		width: 60px !important;
+		line-height: 60px !important;
+		font-size: 35px !important;
+	}
+	.info-box-small > .info-box-content {
+		margin-left: 60px !important;
+	}
+	.info-box-small > .info-box-content > .info-box-text {
+		font-size: 13px !important;
+	}
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Manual Metrics
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='/admin/metrics') Metrics
+						li.active Manual
+				// Main content
+				section.content(style="min-height:0;padding-bottom:0")
+					.box.box-info.box-success
+						.box-header.with-border
+							h3.box-title Create a new metrics row
+							.box-tools.pull-right
+								button.btn.btn-box-tool(type='button', data-widget='collapse')
+									i.fa.fa-minus
+						.box-body
+							.row
+								.col-md-12
+									p Insert a new manual metrics row for a given date; the date should be in the past cause new rows will be add daily every day. After creation, you can edit values from the table.
+								.col-md-6
+									input.form-control#createDate(type="date")
+								.col-md-6
+									button.btn.btn-success.btn-block#createButton Create
+
+				section.content
+					div.box									
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Date
+									th Physical Events
+									th Newspaper Article
+									th Profit
+									th Balances
+									th Trustlevel AVG
+									th Burn Rate
+									th Fee Revenue
+									th Consultancy Revenue
+									th Social (Auto: Tw, Fb, Lin, G+, Ins)
+								each m in manual
+									tr
+										td
+											input.form-control(readonly="", type="date", value=m.time)
+										td
+											input.form-control.editable_i(type="number", time=m.time, field="physical_events", value=m.physical_events)
+										td
+											input.form-control.editable_i(type="number", time=m.time, field="newspaper_articles", value=m.newspaper_articles)
+										td
+											input.form-control.editable_i(type="number", time=m.time, field="profit", value=m.profit)
+										td
+											input.form-control.editable_i(disabled="", type="number", time=m.time, field="wallet_balances", value=m.wallet_balances)
+										td
+											input.form-control.editable_i(disabled="", type="number", time=m.time, field="trustlevel_average", value=m.trustlevel_average)
+										td
+											input.form-control.editable_i(type="number", time=m.time, field="burn_rate", value=m.burn_rate)
+										td
+											input.form-control.editable_i(type="number", time=m.time, field="fee_revenue", value=m.fee_revenue)
+										td
+											input.form-control.editable_i(type="number", time=m.time, field="consultancy_revenue", value=m.consultancy_revenue)
+										td
+											input.form-control.editable_i(type="number", time=m.time, field="social.twitter", value=m.social.twitter)
+											input.form-control.editable_i(type="number", time=m.time, field="social.facebook", value=m.social.facebook)
+											input.form-control.editable_i(type="number", time=m.time, field="social.linkedin", value=m.social.linkedin)
+											input.form-control.editable_i(type="number", time=m.time, field="social.googleplus", value=m.social.googleplus)
+											input.form-control.editable_i(type="number", time=m.time, field="social.instagram", value=m.social.instagram)
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade
+
+
+script.
+	$(document).ready(function() {
+		$('#createDate').val(moment().format('YYYY-MM-DD'));
+		$('#createButton').click(function() {
+			var date = $('#createDate').val();
+
+			$.ajax ({
+				method: 'POST',
+				url: '/admin/metrics/manual/' + date + '/create', 
+				data: JSON.stringify({}),
+				contentType: "application/json",
+				success: function (data) {
+					alert('Row created: ' + date);
+					window.location = '/admin/metrics/manual';
+				},
+				error: function(data) {
+					alert(data.responseJSON.error);
+				}
+			});
+		});
+
+		$('.editable_i').change(function(){
+			var element = $(this);
+			var nval = element.val();
+			var field = element.attr('field');
+			var time = element.attr('time');
+			$.ajax ({
+				method: 'POST',
+				url: '/admin/metrics/manual/' + time + '/edit', 
+				data: JSON.stringify({field: field, value: nval}),
+				contentType: "application/json",
+				success: function (data) {
+				},
+				error: function(data) {
+				}
+			});
+		});
+	});
+
+

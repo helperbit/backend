@@ -1,0 +1,114 @@
+p This tool allows you to simulate the creation of a transaction, seeing the feerate and the tx size.
+br
+
+.row
+	.col-md-6
+		input.form-control#simamount(value=balance.balance,placeholder="Amount", type="number")
+	.col-md-3
+		a.btn.btn-success.btn-block#simcalculate Calculate
+	.col-md-3
+		a.btn.btn-danger.btn-block#simreset Reset
+
+hr
+
+.row
+	.col-md-6
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Balance (confirmed)
+				a.pull-right#simbalance= balance.balance
+			.list-group-item
+				b Balance (unconfirmed)
+				a.pull-right= balance.unconfirmed
+			.list-group-item
+				b Transaction UTX Sum
+				a.pull-right#simutxsum= 0
+			.list-group-item
+				b Transaction UTX Count
+				a.pull-right#simutxcount= 0
+	.col-md-6
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Transaction Size
+				a.pull-right#simtxsize= 0
+			.list-group-item
+				b Transaction Fee
+				a.pull-right#simtxfee= 0
+			.list-group-item
+				b Return value
+				a.pull-right#simtxret= 0
+
+	.col-md-12
+		table.table.table-hover
+			tr
+				th Tx
+				th N
+				th Value
+			each t in utxos
+				tr(class="simrow", id='sim'+t.tx+'_'+t.n)
+					td(style="font-size:80%")= t.tx
+					td= t.n
+					td= t.value
+
+
+script.
+	const utx = JSON.parse(`!{JSON.stringify(utxos)}`);
+	const fees = JSON.parse(`!{JSON.stringify(fees)}`);
+	eval(`!{utxoSelector}`);
+	eval(`!{getByteCount}`);
+	eval(`!{estimateTransactionSizeSync}`);
+
+	$('#simreset').click(function() {
+		$('#simamount').val('');
+		$('#simutxsum').html('0');
+		$('#simutxcount').html('0');
+		$('#simtxsize').html('0');
+		$('#simtxfee').html('0');
+		$('#simtxret').html('0');
+		$('.simrow').removeClass('success');
+
+	});
+
+	$('#simbalance').click(function() {
+		$('#simamount').val('#{balance.balance}');
+	});
+
+	$('#simcalculate').click(function() {
+		$('.simrow').removeClass('success');
+		const amount = parseFloat($('#simamount').val());
+
+		if(amount > #{balance.balance})
+			return alert('Not enough balance');
+		if(amount <= 0 || $('#simamount').val().length == 0 || amount == NaN)
+			return alert('Invalid value');
+
+		const set = utxoSelector({
+			value: amount,
+			set: utx
+			//- bestInputNumber
+		});		
+		console.log(set);
+
+		$('#simutxsum').html(set.set.reduce((a, b) => a+parseFloat(b.value), 0.0).toFixed(8));
+		$('#simutxcount').html(set.set.length);
+		$('#simtxret').html(Math.abs(set.value).toFixed(8));
+
+		for(let u of set.set) {
+			$('#sim' + u.tx + '_' + u.n).addClass('success');
+		}
+
+		try {
+			const size = estimateTransactionSizeSync({
+				unspent: set.set,
+				value: amount,
+				address: '1mn',
+				wallet: JSON.parse(`!{JSON.stringify(wallet)}`)
+			}, utxoSelector);
+			console.log(size);
+
+			$('#simtxsize').html(size);
+			$('#simtxfee').html((size * fees.fastestFee).toFixed(2)+' sat');
+		} catch(err) {
+			alert(err);
+		}
+	});

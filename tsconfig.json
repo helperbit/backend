@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "allowJs": true,
+        "checkJs": false,
+        "target": "es5",
+        "types" : ["node", "express", "mongoose"]
+    },
+    "include": [
+        "./source/**/*.ts",
+        "./source/**/**/*.ts",
+        "./source/*.ts"
+    ],
+    "exclude": [
+		"./source/helpers/*.spec.ts",
+		"./source/gis/*.spec.ts" 
+	]
+}

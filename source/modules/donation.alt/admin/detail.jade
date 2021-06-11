@@ -1,0 +1,105 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Alt donation -&nbsp;
+						span= ad._id
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li Donation
+						li Alt
+						li.active= ad._id
+				// Main content
+				section.content
+					div.box					
+						div.box-body
+							div.row
+								div.col-md-4
+									span Status:&nbsp;
+									b= ad.status
+
+								div.col-md-4
+									span Payment Status:&nbsp;
+									b= ad.paymentstatus
+
+								div.col-md-4
+									span Time:&nbsp;
+									b= ad.time
+
+								div.col-md-4
+									span Order Id:&nbsp;
+									b= ad.order
+
+								div.col-md-4
+									span Expiry:&nbsp;
+									b= ad.expiry
+
+								div.col-md-4
+									span Confirmations:&nbsp;
+									b= ad.confirmations
+
+								div.col-md-4
+									span Currency:&nbsp;
+									b= ad.currency
+
+								div.col-md-4
+									span Donation:&nbsp;
+									b= ad.donation
+									
+								div.col-md-4
+									span Destination BTC address:&nbsp;
+									b= ad.toaddress
+
+								div.col-md-4
+									span Alt Address:&nbsp;
+									b= ad.address
+
+								div.col-md-4
+									span Refund Address:&nbsp;
+									b= ad.refundaddress
+							br
+							div.row
+								if locals.checkPriv (locals, 'operator') && ad.status == 'NEEDS_REFUND'			
+									.col-md-6
+										h3 Refund
+										p Sets a refund address; if the amount sent is over or lower the correct value, alt funds will be sent to this address; please enter a valid address for the altcoin of this donation.
+										input.form-control#refundaddress(type="text", placeholder="Refund address", value=ad.refundaddress)		
+										br
+										button.btn.btn-danger.btn-block#refundaddressButton Set refund address
+								
+								div.col-md-6
+									h3 Raw data
+									textarea.form-control(rows="12")= ad
+
+
+
+	script.
+		$('#refundaddressButton').click (function () {
+			var address = $('#refundaddress').val();
+
+			$.ajax({
+				url: '/admin/altdonation/!{ad._id}/setrefund',
+				type: 'POST',
+				data: JSON.stringify({address: address}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					alert('Refund address set');
+					window.location = '/admin/altdonation/!{ad._id}';
+				},
+				error: function(msg) {
+					alert('Error: can\'t set refund address');
+				}
+			});
+		});

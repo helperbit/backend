@@ -1,0 +1,116 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Lightning - Charity Pot
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Lightning
+						li.active Charity Pot
+				// Main content
+				section.content
+					each r in rounds
+						div.box							
+							.box-header.with-border
+								h3.box-title= 'Round ' + r._id
+								.box-tools.pull-right
+									if r.status == 'running'
+										span.label.label-success Running
+									else
+										if r.winner.status == 'pending'
+											span.label.label-warning Concluded
+											span &nbsp;
+											span.label.label-danger Pending payment!
+										if r.winner.status == 'done'
+											span.label.label-info Concluded
+											span &nbsp;
+											span.label.label-success Paid
+
+							.box-body.no-padding
+								.row
+									.col-md-6
+										table.table
+											if r.status == 'concluded'
+												tr 
+													td 
+														b Winner Project
+													td
+														a(href="/admin/project/" + r.winner.project)= r.winner.project
+												tr
+													td 
+														b Donation
+													td= r.winner.donation
+											tr
+												td 
+													b Start
+												td= prettyDateTime(r.start)
+											tr
+												td 
+													b Expiration
+												td= prettyDateTime(r.expiration)
+											tr
+												td 
+													b Collected value (msat)
+												td= r.value
+											tr
+												td 
+													b Target (msat)
+												td= target + ' (' + (r.value * 100 / target) + '%)'
+											tr
+												td 
+													b Votes
+												td= r.votes
+									.col-md-6
+										table.table
+											tr
+												th Project
+												th Votes
+												th Value (msat)
+											each rr in r.results
+												tr
+													td
+														a(href="/admin/project/" + rr.project)= rr.project
+													td= rr.votes
+													td= rr.value
+
+									if r.status == 'concluded' && r.winner.status == 'pending'
+										.col-md-12(style="padding: 25px;")
+											p Send exactly #{Math.floor(r.value/1000)} Satoshi (#{Math.floor(r.value/1000)/100000000} BTC) to the project #{r.winner.project}, and set here the txid of the donation:
+											.row
+												.col-md-8
+													input.form-control(type="text", id="txid-" + r._id)
+												.col-md-4
+													a.set-donation.btn.btn-success.btn-block(round=r._id) Save
+											
+	script.
+		$('.set-donation').click (function () {
+			var round = $(this).attr('round');
+			var txid = $('#txid-' + round).val();
+
+			$.ajax({
+			    url: '/admin/charitypot/round/' + round + '/donation',
+			    type: 'POST',
+			    data: JSON.stringify({donation: txid}),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					alert('Donation set!');
+					window.location = window.location + '?t=' + Math.random();
+				},
+				error: function(msg) {
+					alert('Error');
+				}
+			});
+		});

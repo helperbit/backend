@@ -1,0 +1,90 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Media -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li.active Media
+				// Main content
+				section.content
+					div.box									
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Container
+										+sort(pagination, 'container')
+									th Filename
+										+sort(pagination, 'filename')
+									th Flags
+									th Type
+										+sort(pagination, 'contenttype')
+									th Owner
+										+sort(pagination, 'owner')
+									th Date
+										+sort(pagination, 'creationdate')
+									th
+								each im in medias
+									tr
+										td= im.container 
+										td(style="font-size: 85%")= im.filename.substring (0, 32)
+										td
+											if im.archived 
+												span.label.label-danger= 'Archived by ' + im.archiveby
+												&nbsp;
+											if im.private
+												span.label.label-warning Private
+											else
+												span.label.label-success Public
+
+										td= im.contenttype
+										td
+											if im.owner != null
+												a(href="/admin/user/"+im.owner,target="_blank")= im.owner
+										td
+											span #{prettyDateTime(im.creationdate)} 
+											if im.archived
+												br
+												span.label.label-danger #{prettyDateTime(im.archivedate)}
+
+										td
+											if locals.checkPriv (locals, 'kyc')
+												if !im.archived
+													a.btn.btn-xs.btn-primary(target="_blank", href="/admin/media/"+im._id) View
+												&nbsp;
+												if !im.archived && im.container == 'documents'
+													a.btn.btn-xs.btn-danger.archiveMedia(mid=im._id) Archive
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade
+
+script.
+	$('.archiveMedia').click (function () {
+		var imid = $(this).attr ('mid');
+		$.ajax({
+		    url: '/admin/medias/' + imid + '/archive',
+		    type: 'POST',
+		    data: {},
+		    contentType: 'application/json; charset=utf-8',
+		    dataType: 'json',
+		    async: false,
+		    success: function(msg) {
+				window.location = window.location + '?a=' + Math.random ();
+		    }
+		});
+	});

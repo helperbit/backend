@@ -1,0 +1,35 @@
+import frisby = require('frisby');
+import common = require('../../tests.shared/middlewares/common');
+import { frisbyChain } from '../../tests.shared/middlewares/frisbyChain';
+
+
+frisbyChain({}, [
+	(data, next) => frisby.create('/lightning/invoice/create - create an invoice')
+		.post('https://testnetbe.helperbit.com/api/v1/lightning/invoice/create',
+			{
+				msat: Math.floor(Math.random() * 1000000),
+				metadata: {
+					type: 'charitypot',
+					vote: '5b51f2035e459846ea03c4ad', // '5bc89e9debc526703c0f8d53',
+					round: '5cb743f7f857d57d2fbdb8ce'
+				}
+			}, { json: true })
+		.expectStatus(200)
+		.afterJSON(j => {
+			console.log(`Pay to: ${j.payreq}`);
+			data.invoice = j;
+			next(data);
+		})
+		.toss(),
+
+	(data, next) => frisby.create('/lightning/invoice/:id - get an invoice')
+		.get('https://testnetbe.helperbit.com/api/v1/lightning/invoice/' + data.invoice.invoiceid)
+		.expectStatus(200)
+		.retry(500, 20000)
+		.expectJSON({ status: 'paid' })
+		.afterJSON(j => next(data))
+		.toss(),
+]);
+
+
+

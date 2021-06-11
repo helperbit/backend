@@ -1,0 +1,55 @@
+import { Transaction } from "../../../../wallet.transaction/transaction.model";
+
+import log = require('../../../log');
+
+const Donation = .get('donation').model();
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing migration \'DonationTransactionStatus\'');
+
+	Donation.find({ status: { $eq: null } }, (err, donations) => {
+		if (err !== null)
+			return log.job.error('Migration', 'Failed to get donations');
+
+		log.job.debug('Migration', `Got ${donations.length} donations with null status`);
+
+		donations.forEach((d) => {
+			if (d.broadcast && d.confirmed)
+				d.status = 'confirmed';
+			if (d.broadcast && !d.confirmed)
+				d.status = 'hidden';
+			if (!d.broadcast && !d.confirmed)
+				d.status = 'signing';
+			if (!d.broadcast && d.confirmed)
+				d.status = 'hidden';
+
+			d.save((e) => {
+				log.job.debug('Migration', `Saving ${d.txid} with status: ${d.status}`);
+			});
+		});
+	});
+
+	Transaction.find({ status: { $eq: null } }, (err, transactions) => {
+		if (err !== null)
+			return log.job.error('Migration', 'Failed to get transactions');
+
+		log.job.debug('Migration', `Got ${transactions.length} transactions with null status`);
+
+		transactions.forEach((d) => {
+			if (d.broadcast && d.confirmed)
+				d.status = 'confirmed';
+			if (d.broadcast && !d.confirmed)
+				d.status = 'hidden';
+			if (!d.broadcast && !d.confirmed)
+				d.status = 'signing';
+			if (!d.broadcast && d.confirmed)
+				d.status = 'hidden';
+
+			d.save((e) => {
+				log.job.debug('Migration', `Saving ${d.txid} with status: ${d.status}`);
+			});
+		});
+	});
+};
+

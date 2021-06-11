@@ -1,0 +1,18 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+
+import { User } from '../../user/user.model';
+
+export = async () => {
+	log.job.debug('Migration', 'Executing users refcode migration');
+
+	const users = await User.find({}, 'username refcode').sort({ regdate: 'asc' }).lean().exec();
+
+	for(let i = 0; i < users.length; i++) {
+		await User.updateOne({ username: users[i].username }, { $set: { refcode: i+1 } }).exec();
+		log.job.debug('Migration', `Executing users refcode update: ${users[i].username} ${i+1}`);
+	}
+};
+

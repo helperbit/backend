@@ -1,0 +1,293 @@
+div.panel-group#verify(role="tablist", aria-multiselectable="true")
+	div.row(align="center")
+		div.col-md-4
+			span Trust level:&nbsp;
+			b= user.trustlevel
+
+		div.col-md-4
+			div.progress
+				div.progress-bar(role="progressbar", aria-valuenow=user.trustlevel, aria-valuemin="0", aria-valuemax="100", style="width: "+user.trustlevel+"%;")
+
+		div.col-md-4
+			span Locked:&nbsp;
+			b= user.locked
+
+		if user.usertype == 'npo' && user.admins.length >= 3
+			div.col-md-12
+				include ./admins.jade
+	br
+	if locals.checkPriv (locals, 'kyc')
+		a.btn-block.btn.btn-success#verManual Insert manual verification (50%)
+	br
+	include ../../../../modules/admin.log/admin/log.jade
+	br
+
+	each ver in user.verification
+		div.panel.panel-default
+			div.panel-heading(role="tab" id=ver.provider)
+				h4.panel-title
+					a(role="button", data-toggle="collapse", data-parent="#verify", href='#'+ver.provider+'col', aria-expanded="true", aria-controls=ver.provider+'col')
+						= ver.provider
+			div.panel-collapse.collapse.in(role="tabpanel", aria-labelledby=ver.provider, id=ver.provider+'col')
+				div.panel-body
+					if ver.provider == 'otc'
+						div.row
+							div.col-md-6
+								p
+									span State:&nbsp;
+									b= ver.state
+									
+								p
+									span OTC code:&nbsp;
+									b= ver.hidden.code
+
+
+					if ver.provider == 'residency'
+						div.row
+							div.col-md-6
+								p
+									span State:&nbsp;
+									b= ver.state
+
+								p
+									span Submission date:&nbsp;
+									b= ver.submissiondate
+
+								p
+									span Response date:&nbsp;
+									b= ver.responsedate
+
+							div.col-md-3
+								b Document
+								a(href="/admin/media/"+ver.medias[0].mid,target="_blank") Residency document
+								
+								if locals.checkPriv (locals, 'kyc')
+									a.btn.btn-xs.btn-danger.archiveMedia(mid=ver.medias[0].mid) Archive
+
+					
+					if ver.provider == 'manual'
+						div.row
+							div.col-md-12 Manual verification by Helperbit
+
+					if ver.provider == 'company'
+						div.row
+							div.col-md-6
+								p
+									span State:&nbsp;
+									b= ver.state
+
+							div.col-md-6
+								each doc in ver.medias
+									if doc.mid 
+										div
+											a(href="/admin/media/"+doc.mid,target="_blank")
+												span Document
+												span= doc.mid + ' ' + doc.name
+											a.btn.btn-xs.btn-danger.archiveMedia(mid=doc.mid) Archive
+						
+
+					if ver.provider == 'npostatute'
+						div.row
+							div.col-md-6
+								p
+									span State:&nbsp;
+									b= ver.state
+
+								p
+									span Submission date:&nbsp;
+									b= ver.submissiondate
+
+								p
+									span Response date:&nbsp;
+									b= ver.responsedate
+
+							div.col-md-3
+								b Document
+								a(href="/admin/media/"+ver.medias[0].mid,target="_blank") Statute document
+								
+								if locals.checkPriv (locals, 'kyc')
+									a.btn.btn-xs.btn-danger.archiveMedia(mid=ver.medias[0].mid) Archive
+
+					if ver.provider == 'npomemorandum'
+						div.row
+							div.col-md-6
+								p
+									span State:&nbsp;
+									b= ver.state
+
+								p
+									span Submission date:&nbsp;
+									b= ver.submissiondate
+
+								p
+									span Response date:&nbsp;
+									b= ver.responsedate
+
+							div.col-md-3
+								b Document
+								a(href="/admin/media/"+ver.medias[0].mid,target="_blank") Memorandum document
+								
+								if locals.checkPriv (locals, 'kyc')
+									a.btn.btn-xs.btn-danger.archiveMedia(mid=ver.medias[0].mid) Archive
+
+
+					if ver.provider == 'npoadmins'
+						div.row
+							div.col-md-6
+								p
+									span State:&nbsp;
+									b= ver.state
+
+								p
+									span In Charge:&nbsp;
+									if ver.info.incharge == null
+										b Board of Director
+									else 
+										b= ver.info.incharge.firstname
+										b= ver.info.incharge.lastname
+										b= ver.info.incharge.idnumber
+										b= ver.info.incharge.email
+
+							div.col-md-6
+								each doc in ver.medias
+									if doc.mid 
+										div
+											a(href="/admin/media/"+doc.mid,target="_blank")
+												span Document
+											a.btn.btn-xs.btn-danger.archiveMedia(mid=doc.mid) Archive
+						
+							div.col-md-12
+								table.table.table-hover
+									tr
+										th First Name
+										th Last Name
+										th Email
+										th ID Number
+									each ad in ver.info.admins
+										tr
+											td= ad.firstname
+											td= ad.lastname
+											td= ad.email
+											td= ad.idnumber
+
+					if ver.provider == 'npo'
+						div.row
+							div.col-md-6
+								p
+									span State:&nbsp;
+									b= ver.state
+
+								p
+									span Referent name:&nbsp;
+									b= ver.info.refname
+									
+								p
+									span Referent email:&nbsp;
+									b= ver.info.refmail
+									
+								p
+									span Referent phone number:&nbsp;
+									b= ver.info.reftel
+
+							div.col-md-6
+								each doc in ver.medias
+									if doc.mid 
+										div
+											a(href="/admin/media/"+doc.mid,target="_blank")
+												span Document
+												span= doc.mid + ' ' + doc.name
+											a.btn.btn-xs.btn-danger.archiveMedia(mid=doc.mid) Archive
+						
+						div.row
+							div.col-md-4
+								p Email allowed 1:
+								input.form-control#inputNPOAdmin1(type="text",value=user.allowedadmins[0]||'')
+								br
+
+							div.col-md-4
+								p Email allowed 2:
+								input.form-control#inputNPOAdmin2(type="text",value=user.allowedadmins[1]||'')
+								br
+
+							div.col-md-4
+								p Email allowed 3:
+								input.form-control#inputNPOAdmin3(type="text",value=user.allowedadmins[2]||'')
+								br
+
+
+					if ver.provider == 'document'
+						div.row
+							div.col-md-6
+								p
+									span State:&nbsp;
+									b= ver.state
+
+								p
+									span Submission date:&nbsp;
+									b= ver.submissiondate
+
+								p
+									span Response date:&nbsp;
+									b= ver.responsedate
+
+								p
+									span Document type:&nbsp;
+									b= ver.info.document
+
+								p
+									span Document id:&nbsp;
+									b= ver.info.documentid
+
+								p
+									span Document expiration date:&nbsp;
+									b= ver.info.expirationdate
+
+							div.col-md-6
+								each doc in ver.medias
+									if doc.mid 
+										div
+											a(href="/admin/media/"+doc.mid,target="_blank")
+												span Document
+												span= doc.mid + ' ' + doc.name
+											a.btn.btn-xs.btn-danger.archiveMedia(mid=doc.mid) Archive
+
+						hr
+
+					if locals.checkPriv (locals, 'kyc') && ver.status != 'submission'
+						div.row
+							div.col-md-12
+								b Note (Helperbit internal, visible only by us):
+								br
+								textarea(id="vernote" + ver.provider,style="width:100%;", width="100%")=ver.note
+								b Mail to send to the user (only for rejection):
+								br
+								textarea(id="rejectreason" + ver.provider,style="width:100%;", width="100%")=ver.rejectreason
+								br
+								br
+								
+							if ver.provider != 'otc'
+								if ver.provider == 'npo' && ver.state == 'accepted'
+									div.col-md-4
+										a.btn-block.btn.btn-warning.verAccept(provider=ver.provider) Edit
+
+								if ver.state != 'accepted'
+									div.col-md-4
+										a.btn-block.btn.btn-success.verAccept(provider=ver.provider) Accept
+
+								if ver.state != 'rejected'
+									div.col-md-4
+										a.btn-block.btn.btn-danger.verReject(provider=ver.provider) Reject
+
+							if ver.provider == 'otc' 
+								if ver.state == 'pending'												
+									div.col-md-6
+										a.btn-block.btn.btn-success.verProgress(provider=ver.provider) Letter is sent
+
+								div.col-md-6
+									a.btn-block.btn.btn-success(href="/admin/user/"+user.username+"/verify/otc/print", target="_blank") Print the letter
+
+						if locals.checkPriv(locals, 'admin') && ver.state != 'accepted'
+							br
+							div.row
+								div.col-md-12
+									a.btn-block.btn.btn-danger(href="/admin/user/"+user.username+"/verify/otc/delete") Delete verification

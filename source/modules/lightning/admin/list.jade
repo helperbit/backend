@@ -1,0 +1,57 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Lightning - Invoices
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Lightning
+						li.active Invoices
+				// Main content
+				section.content
+					div.box							
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th ID
+									th Type
+										+sort(pagination, 'metadata.type')
+									th Value (msat)
+										+sort(pagination, 'msatoshi')
+									th Created at
+										+sort(pagination, 'created_at')
+									th Expires at
+										+sort(pagination, 'expires_at')
+									th Status
+										+sort(pagination, 'status')
+								each i in invoices
+									tr
+										td= i.invoiceid
+										td= i.metadata.type
+										td= i.msatoshi
+										td= prettyDateTime(i.created_at)
+										td= prettyDateTime(i.expires_at)
+										td
+											if i.status == 'unpaid'
+												span.label.label-warning Unpaid
+											else if i.status == 'paid'
+												span.label.label-success Paid
+											else if i.status == 'expired'
+												span.label.label-danger Expired
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

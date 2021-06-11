@@ -1,0 +1,166 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Users -&nbsp;
+						span ThirdParty NPO Documents
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Users
+						li.active ThirdParty NPO Documents
+				// Main content
+				section.content
+					each user in users
+						.panel.panel-info
+							.panel-heading(align="left")
+								h4.panel-title= user.fullname + ' (' + user.username + ')'
+							.panel-body
+								.row
+									.col-md-4
+										h4 Generic info
+										.list-group.list-group-unbordered
+											.list-group-item
+												b Email
+												a.pull-right= user.email
+
+											.list-group-item
+												b Website
+												a.pull-right= user.website
+
+											.list-group-item
+												b Foundation date
+												a.pull-right= locals.formatDate(user.birthdate)
+
+											.list-group-item
+												b Reg date
+												a.pull-right= locals.formatDate(user.regdate)
+									.col-md-4
+										h4 Address
+										.list-group.list-group-unbordered
+											.list-group-item
+												b Country
+												a.pull-right= user.country
+
+											.list-group-item
+												b Region
+												a.pull-right= user.region
+
+											.list-group-item
+												b City
+												a.pull-right= user.city + ' (' + user.zipcode + ')'
+
+											.list-group-item
+												b Street
+												a.pull-right= user.street + ' ' + user.streetnr
+												
+									.col-md-4
+										h4 Referent
+										.list-group.list-group-unbordered
+											.list-group-item
+												b First name
+												a.pull-right= user.referent.firstname
+												
+											.list-group-item
+												b Last name
+												a.pull-right= user.referent.lastname
+
+											.list-group-item
+												b Email
+												a.pull-right= user.referent.email
+												
+											.list-group-item
+												b ID Number
+												a.pull-right= user.referent.idnumber
+								
+								if locals.adminname == 'tinklit' || locals.checkPriv (locals, 'operator')
+									hr
+									h3 Tinklit Api Settings
+									.row
+										div.col-md-4.form-group
+											label(for="inputTinklitClientId") Client ID
+											input.form-control#inputTinklitClientId(type="text",value=user.api.tinklit.clientId)
+										div.col-md-4.form-group
+											label(for="inputTinklitToken") Token
+											input.form-control#inputTinklitToken(type="text",value=user.api.tinklit.token)
+										div.col-md-4.form-group
+											br
+											a.btn-block.btn.btn-primary#submitTinklitApi(username=user.username) Save
+										
+								
+								hr
+								h3 Verifications
+
+								.row
+									each ver in user.verification
+										if ver.state == 'accepted' && (ver.provider == 'npostatute' || ver.provider == 'npomemorandum' || ver.provider == 'npoadmins')
+											.col-md-4
+												div.panel.panel-default
+													div.panel-heading(role="tab" id=ver.provider)
+														h4.panel-title
+															a(role="button", data-toggle="collapse", data-parent="#verify", href='#'+ver.provider+'col', aria-expanded="true", aria-controls=ver.provider+'col')
+																= ver.provider
+													div.panel-collapse.collapse.in(role="tabpanel", aria-labelledby=ver.provider, id=ver.provider+'col')
+														div.panel-body
+															if ver.provider == 'npostatute'
+																p
+																	span Submission date:
+																	br
+																	b= locals.formatDate(ver.submissiondate)
+
+																a(href="/admin/media/"+ver.medias[0].mid,target="_blank") View Statute document
+																		
+
+															if ver.provider == 'npomemorandum'
+																p
+																	span Submission date:
+																	br
+																	b= locals.formatDate(ver.submissiondate)
+
+																a(href="/admin/media/"+ver.medias[0].mid,target="_blank") View Memorandum document
+
+
+															if ver.provider == 'npoadmins'
+																p
+																	span Submission date:
+																	br
+																	b= locals.formatDate(ver.submissiondate)
+																
+																each doc in ver.medias
+																	if doc.mid 
+																		div
+																			a(href="/admin/media/"+doc.mid,target="_blank")
+																				span View Document
+																
+script.
+	$('.sidebar-toggle').click();
+
+
+	$('#submitTinklitApi').click (function () {
+		var data = {};
+
+		data['username'] = $(this).attr ('username');;
+		data['clientId'] = $('#inputTinklitClientId').val ();
+		data['token'] = $('#inputTinklitToken').val ();
+
+		$.ajax({
+			url: '/admin/users/verify/thirdparty/settinklitapi',
+			type: 'POST',
+			data: JSON.stringify(data),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(msg) {
+				alert('Tinklit Api Saved');
+			}
+		});
+	});

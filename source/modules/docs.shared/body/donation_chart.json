@@ -1,0 +1,14 @@
+			{
+				"period": "week",
+				"chart":
+				[
+					{ 
+						"_id": { "week": 4, "year": 2017 },
+						"amount": 12.0
+					},
+					{ 
+						"_id": { "week": 5, "year": 2017 },
+						"amount": 11.0
+					}
+				]
+			}

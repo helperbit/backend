@@ -1,0 +1,48 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Users -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Users
+						li.active= title
+				// Main content
+				section.content
+					div.box
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th IP
+									th Username
+									th Usertype
+									th Regdate
+								each ip in ips
+									if ip.users.length > 1
+										tr
+											td
+												strong= ip._id
+											td 
+												strong #{ip.users.length} Users
+
+										each u in ip.users
+											tr
+												td &nbsp;
+												td
+													a(href="/admin/user/" + u.username)= u.username 
+												td= u.usertype
+												td= u.regdate
+

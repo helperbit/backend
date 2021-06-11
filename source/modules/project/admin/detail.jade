@@ -1,0 +1,235 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Project -&nbsp;
+						span= project._id
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Project
+						li.active= project._id
+				// Main content
+				section.content
+						div.nav-tabs-custom
+							ul.nav.nav-tabs(role="tablist")
+								li.active(role="presentation")
+									a(href="#info" aria-controls="info" role="tab" data-toggle="tab") Info
+								li(role="presentation")
+									a(href="#changes" aria-controls="changes" role="tab" data-toggle="tab") Changes
+								li(role="presentation")
+									a(href="#supporters" aria-controls="supporters" role="tab" data-toggle="tab") Supporters
+								li(role="presentation")
+									a(href="#images" aria-controls="images" role="tab" data-toggle="tab") Images
+								li(role="presentation")
+									a(href="#activities" aria-controls="activities" role="tab" data-toggle="tab") Activities
+								li(role="presentation")
+									a(href="#raw" aria-controls="raw" role="tab" data-toggle="tab") Raw
+								li(role="presentation")
+									a(href="#danger" aria-controls="danger" role="tab" data-toggle="tab") Danger Zone
+
+
+							div.tab-content
+								div.tab-pane.active#info(role="tabpanel")
+									h2= project.title.en || project.title.it
+									br
+									div.row
+										div.col-md-3
+											b Tags
+										div.col-md-9
+											p= project.tags
+										div.col-md-3
+											b Owner
+										div.col-md-9
+											a(href="/admin/user/" + project.owner)= project.owner
+
+									div.row
+										div.col-md-3
+											p Completed
+										div.col-md-3
+											if project.end
+												span.label.label-info Concluded
+											else
+												span.label.label-success Running
+										div.col-md-6
+											if locals.checkPriv (locals, 'operator') && project.end == null
+												a.btn.btn-danger(href="/admin/project/"+project._id+"/end") Mark as concluded
+
+									div.row
+										div.col-md-3
+											p Status
+										div.col-md-9
+											if project.status == 'draft'
+												span.label.label-info Draft
+											if project.status == 'approved'
+												span.label.label-success Approved
+											if project.status == 'rejected'
+												span.label.label-danger Rejected
+											if project.status == 'submitted'
+												span.label.label-warning Submitted
+
+									div.row
+										div.col-md-12
+											if locals.checkPriv (locals, 'kyc')
+												if project.status == 'submitted' || project.status == 'approved'
+													a.btn.btn-danger(href="/admin/project/"+project._id+"/reject") Reject
+												if project.status == 'submitted' || project.status == 'rejected'
+													a.btn.btn-success(href="/admin/project/"+project._id+"/approve") Approve
+
+									if user.usertype == 'npo'
+										br
+										div.row
+											div.col-md-12
+												include ../../user/admin/user/admins.jade
+												br
+
+									br
+
+								div.tab-pane#changes(role="tabpanel")
+									each ch in project.changeHistory.reverse()
+										h4= ch.changeDate
+										table.table.table-hover
+											tr
+												th Field
+												th New Value
+											each v,k in ch.content
+												tr
+													td= k
+													td= JSON.stringify(v)
+										hr
+
+								div.tab-pane#supporters(role="tabpanel")
+									table.table.table-striped
+										thead
+											tr
+												th User
+												th Link
+												th Level
+												th
+										tbody
+											each sup in project.supporters
+												tr
+													td
+														a(href="/admin/user/"+sup.user, target="_blank")= sup.user
+													td= sup.link
+													td= sup.level
+													td
+														a.btn.btn-danger#deleteSupporter(user=sup.user)
+															i.fa.fa-times
+									hr
+									.box.box-success
+										.box-header.with-border
+											h3.box-title Add new supporter
+										// /.box-header
+										.box-body
+											input.form-control#supporterUserInput(type="text", placeholder="Username of supporter")
+											br
+											input.form-control#supporterLinkInput(type="text", placeholder="Link")
+											br
+											input.form-control#supporterLevelInput(type="text", placeholder="Level (number from 1 to 5, where 5 is the most important)")
+											br
+											button.btn.btn-danger.btn-block#addSupporter Add
+
+
+
+
+
+								div.tab-pane#images(role="tabpanel")
+									if project.video
+										span Video
+											a(href=project.video, target="_blank")= project.video
+
+									div.row
+										each im in project.media
+											div.col-md-3
+												div.class.thumbnail
+													img(src="/admin/media/" + im)
+
+								div.tab-pane#activities(role="tabpanel")
+									each act in project.activities
+										div
+											h1= act.title.en || act.title.it
+											p
+												span Target:
+												span= act.target
+											div.row
+												each actmed in act.media
+													div.col-md-3
+														div.class.thumbnail
+															a(href="/admin/media/" + actmed, target="_blank")
+																img(src="/admin/media/" + actmed)
+										br
+										hr
+										br
+
+								div.tab-pane#raw(role="tabpanel")
+									textarea.form-control(rows="12")= project
+
+								div.tab-pane#danger(role="tabpanel")
+									a.btn.btn-danger#submitDelete Delete Project
+
+	script.
+		$('#submitDelete').click (function () {
+			$.ajax({
+				url: '/admin/project/#{project._id}/remove',
+				type: 'POST',
+				data: JSON.stringify({}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					window.location = '/admin/projects/';
+				}
+			});
+		});
+
+		$('#deleteSupporter').click (function () {
+			$.ajax({
+				url: '/admin/project/#{project._id}/supporter/remove',
+				type: 'POST',
+				data: JSON.stringify({ user: $('#deleteSupporter').attr('user') }),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					alert('Removed');
+					window.location = '/admin/project/#{project._id}';
+				},
+				error: function (data) {
+					alert('Error: '+data.responseJSON.error);
+				}
+			});
+		});
+
+		$('#addSupporter').click (function () {
+			$.ajax({
+				url: '/admin/project/#{project._id}/supporter/add',
+				type: 'POST',
+				data: JSON.stringify({ 
+					user: $('#supporterUserInput').val(),
+					link: $('#supporterLinkInput').val(),
+					level: $('#supporterLevelInput').val(),
+				}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					alert('Supporter add');
+					window.location = '/admin/project/#{project._id}';
+				},
+				error: function (data) {
+					alert('Error: '+data.responseJSON.error);
+				}
+			});
+		});
+

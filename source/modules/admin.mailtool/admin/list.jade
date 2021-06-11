@@ -1,0 +1,103 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Mail tool list
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Mail tool
+						li.active List
+				// Main content
+				section.content
+					each l in list
+						div.box(class=l.status === 'sending' ? 'box-warning' : (l.status === 'canceled' ? 'box-danger' : 'box-success')) 								
+							.box-header.with-border
+								h3.box-title
+									span= l._id + ' (' + l.doneusers.length + '/' + (l.users.length + l.doneusers.length) + ' users done)'
+
+								.box-tools.pull-right
+									if l.status == 'sent'
+										i.fa.fa-check
+										span &nbsp;Sent
+									if l.status == 'canceled'
+										i.fa.fa-times
+										span &nbsp;Canceled
+									if l.status == 'sending'
+										i.fa.fa-refresh.fa-spin
+										span &nbsp;Sending...
+									
+							.box-body
+								div.row
+									.col-md-4
+										b Internal ID:&nbsp;
+										span= l._id
+
+									.col-md-4
+										b Commercial:&nbsp;
+										span= l.iscommercial
+
+									.col-md-4
+										b Date:&nbsp;
+										span= l.time
+
+									.col-md-12
+										br
+
+									.col-md-4
+										h3= l.subject
+										div(style="height:150px; overflow-y: auto")= l.message
+
+									.col-md-4.no-padding.table-responsive(style="height:150px; overflow-y: auto")
+										table.table.table-hover
+											tr
+												th User
+											each u in l.users
+												tr
+													td= u
+
+									.col-md-4.no-padding.table-responsive(style="height:150px; overflow-y: auto")
+										table.table.table-hover
+											tr
+												th Done User
+											each u in l.doneusers
+												tr
+													td= u
+
+							.box-footer(align="right")
+								if l.status === 'sending'
+									a.btn.btn-danger#cancel(vid=l._id) Cancel
+
+script.
+	setTimeout("location.reload(true);", 30000);
+
+	$('#cancel').click (function () {
+		if (window.confirm("Are you sure to cancel this operation?")) {
+			$.ajax({
+				url: '/admin/mailtool/cancel',
+				type: 'POST',
+				data: JSON.stringify({
+					id: $(this).attr('vid')
+				}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				json: true,
+				async: false,
+				success: function(msg) {
+					window.location = '/admin/mailtool/list';
+				}
+			});
+		}
+	});

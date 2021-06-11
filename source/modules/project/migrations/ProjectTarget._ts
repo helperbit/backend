@@ -1,0 +1,36 @@
+const error 		= require ('../../error');
+import log = require ('../../log');
+const conf = require ('../../conf');
+const blockchain	= require ('../../blockchain');
+
+import { Project } from '../../project/project.model';
+
+
+export = () => {
+	log.job.debug ('Migration', 'Executing project target update');
+
+	blockchain.getPrices ().then (prices => {
+		Project.find ({}, (err, projects) => {
+			projects.forEach ((p) => {
+				if (typeof (p.target) == 'object')
+					return;
+
+				log.job.debug ('Migration', `Updating project ${p._id} target`);
+
+				p.target = p.target * prices.eur;
+				p.currency = 'EUR';
+
+				p.used = 0.0;
+				p.pending = p.received;
+                
+				p.save (err => {
+					if (err)
+						log.job.error ('Migration', `Failed to update ${p._id}`);
+				});
+			});
+		});
+	}).catch (err => {
+		log.job.error ('Migration', `Failed to get prices`);
+	});
+};
+

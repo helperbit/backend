@@ -1,0 +1,64 @@
+
+		{
+			"_id": "55a3efe5bc82a86a3500e184",
+			"username": "crocerossa",
+			"usertype": "npo",
+			"subtype": "none",
+			"email": "croce@rossa",
+			"language": "it",
+			"premium": {
+				"enabled": true,
+				"start": "12 May 2018",
+				"expiration": "12 May 2020"
+			},
+			"policyversion": {
+				"privacy": 1,
+				"terms": 1
+			},
+			"referent": {
+				"firstname": "Gianni",
+				"lastname": "Gionni",
+				"email": "gianni@gmail.com",
+				"idnumber": "AD123424"
+			},
+			"bio": { 
+				"en": "Nato nella terra dei vespri e degli aranci"
+			},
+			"zipcode": "09046",
+			"street": "via fasulla",
+			"streetnr": "123",
+			"city": "Quartu",
+			"region": "CA",
+			"country": "ITA",
+			"avatar": "55acf85c9c6cf363703700ad",
+			"website": "crocerossa.com",
+			"location": {"type": "Point", "coordinates": ["long","lat"]},
+			"allowdocumentssharing": false,
+			"risk": {
+				"earthquake": {
+					"class": "low|medium|high",
+					"source": "helperbit"
+				}
+			},
+			"birthdate": "2015-07-13T17:04:09.720Z",
+
+			"social": {
+				"facebook": {"userid": "54332432", "username": "dagide" }
+			},
+
+
+			"fullname": "Croce Rossa Italiana",
+			"countries": ["ITA", "USA"],
+			"photo": "55acf85c9c6cf363703700ad",
+			"tags": ["education"],
+			"operators": "250-1000",
+
+			"supportedevents": ["idevento1", "idevento2"],
+			"donated": 5.4324,
+			"donateddonations": 5,
+			"received": 3.12,
+			"receiveddonations": 4,
+			"receiveaddress": "1Q453ju2h4uit343523423",
+			"regdate": "2015-07-13T17:04:09.720Z",
+			"lastlogin": "2015-07-13T17:04:09.720Z"
+		}

@@ -1,0 +1,13 @@
+.panel.panel-info
+	.panel-heading(align="left")
+		h4.panel-title Admins
+	.panel-body
+		each ad in admins
+			.col-md-4
+				.small-box(class= ((ad.trustlevel >= 25) ? 'bg-green' : 'bg-red'))
+					.inner
+						h3= ad.trustlevel + '% TL'
+						p
+							span= ad.email
+							br
+							a(target="_blank", href="/admin/user/"+ad.username, style="color: #fff")= ad.username

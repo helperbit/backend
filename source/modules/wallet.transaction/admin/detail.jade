@@ -1,0 +1,98 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Transaction -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li Transaction
+						li.active= tx._id
+				// Main content
+				section.content
+					div.box					
+						div.box-body
+							div.row
+								div.col-md-7
+									div.col-md-4
+										span From:&nbsp;
+										b= tx.from
+
+									div.col-md-8
+										span To:&nbsp;
+										b= tx.to
+
+									div.col-md-4
+										span Value:&nbsp;
+										b= tx.value
+
+									div.col-md-4
+										span Status:&nbsp;
+										b= tx.status
+
+									div.col-md-12
+										span TX:&nbsp;
+										b= tx.txid
+
+									div.col-md-4
+										span Admins:&nbsp;
+										b= tx.admins.length
+
+									div.col-md-4
+										span Signers:&nbsp;
+										b= tx.signers.length
+
+									div.col-md-4
+										span Refused:&nbsp;
+										b= tx.refused.length
+
+									div.col-md-4
+										span Wallet type:&nbsp;
+										b
+											span= tx.n
+											span &nbsp;of&nbsp;
+											span= tx.admins.length + 1
+											span &nbsp;(helperbit included)
+
+									if locals.checkPriv (locals, 'admin')
+										if tx.status == 'signing'
+											div.col-md-12
+												br
+												a.btn.btn-danger#submitSign Sign with helperbit key
+
+									if locals.checkPriv (locals, 'admin')
+										div.col-md-4 
+											if tx.status == 'confirmed'
+												a.btn.btn-xs.btn-danger(href="/admin/transaction/"+tx._id+"/hide") Hide
+											if tx.status == 'hidden'
+												a.btn.btn-xs.btn-success(href="/admin/transaction/"+tx._id+"/show") Show
+										
+								div.col-md-5
+									textarea.form-control(rows="12")= tx
+
+
+	script.
+		$('#submitSign').click (function () {
+			$.ajax({
+			    url: '/admin/transaction/#{tx._id}/sign',
+			    type: 'POST',
+			    data: JSON.stringify({state: 'accepted', note: $('#verNote').val()}),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false
+			}).done (function(msg) {
+				window.location = '/admin/transaction/#{tx._id}';
+			}).fail (function (xhr) {
+				alert (xhr.responseJSON.message);
+			});
+		});

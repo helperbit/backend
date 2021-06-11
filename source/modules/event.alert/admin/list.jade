@@ -1,0 +1,39 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Alerts
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li.active Alerts
+				// Main content
+				section.content
+					div.box								
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Type
+									th User
+									th Time
+									th Weight
+								each a in alerts
+									tr
+										td= a.type
+										td= a.user
+										td= a.time
+										td= a.weight
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

@@ -1,0 +1,74 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | User Campaigns
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li.active User Campaigns
+				// Main content
+				section.content
+					div.box							
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th ID
+									th Status
+										+sort(pagination, 'status')
+									th Owner
+										+sort(pagination, 'owner')
+									th Title
+										+sort(pagination, 'title')
+									th Start
+										+sort(pagination, 'start')
+									th End
+										+sort(pagination, 'end')
+									th Received
+										+sort(pagination, 'received')
+									th Received Converted
+										+sort(pagination, 'receivedconverted')
+									th Target
+										+sort(pagination, 'target')
+									th
+								each p in campaigns
+									tr
+										td
+											span(style="font-size: 70%")= p._id
+										td
+											if p.status == 'started'
+												span.label.label-success Started
+											if p.status == 'concluded'
+												span.label.label-danger Concluded
+										td= p.owner
+										td
+											span(style="font-size: 80%")= p.title
+										td
+											span #{prettyDateTime(p.start)}
+										td
+											span #{prettyDateTime(p.end)}
+										td= p.received
+										td= p.receivedconverted
+										td
+											span= p.target
+											span &nbsp;
+											span= p.currency
+										td
+											a.btn.btn-xs.btn-primary(href="/admin/campaign/"+p._id) View
+
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

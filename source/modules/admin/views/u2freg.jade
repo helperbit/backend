@@ -1,0 +1,72 @@
+include includes/head.jade
+include includes/u2f.jade
+
+body.hold-transition.login-page
+	.login-box
+		.login-logo
+			a(href='#')
+				b Admin
+				| HB
+		// /.login-logo
+		.login-box-body
+			p.login-box-msg U2F registration
+			
+			.callout.callout-danger.row#logerror
+				.col-md-2
+					i.fa.fa-lock.fa-3x
+				.col-md-10
+					h4 U2F Auth
+					p Unable to register the device
+
+			.callout.callout-success.row#logsuccess
+				.col-md-2
+					i.fa.fa-lock.fa-3x
+				.col-md-10
+					h4 U2F Auth
+					p Device registered; please send to dakk these data:
+					textarea(style="color:#333;")#datatext
+
+						
+			.callout.callout-info.row#u2finfo
+				.col-md-2
+					i.fa.fa-lock.fa-3x
+				.col-md-10
+					h4 U2F Auth
+					p 
+						i.fa.fa-spin.fa-refresh
+						span &nbsp;Waiting for u2f key reply...
+
+
+
+
+script(type='text/javascript').
+	$('#logerror').hide();
+	$('#logsuccess').hide();
+
+	setTimeout(function() {
+		var appId = "#{reg.appId}";
+		var registerRequests = [{version: "#{reg.version}", challenge: "#{reg.challenge}", attestation: 'direct'}];
+		$('#promptModal').modal('show');
+		console.log(appId, registerRequests);
+		u2f.register(appId, registerRequests, [], function(data) {
+			console.log (data);
+			$.ajax({
+				url: '/admin/u2freg',
+				type: 'POST',
+				data: JSON.stringify(data),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					$('#u2finfo').hide();
+					$('#logsuccess').show();
+					$('#datatext').val(JSON.stringify(msg));
+					console.log (msg);
+				},
+				error: function(msg) {
+					$('#u2finfo').hide();
+					$('#logerror').show();
+				},
+			});
+		});
+	}, 1000);

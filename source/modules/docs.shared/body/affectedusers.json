@@ -1,0 +1,278 @@
+			{
+				"geoquads": {
+					"count": 13,
+					"min": 0,
+					"max": 10,
+					"features": [{
+						"type": "Feature",
+						"_id": "5a290ec13fc4d31d022d2224",
+						"geometry": {
+							"type": "Polygon",
+							"coordinates": [
+								[
+									[12.397660818713439, 41.8834080717489],
+									[12.397660818713439, 41.97309417040361],
+									[12.514619883040924, 41.97309417040361],
+									[12.514619883040924, 41.8834080717489],
+									[12.397660818713439, 41.8834080717489]
+								]
+							]
+						},
+						"properties": {
+							"idlist": ["agaspari", "toppettifrancesca", "fabiomassimoabenavoli", "morellistefano", "bruco", "lorenzogiustozzi", "mdigiannantonio", "robertotudini", "guido", "marco"]
+						}
+					}, {
+						"type": "Feature",
+						"_id": "5a290ec13fc4d31d022d2222",
+						"geometry": {
+							"type": "Polygon",
+							"coordinates": [
+								[
+									[12.514619883040924, 41.8834080717489],
+									[12.514619883040924, 41.97309417040361],
+									[12.631578947368409, 41.97309417040361],
+									[12.631578947368409, 41.8834080717489],
+									[12.514619883040924, 41.8834080717489]
+								]
+							]
+						},
+						"properties": {
+							"idlist": ["giau81"]
+						}
+					}, {
+						"type": "Feature",
+						"_id": "5a290ec13fc4d31d022d2221",
+						"geometry": {
+							"type": "Polygon",
+							"coordinates": [
+								[
+									[12.631578947368409, 41.79372197309419],
+									[12.631578947368409, 41.8834080717489],
+									[12.748538011695894, 41.8834080717489],
+									[12.748538011695894, 41.79372197309419],
+									[12.631578947368409, 41.79372197309419]
+								]
+							]
+						},
+						"properties": {
+							"idlist": ["kimia"]
+						}
+					}, {
+						"type": "Feature",
+						"_id": "5a290ec13fc4d31d022d2220",
+						"geometry": {
+							"type": "Polygon",
+							"coordinates": [
+								[
+									[12.748538011695894, 43.946188340807225],
+									[12.748538011695894, 44.035874439461935],
+									[12.865497076023379, 44.035874439461935],
+									[12.865497076023379, 43.946188340807225],
+									[12.748538011695894, 43.946188340807225]
+								]
+							]
+						},
+						"properties": {
+							"idlist": ["mbarulli"]
+						}
+					}]
+				},
+				"singleuser": [{
+					"_id": "57ea2bf0926604003ade3f9d",
+					"username": "giau81",
+					"receiveaddress": "3HuYvUTmNpM9QJ38o1aMUWJ3A5KBJ55PTp",
+					"received": 0,
+					"avatar": null,
+					"trustlevel": 34,
+					"subtype": "none",
+					"usertype": "singleuser"
+				}, {
+					"_id": "57dad389162979003af979d3",
+					"username": "guido",
+					"receiveaddress": "3K4DhHpaUVBFBEugBRz8WyNatNNS4H7ZLX",
+					"received": 0,
+					"avatar": "585452d9982512002db4d154",
+					"trustlevel": 70,
+					"subtype": "none",
+					"usertype": "singleuser"
+				}, {
+					"_id": "5a09a7018e1fe542531ec203",
+					"username": "kimia",
+					"receiveaddress": "3MnHaKrvKuZsjWtjRk2ycpZnQzu56DoHMC",
+					"received": 0,
+					"avatar": null,
+					"trustlevel": 34,
+					"subtype": "none",
+					"usertype": "singleuser"
+				}, {
+					"_id": "5a1c4192d53e1f34ec3b7054",
+					"username": "marco",
+					"receiveaddress": "3Ahd23NZVxiAubxmv6LUzuSAn3ERog5JPU",
+					"received": 0,
+					"avatar": null,
+					"trustlevel": 9,
+					"subtype": "none",
+					"usertype": "singleuser"
+				}, {
+					"_id": "5a06c5fb8e1fe542531ec1ea",
+					"username": "mbarulli",
+					"receiveaddress": "3HgwDkzcYZF3oMt8KFsFAnso91XhvVL2oR",
+					"received": 0,
+					"avatar": "5a06c8088e1fe542531ec1ef",
+					"trustlevel": 65,
+					"subtype": "none",
+					"usertype": "singleuser"
+				}],
+				"projects": [{
+					"_id": "5a0ebd5f9a15645fcedc912f",
+					"title": {
+						"en": "The rebirth has a young heart",
+						"it": "La rinascita ha il cuore giovane"
+					},
+					"owner": "legambiente",
+					"received": 0.3,
+					"used": 5000,
+					"pending": 0.1,
+					"currency": "EUR",
+					"target": 10000,
+					"media": ["5a0ebdf39a15645fcedc9130", "5a0ebe009a15645fcedc9131", "5a0ebe069a15645fcedc9132", "5a0ebe109a15645fcedc9133", "5a0ebe1a9a15645fcedc9134"]
+				}, {
+					"_id": "5a1e77a86972e021210ece44",
+					"title": {
+						"en": "",
+						"it": "Sostieni il Salto!"
+					},
+					"owner": "ilsalto",
+					"received": 0.3,
+					"used": 5000,
+					"pending": 0.1,
+					"currency": "EUR",
+					"target": 10000,
+					"media": ["5a1e871a64bdc0392cfae060", "5a1e873564bdc0392cfae061", "5a1e874464bdc0392cfae062", "5a1e874c64bdc0392cfae063", "5a1e877164bdc0392cfae065", "5a1e879a64bdc0392cfae066"]
+				}],
+				"company": [{
+					"_id": "5947b17417391e102c9feeec",
+					"username": "ale84nor",
+					"receiveaddress": "38dLQn9QRjfii3y46VYMdbgE2NVVgwbYgX",
+					"received": 2.4670444900000006,
+					"avatar": null,
+					"location": {
+						"type": "Point",
+						"coordinates": [13.097162, 42.79827299999999]
+					},
+					"trustlevel": 54,
+					"subtype": "none",
+					"usertype": "company"
+				}, {
+					"_id": "5a09a8a78e1fe542531ec207",
+					"username": "aparegiani",
+					"receiveaddress": "3KFWJ1QZCzPobbGfuGf7PXwSotStuvcuTG",
+					"received": 0,
+					"avatar": "5a09ab2b8e1fe542531ec20d",
+					"location": {
+						"type": "Point",
+						"coordinates": [12.6212739944458, 41.85477872467412]
+					},
+					"trustlevel": 60,
+					"subtype": "none",
+					"usertype": "company"
+				}, {
+					"_id": "5870d8471660b8002df3452d",
+					"username": "eticheterre",
+					"receiveaddress": "3EoZS7UZt3kFz3di31E6WbfjxytxDtzxnL",
+					"received": 1.28801016,
+					"avatar": "58986f44ab79690044fcb49c",
+					"location": {
+						"type": "Point",
+						"coordinates": [13.1497926, 42.757499]
+					},
+					"trustlevel": 60,
+					"subtype": "none",
+					"usertype": "company"
+				}, {
+					"_id": "5a1010ae391efe230aa85c25",
+					"username": "ilsalto",
+					"receiveaddress": "3L6nrKwVYudiAtpJo8SD7f8p7ACuzpN3YD",
+					"received": 0.002,
+					"avatar": "5a104d51391efe230aa85c66",
+					"location": {
+						"type": "Point",
+						"coordinates": [13.4100537, 43.12285139999999]
+					},
+					"trustlevel": 60,
+					"subtype": "none",
+					"usertype": "company"
+				}, {
+					"_id": "5975f4ec1c165f4a8ac7ea47",
+					"username": "santecorradetti",
+					"receiveaddress": "3CgTrWhz1triGMjxWtgYtGezxy8RouHFJ8",
+					"received": 1.12,
+					"avatar": null,
+					"location": {
+						"type": "Point",
+						"coordinates": [13.310163, 42.728435]
+					},
+					"trustlevel": 57,
+					"subtype": "none",
+					"usertype": "company"
+				}],
+				"npo": [{
+					"_id": "5a102e06391efe230aa85c2a",
+					"username": "blockchainedu",
+					"receiveaddress": "3FatUqa81Hm7TdrWfi7rGEfZQS1ASMvykR",
+					"received": 0.07000259,
+					"avatar": "5a1030e5391efe230aa85c2e",
+					"location": {
+						"type": "Point",
+						"coordinates": [12.413949966430664, 41.948958067066]
+					},
+					"trustlevel": 69,
+					"subtype": "none",
+					"usertype": "npo"
+				}, {
+					"_id": "57ef6e9dd5fcd2003a1b4e99",
+					"username": "csr1904",
+					"receiveaddress": "",
+					"received": 0.0601,
+					"avatar": "5a02b6890075280852031219",
+					"location": {
+						"type": "Point",
+						"coordinates": [12.515295, 41.8951189]
+					},
+					"trustlevel": 69,
+					"subtype": "none",
+					"usertype": "npo"
+				}, {
+					"_id": "59df54e75008e46deaeca204",
+					"username": "emergenzasorrisi",
+					"receiveaddress": "3FWJRRQZtkgHHDJidmrdp63vojP2z7r2Gx",
+					"received": 0.001,
+					"avatar": "59df56d75008e46deaeca20b",
+					"location": {
+						"type": "Point",
+						"coordinates": [12.4974405, 41.91351340000001]
+					},
+					"trustlevel": 69,
+					"subtype": "none",
+					"usertype": "npo"
+				}, {
+					"_id": "583c11a8f809a9003a185827",
+					"username": "legambiente",
+					"receiveaddress": "3EJVxSDVHp7TkGuUKEexLDssKfsWJHXTk9",
+					"received": 9.58745145,
+					"avatar": "584e94c5654302002d1464af",
+					"location": {
+						"type": "Point",
+						"coordinates": [12.5067883, 41.9339676]
+					},
+					"trustlevel": 60,
+					"subtype": "none",
+					"usertype": "npo"
+				}],
+				"school": [],
+				"park": [],
+				"munic": [],
+				"cultural": [],
+				"hospital": [],
+				"civilprotection": []
+			}

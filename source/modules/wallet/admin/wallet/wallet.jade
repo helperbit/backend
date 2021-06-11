@@ -1,0 +1,71 @@
+include ../../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../../admin/views/includes/header.jade
+		include ../../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Wallet -&nbsp;
+						span= wallet.address || wallet._id
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Wallet
+						li.active= wallet.address || wallet._id
+				// Main content
+				section.content.row
+						div.col-md-3
+							.box.box-primary
+								.box-body.box-profile
+									h3.profile-username.text-center(style="font-size:90%")= wallet._id
+									.list-group.list-group-unbordered
+										.list-group-item
+											b Owner
+											a.pull-right(href="/admin/user/" + wallet.owner)= wallet.owner
+										.list-group-item
+											b Script type
+											a.pull-right= wallet.scripttype
+										.list-group-item
+											b Type
+											if wallet.ismultisig
+												a.pull-right Multisig
+											else
+												a.pull-right Singlesign
+
+						div.col-md-9
+							.nav-tabs-custom
+								ul.nav.nav-tabs(role="tablist")
+									li.active(role="presentation")
+										a(href="#info" aria-controls="info" role="tab" data-toggle="tab") Info
+									if wallet.ismultisig && wallet.multisig.active
+										li(role="presentation")
+											a(href="#transactions" aria-controls="transactions" role="tab" data-toggle="tab") Transactions
+									li(role="presentation")
+										a(href="#tltx" aria-controls="tltx" role="tab" data-toggle="tab") Time-Lock Transactions
+									li(role="presentation")
+										a(href="#utxo" aria-controls="utxo" role="tab" data-toggle="tab") UTXO
+									li(role="presentation")
+										a(href="#txsim" aria-controls="txsim" role="tab" data-toggle="tab") Tx Simulator
+									li(role="presentation")
+										a(href="#raw" aria-controls="raw" role="tab" data-toggle="tab") Raw
+
+								div.tab-content
+									div.active.tab-pane#info(role="tabpanel")
+										include ./info.jade
+									div.tab-pane#transactions(role="tabpanel")
+										include ./transactions.jade
+									div.tab-pane#tltx(role="tabpanel")
+										include ./tltx.jade
+									div.tab-pane#utxo(role="tabpanel")
+										include ./utxo.jade
+									div.tab-pane#txsim(role="tabpanel")
+										include ./txsim.jade
+									div.tab-pane#raw(role="tabpanel")
+										textarea.form-control(rows="12")= wallet

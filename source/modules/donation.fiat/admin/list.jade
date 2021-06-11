@@ -1,0 +1,117 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Fiat donations
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li Donations
+						li.active Fiat
+				// Main content
+				section.content
+					div.box									
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Exchange
+									th EUR
+									th USD
+									//th GBP
+									th BTC
+								tr
+									td The Rock Trading
+									td= therocktrading.EUR
+									td= therocktrading.USD
+									//td= therocktrading.GBP
+									td= therocktrading.BTC
+							hr
+							include ../../admin/views/includes/pagination.jade
+							table.table.table-striped
+								tr
+									th ID
+									th Status
+										+sort(pagination, 'status')
+									th Refill Status
+										+sort(pagination, 'refillstatus')
+									th Time
+										+sort(pagination, 'time')
+									th Provider
+										+sort(pagination, 'provider')
+									th Exchange
+										+sort(pagination, 'exchange')
+									th From
+										+sort(pagination, 'fullname')
+									th To
+										+sort(pagination, 'touser')
+									th Value
+										+sort(pagination, 'value')
+									th BTC value
+										+sort(pagination, 'valuebtc')
+									th
+								each t in fiatdonations
+									tr
+										td(style="font-size: 70%")= t._id
+										td
+											if t.status == 'paid'
+												span.label.label-warning Paid
+											
+											if t.status == 'withdrawrequested'
+												span.label.label-warning Withdraw requested
+
+											if t.status == 'sent'
+												span.label.label-success Sent
+											
+											if t.status == 'refunded'
+												span.label.label-info Refunded
+											
+											if t.status == 'paidcheckfailed'
+												span.label.label-danger Paid, but price check failed (check for manual)
+
+											if t.status == 'paidinvalidbtc'
+												span.label.label-danger Paid, but BTC above threshold (need refund)
+
+											if t.status == 'failedpayment'
+												span.label.label-danger Failed Payment
+											
+											if t.status == 'paidtowronguser'
+												span.label.label-danger Paid, to wrong user (check for refund)
+
+										td
+											if t.refillstatus == 'none'
+												span.label.label-info No need of refill
+											if t.refillstatus == 'pending'
+												span.label.label-warning Pending
+											if t.refillstatus == 'orderplaced'
+												span.label.label-warning Order placed
+											if t.refillstatus == 'exchanged'
+												span.label.label-success Exchanged
+
+										td #{prettyDateTime(t.time)}
+										td= t.provider
+										td= t.exchange
+										td= t.fullname
+										td= t.touser
+										td
+											span= t.value
+											span &nbsp;
+											span= t.currency
+										td= t.valuebtc
+										td
+											a.btn.btn-xs.btn-primary(href="/admin/fiatdonation/"+t._id+"/") Details
+
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

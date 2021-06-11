@@ -1,0 +1,21 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+
+import { User } from '../../user/user.model';
+
+export = async () => {
+	log.job.debug('Migration', 'Executing users tags migration');
+
+	const users = await User.find({ usertype: 'npo' }).exec();
+	log.job.debug('Migration', `Found ${users.length} users for tags migration`);
+
+	users.forEach(async user => {
+		if (! ('tags' in user)) {
+			user.tags = [];
+			await user.save();
+		}
+	});
+};
+

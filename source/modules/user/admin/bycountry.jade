@@ -1,0 +1,50 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Users -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Users
+						li.active= title
+				// Main content
+				section.content
+
+					div.box
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Country
+										+sort(pagination, 'country')
+									th NPO
+										+sort(pagination, 'npo')
+									th NPO with active projects
+										+sort(pagination, 'npowproj')
+									th Company
+										+sort(pagination, 'company')
+									th Wallet
+										+sort(pagination, 'wallet')
+									th Total users
+										+sort(pagination, 'total')
+										
+								each u in users
+									tr
+										td= u.country
+										td= u.npo
+										td= u.npowproj
+										td= u.company
+										td= u.wallet
+										td= u.total

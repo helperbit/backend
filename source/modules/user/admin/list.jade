@@ -1,0 +1,95 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Users -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Users
+						li.active= title
+				// Main content
+				section.content
+					div.box							
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th User type
+									th Email
+										+sort(pagination, 'email')
+									th User name
+										+sort(pagination, 'username')
+									th Fullname
+									th Country
+										+sort(pagination, 'country')
+									th Trust
+										+sort(pagination, 'trustlevel')
+									th Verify
+									th Reg date
+										+sort(pagination, 'regdate')
+									th
+								each u in users
+									tr
+										td= u.usertype + (u.subtype != 'none' ? ' (' + u.subtype + ')' : '')
+										td(style="font-size: 70%")= u.email
+										td
+											span= u.username 
+											if 'socialauth' in u
+												span &nbsp;
+												if u.socialauth.provider == 'facebook'
+													i.fa.fa-facebook-square
+												if u.socialauth.provider == 'linkedin'
+													i.fa.fa-linkedin-square
+												if u.socialauth.provider == 'twitter'
+													i.fa.fa-twitter-square
+												if u.socialauth.provider == 'google'
+													i.fa.fa-google-square
+										td
+											span= u.firstname
+											span &nbsp;
+											span= u.lastname
+											span &nbsp;
+											span= u.fullname
+										td= u.country
+										td= u.trustlevel
+										td
+											each ver in u.verification
+												if ver.state == 'accepted'
+													span.label.label-success= ver.provider
+												if ver.state == 'rejected'
+													span.label.label-danger= ver.provider
+												if ver.state == 'pending'
+													span.label.label-warning= ver.provider
+												if ver.state == 'inprogress'
+													span.label.label-info= ver.provider
+												if ver.state == 'submission'
+													span.label.label-default= ver.provider
+												span &nbsp;
+												
+										td(style="font-size: 70%") #{prettyDate(u.regdate)}
+										td
+											if u.banned
+												span.label.label-danger banned
+												span &nbsp;
+
+											if !u.activation.status
+												span.label.label-danger not active
+												span &nbsp;
+											a.btn.btn-xs.btn-primary(href="/admin/user/"+u.username) Inspect
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

@@ -1,0 +1,45 @@
+table.table.table-hover
+	tr
+		th Time
+		th To
+		th Status
+		th Signatures
+		th
+	each t in transactions
+		tr
+			td #{prettyDateTime(t.time)}
+			td= t.to 
+			td
+				if t.status == 'waiting'
+						span.label.label-default Waiting
+
+				if t.status == 'signing'
+					span.label.label-warning Signing
+						
+				if t.status == 'signed'
+					span.label.label-warning Signed
+					
+				if t.status == 'broadcasted'
+					span.label.label-info Broadcasted
+					
+				if t.status == 'confirmed'
+					span.label.label-success Confirmed
+					
+				if t.status == 'refused'
+					span.label.label-danger Refused
+				
+				if t.status == 'doublespent'
+					span.label.label-danger Doublespent
+					
+				if t.status == 'hidden'
+					span.label.label-danger Hidden
+
+			td
+				span= t.signers.length
+				span &nbsp;(
+					span= t.n
+					span &nbsp;of 
+					span= t.admins.length + 1
+				span )
+			td
+				a.btn.btn-xs.btn-primary(href="/admin/transaction/"+t._id+"/") Details

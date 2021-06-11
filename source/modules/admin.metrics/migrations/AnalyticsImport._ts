@@ -1,0 +1,67 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+const moment = require('moment-range').extendMoment(require('moment'));
+const ganalHelper = require('../../../helpers/ganal');
+const Metrics = require('../../models/admin/metrics');
+
+
+export = async () => {
+	log.job.debug('Migration', 'Executing import of analytics');
+
+	let fails = 0;
+	const span = [moment([2016, 11, 1]), moment()];
+	const range = moment().range(span);
+	const datamiss = Array.from(range.by('day'));
+
+	for (let i = 0; i < datamiss.length; i++) {
+		const mm = await Metrics.findOne(
+			{
+				time: datamiss[i].format('YYYY-MM-DD').toString()
+			}).exec();
+
+
+		let m = null;
+		if (!mm) {
+			m = Metrics();
+			m.time = datamiss[i].format('YYYY-MM-DD').toString();
+			m.date = datamiss[i];
+		} else {
+			m = mm;
+			// if (m.analytics.pageviews > 0)
+			//	continue;
+		}
+
+		try {
+			const gresults = await ganalHelper.getTotal(moment(datamiss[i]).subtract(1, 'day'), moment(datamiss[i]));
+
+			m.analytics = {
+				users: gresults['ga:users'],
+				newusers: gresults['ga:newUsers'],
+				sessions: gresults['ga:sessions'],
+				pageviews: gresults['ga:pageviews']
+			};
+
+			await m.save();
+			if (!mm)
+				log.job.debug('Metrics', `Add missing analytics to: ${m.time} (${i}/${datamiss.length})`);
+			else
+				log.job.debug('Metrics', `Creating missing analytics to: ${m.time} (${i}/${datamiss.length})`);
+		} catch (err) {
+			log.job.error('Metrics', err);
+
+			fails += 1;
+			if (!mm)
+				log.job.error('Metrics', `Error adding missing analytics to: ${m.time} (${i}/${datamiss.length})`);
+			else
+				log.job.error('Metrics', `Error creating missing analytics to: ${m.time} (${i}/${datamiss.length})`);			
+		}
+
+		if (fails > 5) {
+			log.job.error('Metrics', `Too many fails quering google, stopping the process`);
+			return;
+		}
+	}
+};
+

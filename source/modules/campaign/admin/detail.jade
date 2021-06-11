@@ -1,0 +1,98 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Campaign -&nbsp;
+						span= campaign._id
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li Campaign
+						li.active= campaign._id
+				// Main content
+				section.content
+					div.nav-tabs-custom
+						ul.nav.nav-tabs(role="tablist")
+							li.active(role="presentation")
+								a(href="#info" aria-controls="info" role="tab" data-toggle="tab") Info
+							li(role="presentation")
+								a(href="#changes" aria-controls="changes" role="tab" data-toggle="tab") Changes
+							li(role="presentation")
+								a(href="#delete" aria-controls="danger" role="tab" data-toggle="tab") Delete
+
+						div.tab-content
+							div.tab-pane.active#info(role="tabpanel")
+								.row
+									div.col-md-4
+										span Status:&nbsp;
+										if campaign.status == 'started'
+											span.label.label-success Started
+										if campaign.status == 'concluded'
+											span.label.label-danger Concluded
+
+									div.col-md-4
+										span Owner:&nbsp;
+										b
+											a(href="/admin/user/" + campaign.owner)= campaign.owner
+
+									div.col-md-4
+										span View on HB:&nbsp;
+										b
+											a.btn.btn-xs.btn-primary(target="_blank", href="https://app.helperbit.com/campaign/" + campaign._id) View
+
+									div.col-md-6
+										span Title:&nbsp;
+										b= campaign.title
+
+									div.col-md-6
+										span Description
+										b= campaign.description
+
+							div.tab-pane#changes(role="tabpanel")
+								each ch in campaign.changeHistory.reverse()
+									h4= ch.changeDate
+									table.table.table-hover
+										tr
+											th Field
+											th New Value
+										each v,k in ch.content
+											tr
+												td= k
+												td= JSON.stringify(v)
+									hr
+
+							div.tab-pane#delete(role="tabpanel")
+								p Delete this campaign for terms violation (a mail with motivation will be sent)
+								textarea.form-control(id="deletereason", rows="2")
+									| Your Fundraising Campaign has been deleted because it violates our Terms of Service. The beneficiary of the Campaign can only be charitable projects created on Helperbit. It is forbidden to ask for money for personal or individual causes or for other players different from the selected project beneficiary. We invite you to celebrate an important occasion like a birthday, a festivity or a personal milestone promoting a charitable campaign for a nonprofit that is registered in Helperbit.
+								button.btn.btn-danger.btn-block(id="delete") Delete
+
+script.
+	$('#delete').click (function () {
+		if (window.confirm("Are you sure?")) {
+			$.ajax({
+				url: '/admin/campaign/#{campaign._id}/delete',
+				type: 'POST',
+				data: JSON.stringify({reason: $('#deletereason').val()}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					alert('Campaign deleted');
+					window.location = '/admin/campaigns';
+				},
+				failure: function (response, status) {
+					alert ('Error: ' + status + response);
+				}
+			});
+		}
+	});

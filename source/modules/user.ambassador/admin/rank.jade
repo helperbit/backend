@@ -1,0 +1,36 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Ambassador -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Ambassador
+						li
+							a(href='#') Rank
+						li.active= title
+				// Main content
+				section.content
+					div.box
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Username
+									th Count (Total)
+									th Count (Verified)
+								each u in users
+									tr
+										td
+											a(href="/admin/user/" + u.user, target="_blank")= u.user
+										td= u.count
+										td= u.countver

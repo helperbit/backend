@@ -1,0 +1,58 @@
+div.row
+	if wallet.ismultisig && !wallet.multisig.active
+		.col-md-12
+			.alert.alert-danger
+				span This multisig wallet is not active
+
+	div.col-md-6
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Address
+				a.pull-right= wallet.address
+
+			.list-group-item
+				b Owner
+				a.pull-right(href="/admin/user/" + wallet.owner)= wallet.owner
+
+			.list-group-item
+				b Label
+				a.pull-right= wallet.label
+
+			.list-group-item
+				b Creation Date
+				a.pull-right= locals.formatDate(wallet.creationdate)
+
+	div.col-md-6
+		.list-group.list-group-unbordered
+			.list-group-item
+				b Balance (confirmed)
+				a.pull-right= balance.balance
+			.list-group-item
+				b Balance (unconfirmed)
+				a.pull-right= balance.unconfirmed
+			.list-group-item
+				b Received
+				a.pull-right= balance.received
+
+if wallet.ismultisig
+	hr
+	h2 Multisig
+	.row
+		.col-md-12
+			.list-group.list-group-unbordered
+				.list-group-item
+					b N
+					a.pull-right= wallet.multisig.n
+				.list-group-item
+					b Admins
+					a.pull-right= wallet.multisig.admins
+				.list-group-item
+					b Done Admins
+					a.pull-right= wallet.multisig.doneadmins
+				.list-group-item
+					b Hardware Admins
+					a.pull-right= wallet.multisig.hardwareadmins
+				.list-group-item
+					b Hardware Admins Types
+					a.pull-right= wallet.multisig.hardwaretypes
+

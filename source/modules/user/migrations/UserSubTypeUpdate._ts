@@ -1,0 +1,29 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+
+import { User } from '../../user/user.model';
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing users subtype update');
+
+	User.find({ usertype: { $nin: ['company', 'npo', 'singleuser'] } }, (err, users) => {
+		log.job.debug('Migration', `Found ${users.length} users for subtype update`);
+
+		users.forEach((u) => {
+			const old = u.usertype;
+			u.usertype = 'npo';
+			u.subtype = old;
+			u.save(function (err) {
+				if (err != null) {
+					return log.job.error('Migration', `Failed to change subtype for ${u.username} ${old}`);
+				}
+
+				log.job.debug('Migration', `Changed subtype for ${u.username}: ${u.usertype} ${u.subtype}`);
+			});
+		});
+	});
+};
+

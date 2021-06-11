@@ -1,0 +1,10 @@
+table.table.table-hover
+	tr
+		th Tx
+		th N
+		th Value
+	each t in utxos
+		tr
+			td= t.tx
+			td= t.n
+			td= t.value

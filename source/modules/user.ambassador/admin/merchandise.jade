@@ -1,0 +1,124 @@
+include ../../admin/views/includes/head.jade
+
+style.
+	.info-box-small {
+		min-height: 60px !important;
+		cursor: pointer;
+	}
+	.box-metric-disabled {
+		background: #ccc;
+		font-size:50%;
+	}
+	.box-metric-disabled > .info-box-icon {
+		background-color: #777 !important;
+	}
+	.info-box-small > .info-box-icon {
+		height: 60px !important;
+		width: 60px !important;
+		line-height: 60px !important;
+		font-size: 35px !important;
+	}
+	.info-box-small > .info-box-content {
+		margin-left: 60px !important;
+	}
+	.info-box-small > .info-box-content > .info-box-text {
+		font-size: 13px !important;
+	}
+	.btn-box-tool {
+		color: #666 !important;
+	}
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Merchandise
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Ambassador
+						li.active Merchandise
+				// Main content
+				section.content
+					.row
+						each m in merchandise
+							.col-md-12
+								.box(class=(m.total - m.assigned > 0) ? 'box-success' : 'box-danger')
+									.box-header.with-border
+										h3.box-title= m.name
+									// /.box-header
+									.box-body.row
+										.col-md-4.col-sm-6.col-xs-12
+											.info-box.info-box-small.bg-blue
+												span.info-box-icon.bg-blue
+													i.fa.fa-trophy(style="color: #fff")
+												.info-box-content
+													span.info-box-text Total
+													span.info-box-number= m.total
+										.col-md-4.col-sm-6.col-xs-12
+											.info-box.info-box-small.bg-green
+												span.info-box-icon.bg-green
+													i.fa.fa-trophy(style="color: #fff")
+												.info-box-content
+													span.info-box-text Assigned
+													span.info-box-number= m.assigned
+										.col-md-4.col-sm-6.col-xs-12
+											.info-box.info-box-small.bg-yellow
+												span.info-box-icon.bg-yellow
+													i.fa.fa-trophy(style="color: #fff")
+												.info-box-content
+													span.info-box-text Elapsed
+													span.info-box-number= m.total - m.assigned
+										.col-md-12
+											table.table.table-striped.table-hover
+												tr
+													th Username
+													th Time
+													th Status
+													th Admin Notes
+													th
+												each u in m.assignments
+													tr(class=(u.status == 'assigned') ? 'danger' : (u.status == 'delivering' ? 'warning' : 'success'))
+														td
+															a(href="/admin/user/" + u.username, target="_blank")= u.username
+														td= u.time
+														td
+															select.form-control.status-option(id="status_" + m.name + "_" + u.username, value=u.status)
+																option(value="assigned",selected=u.status=='assigned') Assigned
+																option(value="delivering",selected=u.status=='delivering') Delivering
+																option(value="delivered",selected=u.status=='delivered') Delivered
+														td
+															textarea.form-control(id="notes_" + m.name + "_" + u.username, style="width: 100%", rows="1")= u.notes
+														td
+															a.btn.btn-sm.btn-block.btn-danger.btn-save(mname=m.name, user=u.username) Save
+
+script.
+	$(document).ready(function() {
+		$('.btn-save').click(function() {
+			var user = $(this).attr('user');
+			var mname = $(this).attr('mname');
+
+			var status = $('#status_' + mname + '_' + user + ' option:selected').val();
+			var notes = $('#notes_' + mname + '_' + user).val();
+
+			$.ajax ({
+				method: 'POST',
+				url: '/admin/ambassadors/merchandise/' + mname + '/' + user + '/edit', 
+				data: JSON.stringify({ notes: notes, status: status }),
+				contentType: "application/json",
+				success: function (data) {
+					alert('Saved');
+					window.location = '/admin/ambassadors/merchandise';
+				},
+				error: function(data) {
+					alert('Error: ' + data.responseJSON.error);
+				}
+			});
+		})
+	});

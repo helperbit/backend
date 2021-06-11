@@ -1,0 +1,51 @@
+import frisby = require('frisby');
+import common = require('../../tests.shared/middlewares/common');
+import { frisbyChain } from '../../tests.shared/middlewares/frisbyChain';
+
+
+/* Create admins */
+frisbyChain({}, [
+	common.cleanResources('testlightning'),
+
+	(data, next) => frisby.create('/lightning/invoice/create - create an invoice')
+		.post(common.api + 'lightning/invoice/create',
+			{
+				msat: 1000,
+				metadata: {
+					type: 'testlightning',
+					vote: 'pino'
+				}
+			}, { json: true })
+		.expectStatus(200)
+		.afterJSON(j => {
+			console.log(`Pay to: ${j.payreq}`);
+			data.invoice = j;
+			next(data);
+		})
+		.toss(),
+
+	(data, next) => frisby.create('/lightning/invoice/:id - get an invoice')
+		.get(common.api + 'lightning/invoice/' + data.invoice.invoiceid)
+		.expectStatus(200)
+		.afterJSON(j => {
+			next(data);
+		})
+		.toss(),
+
+	(data, next) => frisby.create('/lightning/invoice/:id - get an invoice, wait for expiration or payment')
+		.get(common.api + 'lightning/invoice/' + data.invoice.invoiceid)
+		.expectStatus(200)
+		.retry(500, 20000)
+		.expectJSON({
+			status: v => v == 'expired' || v == 'paid'
+		})
+		.afterJSON(j => {
+			next(data);
+		})
+		.toss(),
+
+	common.cleanResources('testlightning')
+]);
+
+
+

@@ -1,0 +1,104 @@
+// Left side column. contains the logo and sidebar
+aside.main-sidebar
+	section.sidebar
+		form.sidebar-form(action="/admin/search",method="GET")
+			.input-group
+				input.form-control(name="q", type="text", placeholder="Search...", value=query||'')
+				.input-group-btn
+					button.btn.btn-flat(type="submit", name="search")
+						i.fa.fa-search
+						
+		ul.sidebar-menu(data-widget='tree')
+			//- li.header MAIN NAVIGATION
+			//- li(class=page=='index' ? "active" : "")
+			//- 	a(href='/admin/')
+			//- 		i.fa.fa-dashboard
+			//- 		span Dashboard
+
+			each m in locals.modules
+				if 'admin' in m && 'icon' in m.admin && 'menu' in m.admin && !('subof' in m.admin)
+					li.treeview(class=page==m.name ? "active" : "")
+						a(href='#')
+							i.fa(class=m.admin.icon)
+							span= m.admin.title
+							span.pull-right-container
+								i.fa.fa-angle-left.pull-right
+						ul.treeview-menu							
+							// Module menu
+							each am in m.admin.menu
+								if 'menu' in am
+									li.treeview
+										a(href='#')
+											if 'icon' in am
+												i.fa(class=am.icon)
+											else
+												i.fa.fa-circle-o
+											span= am.title
+											span.pull-right-container
+												i.fa.fa-angle-left.pull-right
+										ul.treeview-menu
+											each mm in am.menu
+												li
+													a(href=mm.url)
+														i.fa.fa-circle-o
+														span= mm.title
+								else
+									li
+										a(href=am.url)
+											if 'icon' in am
+												i.fa(class=am.icon)
+											else
+												i.fa.fa-circle-o
+											span= am.title
+
+							// Sub modules menus
+							if m.name in locals.subofmodules
+								each sub in locals.subofmodules[m.name]
+									if 'url' in sub
+										li
+											a(href=sub.url)
+												i.fa(class=sub.icon)
+												span= sub.title
+									else
+										li.treeview
+											a(href='#')
+												i.fa(class=sub.icon)
+												span= sub.title
+												span.pull-right-container
+													i.fa.fa-angle-left.pull-right
+											ul.treeview-menu
+												each am in sub.menu
+													if 'menu' in am
+														li.treeview
+															a(href='#')
+																if 'icon' in am
+																	i.fa(class=am.icon)
+																else
+																	i.fa.fa-circle-o
+																span= am.title
+																span.pull-right-container
+																	i.fa.fa-angle-left.pull-right
+															ul.treeview-menu
+																each mm in am.menu
+																	li
+																		a(href=mm.url)
+																			i.fa.fa-circle-o
+																			span= mm.title
+													else
+														li
+															a(href=am.url)
+																if 'icon' in am
+																	i.fa(class=am.icon)
+																else
+																	i.fa.fa-circle-o
+																span= am.title
+
+
+				else if 'admin' in m && 'icon' in m.admin && 'url' in m.admin && !('subof' in m.admin)
+					li(class=page==m.name ? "active" : "")
+						a(href=m.admin.url)
+							i.fa(class=m.admin.icon)
+							span= m.admin.title
+
+
+

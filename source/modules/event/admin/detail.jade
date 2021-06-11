@@ -1,0 +1,607 @@
+include ../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Event -&nbsp;
+						if event._id != 'null'
+							span= event._id
+						else
+							span Create event
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Event
+							
+						if event._id != 'null'
+							li= event._id
+						else
+							li New
+				// Main content
+				section.content					
+						div.nav-tabs-custom
+							ul.nav.nav-tabs(role="tablist")
+								li(role="presentation")
+									a(href="#info" aria-controls="info" role="tab" data-toggle="tab") Info
+								li(role="presentation")
+									a(href="#article" aria-controls="article" role="tab" data-toggle="tab") Article
+								li.active(role="presentation")
+									a(href="#geometry" aria-controls="geometry" role="tab" data-toggle="tab") Geometry
+								li(role="presentation")
+									a(href="#images" aria-controls="images" role="tab" data-toggle="tab") Images
+								li(role="presentation")
+									a(href="#news" aria-controls="images" role="tab" data-toggle="tab") News
+								li(role="presentation")
+									a(href="#affected" aria-controls="affected" role="tab" data-toggle="tab") Affected
+								li(role="presentation")
+									a(href="#raw" aria-controls="raw" role="tab" data-toggle="tab") Raw
+								if locals.checkPriv (locals, 'admin')
+									li(role="presentation")
+										a(href="#danger" aria-controls="danger" role="tab" data-toggle="tab") Danger Zone
+
+							div.tab-content
+								div.tab-pane#info(role="tabpanel")
+									form.row
+										div.col-md-3.form-group
+											label(for="inputType") Event type:
+											select.form-control#inputType
+												option(selected=event.type == 'earthquake') earthquake
+												option(selected=event.type == 'flood') flood
+												option(selected=event.type == 'eruption') eruption
+												option(selected=event.type == 'hurricane') hurricane
+												option(selected=event.type == 'tsunami') tsunami
+												option(selected=event.type == 'drought') drought
+												option(selected=event.type == 'wildfire') wildfire
+												option(selected=event.type == 'slide') slide
+
+										div.col-md-3.form-group
+											label(for="inputVisible") Visibility:
+											select.form-control#inputVisible
+												option(selected=event.visible == true) true
+												option(selected=event.visible == false) false
+
+										div.col-md-3.form-group
+											label(for="inputMainevent") Main event (display in home):
+											select.form-control#inputMainevent
+												option(selected=event.mainevent == true) true
+												option(selected=event.mainevent == false) false
+
+
+										div.col-md-3.form-group
+											label(for="inputCountry") Country:
+											select.form-control#inputCountry(multiple)
+												for country in countries
+													option(selected=(event.affectedcountries.indexOf (country) != -1))= country
+
+										div.col-md-3.form-group
+											label(for="inputDatasource") Data source:
+											input.form-control#inputDatasource(type="text",value=event.datasource)
+											
+
+										div.col-md-3.form-group
+											label(for="inputMaxMagnitude") Max Magnitude (>=6.0)
+											input.form-control#inputMaxMagnitude(type="number",value=event.maxmagnitude)
+
+
+										div.col-md-3.form-group
+											label(for="inputLastShakeDate") Last shake date
+											input.form-control#inputLastShakeDate(type="date",value=locals.formatDate(event.lastshakedate))
+
+										div.col-md-3.form-group
+											label(for="inputStartDate") Start date
+											input.form-control#inputStartDate(type="date",value=locals.formatDate(event.startdate))
+
+
+										div.col-md-3.form-group
+											label(for="inputRegions") Region:
+											input.form-control#inputRegions(type="text",value=event.affectedregions)
+
+
+										div.col-md-12
+											h3 Population
+
+										div.col-md-3.form-group
+											label(for="inputPopAffected") Affected:
+											input.form-control#inputPopAffected(type="number",value=event.population.affected)
+
+										div.col-md-3.form-group
+											label(for="inputPopDeaths") Deaths:
+											input.form-control#inputPopDeaths(type="number",value=event.population.deaths)
+
+										div.col-md-3.form-group
+											label(for="inputPopWounded") Wounded:
+											input.form-control#inputPopWounded(type="number",value=event.population.wounded)
+
+										div.col-md-3.form-group
+											label(for="inputPopDisplaced") Displaced:
+											input.form-control#inputPopDisplaced(type="number",value=event.population.displaced)
+
+
+										div.col-md-12
+											h3 Near city
+
+										div.col-md-4.form-group
+											label(for="inputNearCityName") Name:
+											input.form-control#inputNearCityName(type="text",value=event.nearcity.name)
+
+										div.col-md-3.form-group
+											label(for="inputNearCityDist") Distance:
+											input.form-control#inputNearCityDist(type="text",value=event.nearcity.distance)
+
+										div.col-md-2.form-group
+											label(for="inputNearCityDist") Direction:
+											input.form-control#inputNearCityDist(type="text",value=event.nearcity.direction)
+
+										div.col-md-3.form-group
+											label(for="inputNearCityDist") Population:
+											input.form-control#inputNearCityPop(type="text",value=event.nearcity.population)
+
+
+										div.col-md-12
+											h3 Capital city
+
+										div.col-md-4.form-group
+											label(for="inputCapitalCityName") Name:
+											input.form-control#inputCapitalCityName(type="text",value=event.capital.name)
+
+										div.col-md-4.form-group
+											label(for="inputCapitalCityDist") Distance:
+											input.form-control#inputCapitalCityDist(type="text",value=event.capital.distance)
+
+										div.col-md-4.form-group
+											label(for="inputCapitalCityDist") Population:
+											input.form-control#inputCapitalCityPop(type="text",value=event.capital.population)
+
+										if locals.checkPriv (locals, 'operator')
+											div.col-md-12.form-group
+												br
+												a.btn-block.btn.btn-primary#submitBase Save
+
+
+								div.tab-pane.active#geometry(role="tabpanel")
+									div#map(style="height:280px; width:100%;")
+
+									br
+									div.row
+										div.col-md-6.form-group
+											label(for="inputLat") Latitude
+											input.form-control#inputLat(type="number",value=event.epicenter.coordinates[1])
+										div.col-md-6.form-group
+											label(for="inputLong") Longitude
+											input.form-control#inputLong(type="number",value=event.epicenter.coordinates[0])
+										div.col-md-12
+											if locals.checkPriv (locals, 'operator')
+												a.btn.btn-primary.btn-block#submitEpicenter Save
+									hr
+									if locals.checkPriv (locals, 'operator')
+										h2 Area upload
+										.row
+											.col-md-6
+												p Import a GeoJSON event boundary; the shapefile should be a zip shapefile with only one feature (event boundary); a quick way to create a shapefile is http://geojson.io, draw a polyline, and Save as GeoJSON.
+												div.form-group
+													label(for="inputGEO") GeoJSON
+													input.form-control#inputGEO(type="file")
+												a.btn.btn-primary.btn-block#submitGEO Import
+											.col-md-6
+												p Import a shapefile event boundary; the shapefile should be a zip shapefile with only one feature (event boundary); a quick way to create a shapefile is http://geojson.io, draw a polyline, and Save as SHP.
+												div.form-group
+													label(for="inputSHP") Shapefile
+													input.form-control#inputSHP(type="file")
+												a.btn.btn-primary.btn-block#submitSHP Import
+										hr
+
+								div.tab-pane#news(role="tabpanel")
+									if locals.checkPriv (locals, 'operator')
+										div.row
+											div.col-md-4.form-group
+												label(for="inputNewsUrl") Url:
+												input.form-control#inputNewsUrl(type="text",value="")
+											div.col-md-4.form-group
+												label(for="inputNewsLang") Language (it, en, es, ...):
+												input.form-control#inputNewsLang(type="text",value="en")
+											div.col-md-4
+												a.btn.btn-info#submitNews Add
+										br
+									hr
+									br
+									table.table
+										thead
+											tr
+												th Url
+												th Title
+												th Lang
+												th Image
+												th
+										tbody
+											each f in event.news
+												tr
+													td
+														a(href=f.url, target="_blank") Open
+													td= f.title
+													td= f.lang
+													td
+														img(width="256px",src=f.image)
+													td
+														if locals.checkPriv (locals, 'operator')
+															a.btn.btn-danger.removeNews(url=f.url) Remove
+
+								div.tab-pane#article(role="tabpanel")
+									p This tab allow to provide a custom description for this event. The description will be saved in the database and it's displayed in the frontend instead of the auto-generated article. To edit an article you should remove the selected article and create one new with the updated text.
+									div.row
+										if locals.checkPriv (locals, 'operator')
+											div.col-md-6.div
+												div.col-md-12
+													div.form-group
+														label(for="inputArticleLang") Language:
+														select.form-control#inputArticleLang
+															option en
+															option it
+															option es
+															option fr
+															option ru
+												
+												div.col-md-12
+													div.form-group
+														textarea.form-control#inputArticleText(rows=10) In this textarea you can insert your custom article for the given language; remember that {{}} tags are used for embedding helperbit data. The estimated depth of the earthquake is {{depth}} km, typical of earthquakes {{mountainrange}}. The effects of the earthquake were particularly destructive near the epicenter, with many dead and wounded, tens of thousands of displaced persons and damage primarily concentrated in the city of {{ncity}} and the surrounding area. The earthquake was felt clearly in {{capital}} the capital of {{country}}.
+													
+												div.col-md-12
+													a.btn.btn-primary.btn-block#submitArticle Save
+												
+										div.col-md-6.div
+											each text, lang in event.article
+												p Language:
+													span= lang
+													
+												textarea.form-control(readonly="readonly")= text
+													
+												if locals.checkPriv (locals, 'operator')
+													a.btn.btn-danger.btn-sm.btn-block.removeArticle(lang=lang) Remove
+
+
+								div.tab-pane#images(role="tabpanel")
+									div.row
+										each im in event.images
+											div.col-md-3
+												div.class.thumbnail
+													img(src="/admin/media/" + im)
+													if locals.checkPriv (locals, 'operator')
+														a.btn.btn-danger.btn-block.removeMedia(mid=im) Remove
+																			
+										if locals.checkPriv (locals, 'operator')
+											div.col-md-12
+												div.form-group
+													label(for="inputMedia") Image:
+													input.form-control#inputMedia(type="file")
+												a.btn.btn-primary.btn-block#submitMedia Insert
+
+								div.tab-pane#affected(role="tabpanel")
+									div.row
+										if locals.checkPriv (locals, 'admin')	
+											div.col-md-4
+												br
+												p Insert a bulk group of fake users affected by this event.
+
+												//div.col-md-6
+												//	div.form-group
+												//		label(for="inputFakeNumber") Number:
+												input.form-control#inputFakeNumber(value="1", type="hidden")
+
+												div.col-md-12
+													div.form-group
+														label(for="inputFakeType") Type:
+														select.form-control#inputFakeType
+															option singleuser
+															option npo
+															option hospital
+															option school 
+															option civilprotection
+															option municipality
+
+												div.col-md-12
+													a.btn.btn-primary.btn-block#submitFake Create
+
+												div.col-md-12
+													br
+													a.btn.btn-primary.btn-block#submitReloadAffected Reload affected users
+										
+										div.col-md-8
+											table.table.table-striped.table-compressed
+												tr 
+													th Username
+													th Type
+													th Received (BTC)
+													th Trustlevel
+												each u in affus
+													tr
+														td
+															a(target="_blank", href='/admin/user/'+u.username)= u.username
+														td= u.usertype
+														td= u.received
+														td= u.trustlevel
+												
+											
+								div.tab-pane#raw(role="tabpanel")
+									textarea.form-control#inputRaw(rows="12")= event
+
+								if locals.checkPriv (locals, 'admin')	
+									div.tab-pane#danger(role="tabpanel")
+										a.btn.btn-danger#submitDelete Delete event
+
+	script.
+		var map = L.map('map').setView([36, 0], 2);
+
+		L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+			subdomains:['mt0','mt1','mt2','mt3'],
+		    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		    maxZoom: 18,
+		}).addTo(map);
+
+		var myStyle = { "color": "#ff7800", "weight": 5, "opacity": 0.65 };
+
+		try{
+			L.geoJson({geometry: !{JSON.stringify (event.geometry)}, type: "Feature"}, { style: myStyle }).addTo(map);
+		} catch (e) {}
+		try {
+			var marker = L.marker([!{JSON.stringify (event.epicenter.coordinates[1])}, !{JSON.stringify (event.epicenter.coordinates[0])}]).addTo(map);
+		} catch (e) {}
+
+		$('#submitEpicenter').click (function () {
+			$.ajax({
+			    url: '/admin/event/#{event._id}/edit',
+			    type: 'POST',
+			    data: JSON.stringify({epicenter: {type: "Point", coordinates: [parseFloat ($('#inputLong').val ()), parseFloat ($('#inputLat').val ()), 0]}}),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/'+msg._id;
+			    }
+			});
+		});
+
+		$('#submitReloadAffected').click (function () {
+			$.ajax({
+			    url: '/admin/event/#{event._id}/reloadaffected',
+			    type: 'POST',
+			    data: JSON.stringify({}),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/#{event._id}';
+			    }
+			});
+		});
+
+
+		$('#submitFake').click (function () {
+			$.ajax({
+			    url: '/admin/event/#{event._id}/fakeusers',
+			    type: 'POST',
+			    data: JSON.stringify({n: $('#inputFakeNumber').val (), type: $('#inputFakeType').val ()}),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/#{event._id}';
+			    }
+			});
+		});
+
+
+		$('#submitDelete').click (function () {
+			$.ajax({
+			    url: '/admin/event/#{event._id}/delete',
+			    type: 'POST',
+			    data: JSON.stringify({}),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/events';
+			    }
+			});
+		});
+
+		$('#submitMedia').click (function () {
+			var formData = new FormData();
+			formData.append('file', $('#inputMedia')[0].files[0]);
+
+			$.ajax({
+				url: '/admin/event/#{event._id}/media',
+				type: 'POST',
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(data) {
+					alert ('Upload completed.');
+					window.location = '/admin/event/#{event._id}';
+				}
+			});		
+		});
+		
+		$('.removeMedia').click (function () {
+			var mid = $(this).attr ('mid');
+		
+			$.ajax({
+			    url: '/admin/event/#{event._id}/media/' + mid + '/remove',
+			    type: 'POST',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/#{event._id}';
+			    }
+			});			
+		});
+
+
+		$('#submitArticle').click (function () {
+			var lang = $('#inputArticleLang').val ();
+			var text = $('#inputArticleText').val ();
+			
+			$.ajax({
+			    url: '/admin/event/#{event._id}/article',
+			    type: 'POST',
+			    data: JSON.stringify({lang: lang, text: text}),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/#{event._id}';			    
+				}
+			});
+		});
+		
+		$('.removeArticle').click (function () {
+			var lg = $(this).attr ('lang');
+			$.ajax({
+			    url: '/admin/event/#{event._id}/article/' + lg,
+			    type: 'DELETE',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/#{event._id}';
+			    }
+			});				
+		});
+
+
+		$('.removeNews').click (function () {
+			var url = $(this).attr ('url');
+			console.log (url);
+			$.ajax({
+			    url: '/admin/event/#{event._id}/news/remove',
+			    type: 'POST',
+			    dataType: 'json',
+			    data: {url: url},
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/#{event._id}';
+			    }
+			});	
+		});
+		
+		$('#submitNews').click (function () {
+			var url = $('#inputNewsUrl').val ();
+			var lang = $('#inputNewsLang').val ();
+
+			$.ajax ({
+				url: '/admin/event/#{event._id}/news/add',
+				type: 'POST',
+			    dataType: 'json',
+			    data: {lang: lang, url: url},
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/#{event._id}';
+			    }
+			})
+		});
+
+
+		$('#submitSHP').click (function () {
+			var shapefile = document.getElementById('inputSHP').files[0];
+			fr = new FileReader();
+			fr.onload = function () {
+				console.log (fr.result);
+				shp (fr.result).then (function (data) {
+					$.ajax({
+					    url: '/admin/event/#{event._id}/edit',
+					    type: 'POST',
+					    data: JSON.stringify({geometry: data.features[0].geometry}),
+					    contentType: 'application/json; charset=utf-8',
+					    dataType: 'json',
+					    async: false,
+					    success: function(msg) {
+							window.location = '/admin/event/'+msg._id;
+					    }
+					});
+				});
+			};
+			//fr.readAsText(shapefile);
+			fr.readAsArrayBuffer(shapefile);
+		});
+
+		$('#submitGEO').click (function () {
+			var geofile = document.getElementById('inputGEO').files[0];
+			fr = new FileReader();
+			fr.onload = function () {
+				console.log (fr.result);
+				var geojson = JSON.parse (fr.result);
+
+				$.ajax({
+				    url: '/admin/event/#{event._id}/edit',
+				    type: 'POST',
+				    data: JSON.stringify({geometry: geojson.features[0].geometry}),
+				    contentType: 'application/json; charset=utf-8',
+				    dataType: 'json',
+				    async: false,
+				    success: function(msg) {
+						window.location = '/admin/event/'+msg._id;
+				    }
+				});
+			};
+			fr.readAsText(geofile);
+			//fr.readAsArrayBuffer(geofile);
+		});
+
+		$('#submitRaw').click (function () {
+			var data = $('#inputRaw').val ();
+		});
+
+		$('#submitBase').click (function () {
+			var data = {};
+
+			data['type'] = $('#inputType').val ();
+			data['visible'] = $('#inputVisible').val ();
+			data['mainevent'] = $('#inputMainevent').val ();
+
+			
+			data['affectedcountries'] = $('#inputCountry').val ();
+			data['affectedregions'] = [ $('#inputRegions').val () ];
+
+			data['deaths'] = parseInt ($('#inputDeaths').val ());
+			
+			data['population'] = {};
+			data['population']['displaced'] = parseInt ($('#inputPopDisplaced').val ());
+			data['population']['wounded'] = parseInt ($('#inputPopWounded').val ());
+			data['population']['affected'] = parseInt ($('#inputPopAffected').val ());
+			data['population']['deaths'] = parseInt ($('#inputPopDeaths').val ());
+			
+			data['lastshakedate'] = $('#inputLastShakeDate').val ();
+			data['startdate'] = $('#inputStartDate').val ();
+			data['maxmagnitude'] = parseFloat ($('#inputMaxMagnitude').val ());
+			data['datasource'] = $('#inputDatasource').val ();
+
+			data['nearcity'] = {};
+			data['nearcity']['name'] = $('#inputNearCityName').val ();
+			data['nearcity']['distance'] = parseInt ($('#inputNearCityDist').val ());
+			data['nearcity']['direction'] = parseFloat ($('#inputNearCityDir').val ());
+			data['nearcity']['population'] = parseInt ($('#inputNearCityPop').val ());
+
+			data['capital'] = {};
+			data['capital']['name'] = $('#inputCapitalCityName').val ();
+			data['capital']['distance'] = parseInt ($('#inputCapitalCityDist').val ());
+			data['capital']['population'] = parseInt ($('#inputCapitalCityPop').val ());
+
+			$.ajax({
+			    url: '/admin/event/#{event._id}/edit',
+			    type: 'POST',
+			    data: JSON.stringify(data),
+			    contentType: 'application/json; charset=utf-8',
+			    dataType: 'json',
+			    async: false,
+			    success: function(msg) {
+					window.location = '/admin/event/'+msg._id;
+			    }
+			});
+		});

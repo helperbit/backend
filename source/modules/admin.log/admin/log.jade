@@ -1,0 +1,28 @@
+table.table.table-hover
+	tr
+		th Time
+		th Admin
+		th IP
+		th Type
+		th Context
+		th Related user
+		th Description
+
+	each e in adminlog
+		tr
+			td(style="font-size: 80%") #{prettyDateTime(e.time)}
+			td(style="font-size: 80%")= e.user
+			td(style="font-size: 80%")= e.ip
+			td(style="font-size: 80%")
+				if e.type == 'login'
+					span.label.label-info= e.type
+				if e.type == 'logout'
+					span.label.label-warning= e.type
+				if e.type == 'changepassword'
+					span.label.label-danger= e.type
+				if e.type == 'operation'
+					span.label.label-default= e.type
+			td(style="font-size: 80%")
+				span.label.label-success= e.context
+			td(style="font-size: 80%")= e.relateduser
+			td(style="font-size: 80%")= e.description

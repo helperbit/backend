@@ -1,0 +1,50 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+import { User } from '../../user/user.model';
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing users verification media update');
+
+	User.find({}, (err, users) => {
+		users.forEach(u => {
+			u.verification.forEach(v => {
+				switch (v.provider) {
+					case 'npo':
+						if (v.media.length > 0)
+							v.medias.push({ name: 'statute', mid: v.media[0] });
+						if (v.media.length > 1)
+							v.medias.push({ name: 'memorandum', mid: v.media[1] });
+						if (v.media.length > 2)
+							v.medias.push({ name: 'actofboard', mid: v.media[2] });
+						break;
+
+					case 'residency':
+						if (v.media.length > 0)
+							v.medias.push({ name: 'residency', mid: v.media[0] });
+						break;
+
+					case 'document':
+						if (v.media.length > 0)
+							v.medias.push({ name: 'front', mid: v.media[0] });
+						if (v.media.length > 1)
+							v.medias.push({ name: 'back', mid: v.media[1] });
+						break;
+				};
+
+				if (v.medias.length > 0 && v.media.length > 0) {
+					v.media = [];
+					u.save(e => {
+						if (e != null)
+							return log.job.error('Migration', `Error updating user ${u.username} verification of ${v.provider} with ${v.medias.length} medias: ${err}`);
+
+						log.job.debug('Migration', `Updated user ${u.username} verification of ${v.provider} with ${v.medias.length} medias`);
+					});
+				}
+			})
+		});
+	});
+};
+

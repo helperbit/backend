@@ -1,0 +1,242 @@
+include ../../admin/views/includes/head.jade
+
+script(src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js")
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+			// Content Header (Page header)
+			section.content-header
+				h1 AdminHB | Mail tool send
+				ol.breadcrumb
+					li
+						a(href='#')
+							i.fa.fa-dashboard
+							|  Home
+					li
+						a(href='#')
+							i.fa.fa-dashboard
+							|  Mail tool
+					li.active Send
+
+
+			// Main content
+			section.content.row
+				div.col-md-8
+					form(method="GET")
+						div.box.box-success
+							.box-header.with-border
+								h3.box-title Filters
+							.box-body.row
+								.col-md-6
+									.form-group
+										label User type
+										select.form-control(name="usertype")
+											option(value="all", selected=(filter.usertype=='all')) All
+											option(value="npo", selected=(filter.usertype=='npo')) NPOs
+											option(value="singleuser", selected=(filter.usertype=='singleuser')) Single Users
+											option(value="company", selected=(filter.usertype=='company')) Companies
+
+									.form-group
+										label Wallet
+										select.form-control(name="wallet")
+											option(value="all", selected=(filter.wallet=='all')) All
+											option(value="wallet", selected=(filter.wallet=='wallet')) With wallet
+											option(value="nowallet", selected=(filter.wallet=='nowallet')) Without wallet
+
+									.form-group
+										label Geolocalized
+										select.form-control(name="geoloc")
+											option(value="all", selected=(filter.geoloc=='all')) All
+											option(value="geoloc", selected=(filter.geoloc=='geoloc')) True
+											option(value="nogeoloc", selected=(filter.geoloc=='nogeoloc')) False
+
+									.form-group
+										label Last bulkmail
+										select.form-control(name="lastmail")
+											option(value="none", selected=(filter.lastmail=='none')) None
+											option(value="1m", selected=(filter.lastmail=='1m')) Last mail before 1 month
+											option(value="2m", selected=(filter.lastmail=='2m')) Last mail before 2 month
+											option(value="3m", selected=(filter.lastmail=='3m')) Last mail before 3 month
+											option(value="1cm", selected=(filter.lastmail=='1cm')) Last commercial mail before 1 month
+											option(value="2cm", selected=(filter.lastmail=='2cm')) Last commercial mail before 2 month
+											option(value="3cm", selected=(filter.lastmail=='3cm')) Last commercial mail before 3 month
+
+
+									.form-group
+										label Min privacy version
+										select.form-control(name="minprivacy")
+											option(value="3", selected=(filter.minprivacy == '3')) Version 3 (2018-GDPR compliant)
+											option(value="2", selected=(filter.minprivacy == '2')) Version 2 (2018)
+											option(value="1", selected=(filter.minprivacy == '1')) Version 1 (2016)
+
+								.col-md-6
+									.form-group
+										label Language (not yet implemented)
+										select.form-control(name="lang")
+											option(value="all", selected=(filter.lang=='all')) All
+											option(value="en", selected=(filter.lang=='en')) English
+											option(value="it", selected=(filter.lang=='it')) Italian
+											option(value="es", selected=(filter.lang=='es')) Spanish
+
+									.form-group
+										label Min trustlevel
+										select.form-control(name="mintrust")
+											option(value="0", selected=(filter.mintrust=='0')) 0%
+											option(value="10", selected=(filter.mintrust=='10')) 10%
+											option(value="20", selected=(filter.mintrust=='20')) 20%
+											option(value="40", selected=(filter.mintrust=='40')) 40%
+											option(value="50", selected=(filter.mintrust=='50')) 50%
+											option(value="70", selected=(filter.mintrust=='70')) 70%
+											option(value="90", selected=(filter.mintrust=='90')) 90%
+
+									.form-group
+										label Max trustlevel
+										select.form-control(name="maxtrust")
+											option(value="100", selected=(filter.maxtrust=='100')) 100%
+											option(value="90", selected=(filter.maxtrust=='90')) 90%
+											option(value="70", selected=(filter.maxtrust=='70')) 70%
+											option(value="50", selected=(filter.maxtrust=='50')) 50%
+											option(value="40", selected=(filter.maxtrust=='40')) 40%
+											option(value="20", selected=(filter.maxtrust=='20')) 20%
+											option(value="10", selected=(filter.maxtrust=='10')) 10%
+
+									.form-group
+										label Country
+										select.form-control(name="country")
+											option(selected=(filter.country=='WRL')) WRL
+											for country in countries
+												option(selected=(filter.country==country))= country
+
+								.col-md-12
+									.form-group
+										label Affected by event
+										select.form-control(name="event")
+											option(value="none", selected=(filter.event=='none')) None
+											each ev in populatedevents
+												option(value=ev._id, selected=(filter.event==ev._id))= ev.type + ' of ' + ev.maxmagnitude + ' in ' + ev.affectedcountries[0] + ' ' + ev.lastshakedate + ' (' + ev.affectedusers.length + ' users)'
+
+							.box-footer(align="right")
+								input.btn.btn-success(type="submit",value="Apply filter")
+
+
+					div.box.box-info
+						.box-header.with-border
+							h3.box-title Message Body
+
+						.box-body
+							input.form-control#subject(type="text",value=subject)
+							br
+							textarea#message(rows="10", name="message", style="width: 100%; min-height: 200px")= message
+
+						.box-footer
+							.row
+								.col-md-4
+									select.form-control#iscommercial(name="iscommercial")
+										option(value="commercial") Commercial email
+										option(value="nocommercial",selected="selected") Not a commercial email
+
+								.col-md-4
+									.btn.btn-block.btn-warning#sendTest 
+										i.fa.fa-envelope-open
+										span &nbsp; Send a test email to you
+
+								.col-md-4(align="right")
+									if filteredcount > 0
+										a.btn.btn-success#send
+											i.fa.fa-send
+											span=" Send mail to " + filteredcount + " users"
+										a.btn.btn-info.disabled#sendLoad
+											i.fa.fa-refresh.fa-spin
+											span &nbsp;Sending...
+									else
+										input.btn.btn-info.disabled(type="button",value="No users selected by this filter")
+
+				div.col-md-4
+					div.box.box-warning
+						.box-header.with-border
+							h3.box-title= "Filtered users (" + filteredcount + ")"
+						.box-body.no-padding.table-responsive(style="overflow-y: auto; height: 500px")
+							table.table.table-hover
+								tr
+									th Username
+									th Email
+								each u in filtered
+									tr
+										td= u.username
+										td= u.email
+
+			
+script.
+	let editor = null;
+
+	ClassicEditor
+		.create( document.querySelector( '#message' ))
+		.then( ed => {
+			editor = ed;
+		})
+		.catch( error => {
+			console.error( error );
+		});
+
+
+	$('#sendLoad').hide();
+
+	$('#sendTest').click (function () {
+		$.ajax({
+			url: '/admin/mailtool/sendtest',
+			type: 'POST',
+			data: JSON.stringify({
+				message: editor.getData(),
+				subject: $('#subject').val(),
+			}),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			json: true,
+			async: false,
+			success: function(msg) {
+				alert(`Sent a test email to ${msg.email}`);
+			}
+		});
+	});
+
+	$('#send').click (function () {
+		if (window.confirm("Are you sure to send an email to #{filteredcount} users?")) {
+			$('#send').hide();
+			$('#sendLoad').show();
+
+			$.ajax({
+				url: '/admin/mailtool/send',
+				type: 'POST',
+				data: JSON.stringify({
+					users: [#{filtered.map(f => "'" + f.username + "'")}],
+					iscommercial: $('#iscommercial').val() === 'commercial',
+					message: editor.getData(),
+					subject: $('#subject').val(),
+					filter: {
+						usertype: '#{filter.usertype}',
+						wallet: '#{filter.wallet}',
+						geoloc: '#{filter.geoloc}',
+						country: '#{filter.country}',
+						mintrust: '#{filter.mintrust}',
+						maxtrust: '#{filter.maxtrust}',
+						lastmail: '#{filter.lastmail}',
+						lang: '#{filter.lang}',
+						event: '#{filter.event}',
+						minprivacy: '#{filter.minprivacy}',
+					}
+				}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				json: true,
+				async: false,
+				success: function(msg) {
+					window.location = '/admin/mailtool/list';
+				}
+			});
+		}
+	});

@@ -1,0 +1,52 @@
+const error 		= require ('../../../error');
+import log = require ('../../../log');
+const conf = require ('../../../conf');
+
+import { User } from '../../user/user.model';
+import { Project } from '../../project/project.model';
+
+
+export = () => {
+	log.job.debug ('Migration', 'Executing database migration for translation integration');
+
+	User.find ({}, (err, users) => {
+		users.forEach ((u) => {
+			if (typeof (u.bio) == 'string') {
+				u.bio = { 'en': u.bio };
+				log.job.debug ('Migration', `Updating user bio field schema ${u.username}`);
+				u.markModified ("title");
+			}
+
+			u.save ((err) => {
+				if (err)
+					log.job.error ('Migration', `Failed to update ${u.username}`);
+			});
+		});
+	});
+
+	Project.find ({}, (err, projects) => {
+		projects.forEach ((p) => {
+			if (typeof (p.title) == 'string') {
+				p.title = { 'en': p.title };
+				log.job.debug ('Migration', `Updating project field schema for title: ${p._id}`);
+				p.markModified ("title");
+			}
+			if (typeof (p.description) == 'string') {
+				p.description = { 'en': p.description };
+				log.job.debug ('Migration', `Updating project field schema for description: ${p._id}`);
+				p.markModified ("description");
+			}
+			if (p.activities.length > 0 && typeof (p.activities[0]) == 'string') {
+				p.activities.map (act => { return { 'en': act }; });
+				log.job.debug ('Migration', `Updating project field schema for activities: ${p._id}`);
+				p.markModified ("activities");
+			}
+
+			p.save ((err) => {
+				if (err)
+					log.job.error ('Migration', `Failed to update ${p._id}`);
+			});
+		});
+	});
+};
+

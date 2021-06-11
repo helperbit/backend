@@ -1,0 +1,1059 @@
+			{
+				"posts": [
+					{
+						"title": "Norcia protagonist of transparency",
+						"description": "<p>Today is a very important day for Helperbit.<br />\nTwo months ago we started the collaboration with Legambiente to support the reconstruction after the earthquake in central Italy. In addition to traditional fundraising in euro, Helperbit has provided the infrastructure to create their multisignature bitcoin wallet; in parallel we supported the Bitcoin based charity campaign, with the aim to offer an international tool and  more transparency than traditional fundraising methods.</p>\n<p>To fully exploit the potential of Blockchain we not only offer the opportunity to verify the amount raised, but, as planned, we go a step further, developing a notarization service.</p>\n<p>Ilaria and Lorenzo, owners of Società Agricola Etiche Terre S.S., less than a year ago moved on the hills of San Pellegrino di Norcia to start the production of saffron, garlic and black truffle, but the earthquake in central Italy has taken away everything they had.<br />\nThanks to the charity campaign &#8220;The Rebirth has a young heart&#8221; they can benefit of the raised donations, restarting the interrupted dream to build there one of the most important plants of saffron in Italy.</p>\n<p><img class=\"alignnone size-full wp-image-175\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/02/neve.jpg\" alt=\"\" width=\"1075\" height=\"816\" /></p>\n<p>Few hours ago those farmers have uploaded the first invoice on our platform, activating a refund request to Legambiente.</p>\n<p>Legambiente, after checking on Helperbit&#8217;s platform the correctness of the request, has transferred an amount in Bitcoin equal to the value in € of the refund: the operation, w<img class=\" wp-image-174 alignright\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/02/casa.jpg\" alt=\"\" width=\"450\" height=\"300\" />hich is visible in the public Blockchain, also contains the proof of expenditure, with a cryptographic reference (hash function) to the invoice. The document certifying the request and the transaction are now inextricably linked in the immutable and decentralized public register, giving the opportunity to verify the sender, the recipient and the justification, offering a higher level of transparency and increasing the active participation of the donors, aware that now they can know precisely how they spend the funds.</p>\n<p>So we have completed the first study case of Blockchain verified traceability, managed autonomously by Helperbit users.</p>\n<p><img class=\" wp-image-179 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/02/HELPERBIT-BLOG.jpg\" alt=\"\" width=\"716\" height=\"537\" /></p>\n<p>When the platform will be completely live, donors, organizations and affected people will interact even more and with many analysis tools.</p>\n<p><img class=\"alignnone size-full wp-image-177\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/02/photo5861828957253511250.jpg\" alt=\"\" width=\"1280\" height=\"657\" /></p>\n<p>Invoice to be refunded: <a href=\"https://hbprivatebe.helperbit.com/api/v1/media/58aadc662c8adb0048f5d4cc\" target=\"_blank\">https://hbprivatebe.helperbit.com/api/v1/media/58aadc662c8adb0048f5d4cc</a><br />\nHash of the document: 196bd8a188d4bc51c0617061f728be8816bbf84cc2423e468847854d4dbf545c<br />\nTransaction with proof of spending: <a href=\"https://chain.so/tx/BTC/89d961c2540b63c2164bdec02e591f6321a4f6ba0b8804a8eafa041fbf83ab61\" target=\"_blank\">https://chain.so/tx/BTC/89d961c2540b63c2164bdec02e591f6321a4f6ba0b8804a8eafa041fbf83ab61</a></p>\n<p>&nbsp;</p>\n<p>Tag: #earthquake #studycase #bitcoin #transparency #norcia #legambiente #blockchain #audit #charity #traceability #auditability</p>",
+						"summary": "Today is a very important day for Helperbit. Two months ago we started the collaboration with Legambiente to support the reconstruction after the earthquake in central Italy. In addition to traditional fundraising in euro, Helperbit has provided the infrastructure to create their multisignature bitcoin wallet; in parallel we supported the Bitcoin based charity campaign, with <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2017/02/21/norcia-protagonist-of-transparency/\">[&#8230;]</a>",
+						"date": "2017-02-21T10:07:21.000Z",
+						"pubdate": "2017-02-21T10:07:21.000Z",
+						"pubDate": "2017-02-21T10:07:21.000Z",
+						"link": "https://blog.helperbit.com/en/2017/02/21/norcia-protagonist-of-transparency/",
+						"guid": "https://blog.helperbit.com/?p=173",
+						"author": "Davide Menegaldo",
+						"comments": "https://blog.helperbit.com/en/2017/02/21/norcia-protagonist-of-transparency/#respond",
+						"origlink": null,
+						"image": {},
+						"source": {},
+						"categories": [
+							"Earthquake"
+						],
+						"enclosures": [],
+						"rss:@": {},
+						"rss:title": {
+							"@": {},
+							"#": "Norcia protagonist of transparency"
+						},
+						"rss:link": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2017/02/21/norcia-protagonist-of-transparency/"
+						},
+						"rss:comments": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2017/02/21/norcia-protagonist-of-transparency/#respond"
+						},
+						"rss:pubdate": {
+							"@": {},
+							"#": "Tue, 21 Feb 2017 10:07:21 +0000"
+						},
+						"dc:creator": {
+							"@": {},
+							"#": "Davide Menegaldo"
+						},
+						"rss:category": {
+							"@": {},
+							"#": "Earthquake"
+						},
+						"rss:guid": {
+							"@": {
+								"ispermalink": "false"
+							},
+							"#": "https://blog.helperbit.com/?p=173"
+						},
+						"rss:description": {
+							"@": {},
+							"#": "Today is a very important day for Helperbit. Two months ago we started the collaboration with Legambiente to support the reconstruction after the earthquake in central Italy. In addition to traditional fundraising in euro, Helperbit has provided the infrastructure to create their multisignature bitcoin wallet; in parallel we supported the Bitcoin based charity campaign, with <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2017/02/21/norcia-protagonist-of-transparency/\">[&#8230;]</a>"
+						},
+						"content:encoded": {
+							"@": {},
+							"#": "<p>Today is a very important day for Helperbit.<br />\nTwo months ago we started the collaboration with Legambiente to support the reconstruction after the earthquake in central Italy. In addition to traditional fundraising in euro, Helperbit has provided the infrastructure to create their multisignature bitcoin wallet; in parallel we supported the Bitcoin based charity campaign, with the aim to offer an international tool and  more transparency than traditional fundraising methods.</p>\n<p>To fully exploit the potential of Blockchain we not only offer the opportunity to verify the amount raised, but, as planned, we go a step further, developing a notarization service.</p>\n<p>Ilaria and Lorenzo, owners of Società Agricola Etiche Terre S.S., less than a year ago moved on the hills of San Pellegrino di Norcia to start the production of saffron, garlic and black truffle, but the earthquake in central Italy has taken away everything they had.<br />\nThanks to the charity campaign &#8220;The Rebirth has a young heart&#8221; they can benefit of the raised donations, restarting the interrupted dream to build there one of the most important plants of saffron in Italy.</p>\n<p><img class=\"alignnone size-full wp-image-175\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/02/neve.jpg\" alt=\"\" width=\"1075\" height=\"816\" /></p>\n<p>Few hours ago those farmers have uploaded the first invoice on our platform, activating a refund request to Legambiente.</p>\n<p>Legambiente, after checking on Helperbit&#8217;s platform the correctness of the request, has transferred an amount in Bitcoin equal to the value in € of the refund: the operation, w<img class=\" wp-image-174 alignright\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/02/casa.jpg\" alt=\"\" width=\"450\" height=\"300\" />hich is visible in the public Blockchain, also contains the proof of expenditure, with a cryptographic reference (hash function) to the invoice. The document certifying the request and the transaction are now inextricably linked in the immutable and decentralized public register, giving the opportunity to verify the sender, the recipient and the justification, offering a higher level of transparency and increasing the active participation of the donors, aware that now they can know precisely how they spend the funds.</p>\n<p>So we have completed the first study case of Blockchain verified traceability, managed autonomously by Helperbit users.</p>\n<p><img class=\" wp-image-179 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/02/HELPERBIT-BLOG.jpg\" alt=\"\" width=\"716\" height=\"537\" /></p>\n<p>When the platform will be completely live, donors, organizations and affected people will interact even more and with many analysis tools.</p>\n<p><img class=\"alignnone size-full wp-image-177\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/02/photo5861828957253511250.jpg\" alt=\"\" width=\"1280\" height=\"657\" /></p>\n<p>Invoice to be refunded: <a href=\"https://hbprivatebe.helperbit.com/api/v1/media/58aadc662c8adb0048f5d4cc\" target=\"_blank\">https://hbprivatebe.helperbit.com/api/v1/media/58aadc662c8adb0048f5d4cc</a><br />\nHash of the document: 196bd8a188d4bc51c0617061f728be8816bbf84cc2423e468847854d4dbf545c<br />\nTransaction with proof of spending: <a href=\"https://chain.so/tx/BTC/89d961c2540b63c2164bdec02e591f6321a4f6ba0b8804a8eafa041fbf83ab61\" target=\"_blank\">https://chain.so/tx/BTC/89d961c2540b63c2164bdec02e591f6321a4f6ba0b8804a8eafa041fbf83ab61</a></p>\n<p>&nbsp;</p>\n<p>Tag: #earthquake #studycase #bitcoin #transparency #norcia #legambiente #blockchain #audit #charity #traceability #auditability</p>"
+						},
+						"wfw:commentrss": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2017/02/21/norcia-protagonist-of-transparency/feed/"
+						},
+						"slash:comments": {
+							"@": {},
+							"#": "0"
+						},
+						"meta": {
+							"#ns": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"@": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"#xml": {
+								"version": "1.0",
+								"encoding": "UTF-8"
+							},
+							"#type": "rss",
+							"#version": "2.0",
+							"title": "Helperbit.com",
+							"description": "P2P Natural Disaster Aid",
+							"date": "2017-02-23T11:22:31.000Z",
+							"pubdate": "2017-02-23T11:22:31.000Z",
+							"pubDate": "2017-02-23T11:22:31.000Z",
+							"link": "https://blog.helperbit.com/en",
+							"xmlurl": "https://blog.helperbit.com/en/feed/",
+							"xmlUrl": "https://blog.helperbit.com/en/feed/",
+							"author": null,
+							"language": "en-US",
+							"favicon": null,
+							"copyright": null,
+							"generator": "https://wordpress.org/?v=4.7.3",
+							"cloud": {},
+							"image": {},
+							"categories": [],
+							"rss:@": {},
+							"rss:title": {
+								"@": {},
+								"#": "Helperbit.com"
+							},
+							"atom:link": {
+								"@": {
+									"href": "https://blog.helperbit.com/en/feed/",
+									"rel": "self",
+									"type": "application/rss+xml"
+								}
+							},
+							"rss:link": {
+								"@": {},
+								"#": "https://blog.helperbit.com/en"
+							},
+							"rss:description": {
+								"@": {},
+								"#": "P2P Natural Disaster Aid"
+							},
+							"rss:lastbuilddate": {
+								"@": {},
+								"#": "Thu, 23 Feb 2017 11:22:31 +0000"
+							},
+							"rss:language": {
+								"@": {},
+								"#": "en-US"
+							},
+							"syn:updateperiod": {
+								"@": {},
+								"#": "hourly"
+							},
+							"syn:updatefrequency": {
+								"@": {},
+								"#": "1"
+							},
+							"rss:generator": {
+								"@": {},
+								"#": "https://wordpress.org/?v=4.7.3"
+							}
+						}
+					},
+					{
+						"title": "Swiss re donated 5 bitcoin to Legambiente, here are the final beneficiaries",
+						"description": "<p>Nowadays there is no peace for the areas affected by the Central Italy earthquake, but there are people that want to restart and give new life to those lands. The testimony of the <a class=\"profileLink\" href=\"https://www.facebook.com/boscotorto/\" data-hovercard=\"/ajax/hovercard/page.php?id=561239550748587\" data-hovercard-prefer-more-content-show=\"1\">Bosco Torto</a> guys, a farm based in S.Pellegrino in Norcia, is an important symbol of hope. They will be the first beneficiaries of the Bitcoin charity campaign managed by <a class=\"profileLink\" href=\"http://rinascitacuoregiovane.it/\" data-hovercard=\"/ajax/hovercard/page.php?id=107492342616216\" data-hovercard-prefer-more-content-show=\"1\">Legambiente Onlus</a>.<br />\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/eb7rZtpVStM\" frameborder=\"0\" allowfullscreen></iframe></p>\n<p>The funds increased rapidly because Swiss Re Foundation and Swiss Re Center for Global Dialogue donated 5 bitcoin during the event &#8220;Blockchain: How insurers are building up trust by breaking down barriers&#8221; in Zurich.</p>\n<p><img class=\"alignnone size-full wp-image-165\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/01/Cattura.png\" alt=\"\" width=\"1857\" height=\"734\" /></p>",
+						"summary": "Nowadays there is no peace for the areas affected by the Central Italy earthquake, but there are people that want to restart and give new life to those lands. The testimony of the Bosco Torto guys, a farm based in S.Pellegrino in Norcia, is an important symbol of hope. They will be the first beneficiaries <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2017/01/31/swiss-re-donated-5-bitcoin-to-legambiente-here-are-the-final-beneficiaries/\">[&#8230;]</a>",
+						"date": "2017-01-31T16:52:30.000Z",
+						"pubdate": "2017-01-31T16:52:30.000Z",
+						"pubDate": "2017-01-31T16:52:30.000Z",
+						"link": "https://blog.helperbit.com/en/2017/01/31/swiss-re-donated-5-bitcoin-to-legambiente-here-are-the-final-beneficiaries/",
+						"guid": "https://blog.helperbit.com/?p=162",
+						"author": "Davide Menegaldo",
+						"comments": "https://blog.helperbit.com/en/2017/01/31/swiss-re-donated-5-bitcoin-to-legambiente-here-are-the-final-beneficiaries/#respond",
+						"origlink": null,
+						"image": {},
+						"source": {},
+						"categories": [
+							"Uncategorized"
+						],
+						"enclosures": [],
+						"rss:@": {},
+						"rss:title": {
+							"@": {},
+							"#": "Swiss re donated 5 bitcoin to Legambiente, here are the final beneficiaries"
+						},
+						"rss:link": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2017/01/31/swiss-re-donated-5-bitcoin-to-legambiente-here-are-the-final-beneficiaries/"
+						},
+						"rss:comments": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2017/01/31/swiss-re-donated-5-bitcoin-to-legambiente-here-are-the-final-beneficiaries/#respond"
+						},
+						"rss:pubdate": {
+							"@": {},
+							"#": "Tue, 31 Jan 2017 16:52:30 +0000"
+						},
+						"dc:creator": {
+							"@": {},
+							"#": "Davide Menegaldo"
+						},
+						"rss:category": {
+							"@": {},
+							"#": "Uncategorized"
+						},
+						"rss:guid": {
+							"@": {
+								"ispermalink": "false"
+							},
+							"#": "https://blog.helperbit.com/?p=162"
+						},
+						"rss:description": {
+							"@": {},
+							"#": "Nowadays there is no peace for the areas affected by the Central Italy earthquake, but there are people that want to restart and give new life to those lands. The testimony of the Bosco Torto guys, a farm based in S.Pellegrino in Norcia, is an important symbol of hope. They will be the first beneficiaries <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2017/01/31/swiss-re-donated-5-bitcoin-to-legambiente-here-are-the-final-beneficiaries/\">[&#8230;]</a>"
+						},
+						"content:encoded": {
+							"@": {},
+							"#": "<p>Nowadays there is no peace for the areas affected by the Central Italy earthquake, but there are people that want to restart and give new life to those lands. The testimony of the <a class=\"profileLink\" href=\"https://www.facebook.com/boscotorto/\" data-hovercard=\"/ajax/hovercard/page.php?id=561239550748587\" data-hovercard-prefer-more-content-show=\"1\">Bosco Torto</a> guys, a farm based in S.Pellegrino in Norcia, is an important symbol of hope. They will be the first beneficiaries of the Bitcoin charity campaign managed by <a class=\"profileLink\" href=\"http://rinascitacuoregiovane.it/\" data-hovercard=\"/ajax/hovercard/page.php?id=107492342616216\" data-hovercard-prefer-more-content-show=\"1\">Legambiente Onlus</a>.<br />\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/eb7rZtpVStM\" frameborder=\"0\" allowfullscreen></iframe></p>\n<p>The funds increased rapidly because Swiss Re Foundation and Swiss Re Center for Global Dialogue donated 5 bitcoin during the event &#8220;Blockchain: How insurers are building up trust by breaking down barriers&#8221; in Zurich.</p>\n<p><img class=\"alignnone size-full wp-image-165\" src=\"https://blog.helperbit.com/wp-content/uploads/2017/01/Cattura.png\" alt=\"\" width=\"1857\" height=\"734\" /></p>"
+						},
+						"wfw:commentrss": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2017/01/31/swiss-re-donated-5-bitcoin-to-legambiente-here-are-the-final-beneficiaries/feed/"
+						},
+						"slash:comments": {
+							"@": {},
+							"#": "0"
+						},
+						"meta": {
+							"#ns": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"@": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"#xml": {
+								"version": "1.0",
+								"encoding": "UTF-8"
+							},
+							"#type": "rss",
+							"#version": "2.0",
+							"title": "Helperbit.com",
+							"description": "P2P Natural Disaster Aid",
+							"date": "2017-02-23T11:22:31.000Z",
+							"pubdate": "2017-02-23T11:22:31.000Z",
+							"pubDate": "2017-02-23T11:22:31.000Z",
+							"link": "https://blog.helperbit.com/en",
+							"xmlurl": "https://blog.helperbit.com/en/feed/",
+							"xmlUrl": "https://blog.helperbit.com/en/feed/",
+							"author": null,
+							"language": "en-US",
+							"favicon": null,
+							"copyright": null,
+							"generator": "https://wordpress.org/?v=4.7.3",
+							"cloud": {},
+							"image": {},
+							"categories": [],
+							"rss:@": {},
+							"rss:title": {
+								"@": {},
+								"#": "Helperbit.com"
+							},
+							"atom:link": {
+								"@": {
+									"href": "https://blog.helperbit.com/en/feed/",
+									"rel": "self",
+									"type": "application/rss+xml"
+								}
+							},
+							"rss:link": {
+								"@": {},
+								"#": "https://blog.helperbit.com/en"
+							},
+							"rss:description": {
+								"@": {},
+								"#": "P2P Natural Disaster Aid"
+							},
+							"rss:lastbuilddate": {
+								"@": {},
+								"#": "Thu, 23 Feb 2017 11:22:31 +0000"
+							},
+							"rss:language": {
+								"@": {},
+								"#": "en-US"
+							},
+							"syn:updateperiod": {
+								"@": {},
+								"#": "hourly"
+							},
+							"syn:updatefrequency": {
+								"@": {},
+								"#": "1"
+							},
+							"rss:generator": {
+								"@": {},
+								"#": "https://wordpress.org/?v=4.7.3"
+							}
+						}
+					},
+					{
+						"title": "From Barcelona to Legambiente, 365 days of Helperbit",
+						"description": "<p>Here we are for an analysis of the 12 past months. 2016 characterized by significant events and full of surprises, that leaves us with the awareness that we have already achieved important results, but we can do even more in 2017.</p>\n<p><img class=\"alignnone size-full wp-image-141\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/timeline.jpg\" alt=\"timeline\" width=\"1615\" height=\"900\" /></p>\n<p>We lived in Spain the first months, occupied by the acceleration period in Barcelona at <a href=\"https://twitter.com/Helperbit/status/709772617738293250\">BlockchainSpace</a>, with the resulting foundation of the company on April 19th in Rome, while the entire year was marked by numerous commitments, in total over 30 events and conferences in 10 different countries.</p>\n<p>In particular, the selection of Helperbit in the top 100 innovative projects that attended the <a href=\"https://twitter.com/Helperbit/status/738791038001762304\">World Humanitarian Summit</a> organized by the United Nations in Istanbul is very significant, we are pleased to have shown positive uses of Bitcoin at that international level. Don’t forget the <a href=\"https://twitter.com/Helperbit/status/751105176723922944\">tour in the United States</a>, which this summer has given us the opportunity to present the project overseas during many events in New York, Washington, San Francisco and San Diego.</p>\n<p>We received also many awards, both in Italy and abroad: the victory at the <a href=\"https://twitter.com/Helperbit/status/700369913706364929\">D10e startup contest</a> in Amsterdam, the <a href=\"https://twitter.com/Helperbit/status/732630348077670401\">GTEC Blockchain Innovation Award</a> in Berlin, the most recent <a href=\"https://twitter.com/Helperbit/status/803529681244999681\">Blockchain Startup Contest</a> in Graz and the second place at <a href=\"https://twitter.com/Helperbit/status/810883288617353216\">ABI contest</a> in Milan.</p>\n<p>The last topic is the huge media coverage received, with more than 50 quotes or articles about Helperbit, including  <a href=\"https://twitter.com/Helperbit/status/711566049276239872\">Il Sole 24 Ore</a>, <a href=\"https://twitter.com/Helperbit/status/707211761045381124\">Nasdaq</a> and <a href=\"https://twitter.com/Helperbit/status/792736309781618688\">TechCrunch</a>.</p>\n<p><img class=\"alignnone size-full wp-image-142\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/recap-testate.jpg\" alt=\"recap testate\" width=\"1620\" height=\"900\" /></p>\n<p>The <a href=\"https://blog.helperbit.com/index.php/2016/08/26/il-terremoto-dei-parchi/\">earthquake in central Italy</a> is definitely the event that emotionally impressed us more, highlighting the harsh reality, motivating us to increase our efforts for the realization of the project and further increasing our sensitivity to these issues, key points in the vision of Helperbit.</p>\n<p>This however was a starting point for us, because after the tragedy we had the opportunity to start the collaboration with Legambiente, the first major non-profit in Italy that accepts Bitcoin, and to open the<a href=\"https://helperbit.com/donateit.php\"> first fundraising campaign in Bitcoin</a> with multisignature technology; the funds are addressed to the campaign, &#8220;The rebirth has the young heart&#8221;, focused on helping young farmers that live in the areas affected by the earthquake.</p>\n<p><img class=\"wp-image-147 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/DJI_0014.jpg\" alt=\"DCIM102MEDIADJI_0014.JPG\" width=\"623\" height=\"467\" /></p>\n<p>A sincere thanks to those who supported and still supports the project, with the aim of repeating a similar path the next year and achieving more ambitious goals.</p>\n<p>&nbsp;</p>\n<p>Happy New Year!</p>\n<p>&nbsp;</p>\n<p>Helperbit Team</p>",
+						"summary": "Here we are for an analysis of the 12 past months. 2016 characterized by significant events and full of surprises, that leaves us with the awareness that we have already achieved important results, but we can do even more in 2017. We lived in Spain the first months, occupied by the acceleration period in Barcelona <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2016/12/30/from-barcelona-to-legambiente-365-days-of-helperbit/\">[&#8230;]</a>",
+						"date": "2016-12-30T12:50:16.000Z",
+						"pubdate": "2016-12-30T12:50:16.000Z",
+						"pubDate": "2016-12-30T12:50:16.000Z",
+						"link": "https://blog.helperbit.com/en/2016/12/30/from-barcelona-to-legambiente-365-days-of-helperbit/",
+						"guid": "https://blog.helperbit.com/?p=140",
+						"author": "Davide Menegaldo",
+						"comments": "https://blog.helperbit.com/en/2016/12/30/from-barcelona-to-legambiente-365-days-of-helperbit/#respond",
+						"origlink": null,
+						"image": {},
+						"source": {},
+						"categories": [
+							"Uncategorized"
+						],
+						"enclosures": [],
+						"rss:@": {},
+						"rss:title": {
+							"@": {},
+							"#": "From Barcelona to Legambiente, 365 days of Helperbit"
+						},
+						"rss:link": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/30/from-barcelona-to-legambiente-365-days-of-helperbit/"
+						},
+						"rss:comments": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/30/from-barcelona-to-legambiente-365-days-of-helperbit/#respond"
+						},
+						"rss:pubdate": {
+							"@": {},
+							"#": "Fri, 30 Dec 2016 12:50:16 +0000"
+						},
+						"dc:creator": {
+							"@": {},
+							"#": "Davide Menegaldo"
+						},
+						"rss:category": {
+							"@": {},
+							"#": "Uncategorized"
+						},
+						"rss:guid": {
+							"@": {
+								"ispermalink": "false"
+							},
+							"#": "https://blog.helperbit.com/?p=140"
+						},
+						"rss:description": {
+							"@": {},
+							"#": "Here we are for an analysis of the 12 past months. 2016 characterized by significant events and full of surprises, that leaves us with the awareness that we have already achieved important results, but we can do even more in 2017. We lived in Spain the first months, occupied by the acceleration period in Barcelona <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2016/12/30/from-barcelona-to-legambiente-365-days-of-helperbit/\">[&#8230;]</a>"
+						},
+						"content:encoded": {
+							"@": {},
+							"#": "<p>Here we are for an analysis of the 12 past months. 2016 characterized by significant events and full of surprises, that leaves us with the awareness that we have already achieved important results, but we can do even more in 2017.</p>\n<p><img class=\"alignnone size-full wp-image-141\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/timeline.jpg\" alt=\"timeline\" width=\"1615\" height=\"900\" /></p>\n<p>We lived in Spain the first months, occupied by the acceleration period in Barcelona at <a href=\"https://twitter.com/Helperbit/status/709772617738293250\">BlockchainSpace</a>, with the resulting foundation of the company on April 19th in Rome, while the entire year was marked by numerous commitments, in total over 30 events and conferences in 10 different countries.</p>\n<p>In particular, the selection of Helperbit in the top 100 innovative projects that attended the <a href=\"https://twitter.com/Helperbit/status/738791038001762304\">World Humanitarian Summit</a> organized by the United Nations in Istanbul is very significant, we are pleased to have shown positive uses of Bitcoin at that international level. Don’t forget the <a href=\"https://twitter.com/Helperbit/status/751105176723922944\">tour in the United States</a>, which this summer has given us the opportunity to present the project overseas during many events in New York, Washington, San Francisco and San Diego.</p>\n<p>We received also many awards, both in Italy and abroad: the victory at the <a href=\"https://twitter.com/Helperbit/status/700369913706364929\">D10e startup contest</a> in Amsterdam, the <a href=\"https://twitter.com/Helperbit/status/732630348077670401\">GTEC Blockchain Innovation Award</a> in Berlin, the most recent <a href=\"https://twitter.com/Helperbit/status/803529681244999681\">Blockchain Startup Contest</a> in Graz and the second place at <a href=\"https://twitter.com/Helperbit/status/810883288617353216\">ABI contest</a> in Milan.</p>\n<p>The last topic is the huge media coverage received, with more than 50 quotes or articles about Helperbit, including  <a href=\"https://twitter.com/Helperbit/status/711566049276239872\">Il Sole 24 Ore</a>, <a href=\"https://twitter.com/Helperbit/status/707211761045381124\">Nasdaq</a> and <a href=\"https://twitter.com/Helperbit/status/792736309781618688\">TechCrunch</a>.</p>\n<p><img class=\"alignnone size-full wp-image-142\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/recap-testate.jpg\" alt=\"recap testate\" width=\"1620\" height=\"900\" /></p>\n<p>The <a href=\"https://blog.helperbit.com/index.php/2016/08/26/il-terremoto-dei-parchi/\">earthquake in central Italy</a> is definitely the event that emotionally impressed us more, highlighting the harsh reality, motivating us to increase our efforts for the realization of the project and further increasing our sensitivity to these issues, key points in the vision of Helperbit.</p>\n<p>This however was a starting point for us, because after the tragedy we had the opportunity to start the collaboration with Legambiente, the first major non-profit in Italy that accepts Bitcoin, and to open the<a href=\"https://helperbit.com/donateit.php\"> first fundraising campaign in Bitcoin</a> with multisignature technology; the funds are addressed to the campaign, &#8220;The rebirth has the young heart&#8221;, focused on helping young farmers that live in the areas affected by the earthquake.</p>\n<p><img class=\"wp-image-147 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/DJI_0014.jpg\" alt=\"DCIM102MEDIADJI_0014.JPG\" width=\"623\" height=\"467\" /></p>\n<p>A sincere thanks to those who supported and still supports the project, with the aim of repeating a similar path the next year and achieving more ambitious goals.</p>\n<p>&nbsp;</p>\n<p>Happy New Year!</p>\n<p>&nbsp;</p>\n<p>Helperbit Team</p>"
+						},
+						"wfw:commentrss": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/30/from-barcelona-to-legambiente-365-days-of-helperbit/feed/"
+						},
+						"slash:comments": {
+							"@": {},
+							"#": "0"
+						},
+						"meta": {
+							"#ns": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"@": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"#xml": {
+								"version": "1.0",
+								"encoding": "UTF-8"
+							},
+							"#type": "rss",
+							"#version": "2.0",
+							"title": "Helperbit.com",
+							"description": "P2P Natural Disaster Aid",
+							"date": "2017-02-23T11:22:31.000Z",
+							"pubdate": "2017-02-23T11:22:31.000Z",
+							"pubDate": "2017-02-23T11:22:31.000Z",
+							"link": "https://blog.helperbit.com/en",
+							"xmlurl": "https://blog.helperbit.com/en/feed/",
+							"xmlUrl": "https://blog.helperbit.com/en/feed/",
+							"author": null,
+							"language": "en-US",
+							"favicon": null,
+							"copyright": null,
+							"generator": "https://wordpress.org/?v=4.7.3",
+							"cloud": {},
+							"image": {},
+							"categories": [],
+							"rss:@": {},
+							"rss:title": {
+								"@": {},
+								"#": "Helperbit.com"
+							},
+							"atom:link": {
+								"@": {
+									"href": "https://blog.helperbit.com/en/feed/",
+									"rel": "self",
+									"type": "application/rss+xml"
+								}
+							},
+							"rss:link": {
+								"@": {},
+								"#": "https://blog.helperbit.com/en"
+							},
+							"rss:description": {
+								"@": {},
+								"#": "P2P Natural Disaster Aid"
+							},
+							"rss:lastbuilddate": {
+								"@": {},
+								"#": "Thu, 23 Feb 2017 11:22:31 +0000"
+							},
+							"rss:language": {
+								"@": {},
+								"#": "en-US"
+							},
+							"syn:updateperiod": {
+								"@": {},
+								"#": "hourly"
+							},
+							"syn:updatefrequency": {
+								"@": {},
+								"#": "1"
+							},
+							"rss:generator": {
+								"@": {},
+								"#": "https://wordpress.org/?v=4.7.3"
+							}
+						}
+					},
+					{
+						"title": "Helperbit supports Legambiente to raise funds for the earthquake reconstruction",
+						"description": "<p style=\"text-align: center;\"><a href=\"http://www.legambiente.it/\" target=\"_blank\"><img class=\"alignnone wp-image-124\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/20151121012246Legambiente_logo.png\" alt=\"20151121012246!Legambiente_logo\" width=\"159\" height=\"94\" /></a>           <a href=\"http://www.helperbit.com\" target=\"_blank\"><img class=\"alignnone wp-image-111\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/cropped-hb_s2-1-300x208.png\" alt=\"cropped-hb_s2-1.png\" width=\"140\" height=\"97\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/cropped-hb_s2-1-300x208.png 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/cropped-hb_s2-1.png 400w\" sizes=\"(max-width: 140px) 100vw, 140px\" /></a></p>\n<p>On August 24th, the first strong quake hit the central Italy, causing a large number of victims and damages. Immediately Guido, the closest to the epicenter, went to the affected area to help people and report what was going on there, as written <a href=\"https://blog.helperbit.com/index.php/2016/08/26/il-terremoto-dei-parchi/\" target=\"_blank\">here in our post blog</a>.</p>\n<p>This event definitely shook us emotionally, letting us touch the stark reality, motivating us to increase our effort in the development of the project and further increasing our sensitivity to these issues, key points in the Helperbit’s vision.</p>\n<p>Since that day, our efforts have always been aimed at find the fastest way to make the platform operational; we never accepted the idea of be impassive during this emergency, the unique possible gratification was to truly help the affected population.</p>\n<p>Today, almost four months after that tragic event, we are proud to announce that Legambiente is the first major non-profit organization in Italy to accept donations in Bitcoin and the first NGO in the world to use autonomously the most advanced and secure technology for the management of Bitcoin: the multisignature wallet. It is a 3 of 4 wallet, with 3 keys managed by Legambiente and the backup key by Helperbit. The software has been developed entirely by Helperbit and the team is very proud of it, realizing the sacrifices after two years of hard work.</p>\n<p>We are thrilled to embark on a journey along with an Italian historical charity organization, that has great deal of initiative and that is able to face technological innovations.</p>\n<p>This is only the first step, with the aim of spreading this innovation as much as possible, both on the national and international scene. We will soon open the platform and its analysis and donations’ traceability tools to everyone.</p>\n<p>Now we need the support of the whole community (Bitcoin and not), you are the true value of this project, to demonstrate that the technology, debated for years by the media, is only a tool and, as such, can be used positively.</p>\n<p>You can <a href=\"https://helperbit.com/donateit.php\" target=\"_blank\">donate here</a> to contribute to the cause, but it is also important to share this new opportunity with your friends on social media channels, showing it as a positive example.</p>\n<p>&nbsp;</p>\n<p>Helpebit Team</p>\n<p>&nbsp;</p>\n<p>Press release in Italian: <a href=\"https://blog.helperbit.com/wp-content/uploads/2016/12/ITA-Comunicato-Stampa-Helperbit-Legambiente.pdf\" target=\"_blank\">link</a></p>\n<p>Press release in English: <a href=\"https://blog.helperbit.com/wp-content/uploads/2016/12/ENG-Press-Release-Legambiente-Helperbit.pdf\" target=\"_blank\">link</a></p>\n<p>Press release in Spanish: <a href=\"https://blog.helperbit.com/wp-content/uploads/2016/12/SPA-Comunicado-de-prensa-Legambiente-Helperbit.pdf\" target=\"_blank\">link</a></p>\n<p>Campaign Website: <a href=\"http://rinascitacuoregiovane.it/\" target=\"_blank\">http://rinascitacuoregiovane.it/</a></p>",
+						"summary": "On August 24th, the first strong quake hit the central Italy, causing a large number of victims and damages. Immediately Guido, the closest to the epicenter, went to the affected area to help people and report what was going on there, as written here in our post blog. This event definitely shook <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2016/12/20/helperbit-supports-legambiente-to-raise-funds-for-the-earthquake-reconstruction/\">[&#8230;]</a>",
+						"date": "2016-12-20T11:39:22.000Z",
+						"pubdate": "2016-12-20T11:39:22.000Z",
+						"pubDate": "2016-12-20T11:39:22.000Z",
+						"link": "https://blog.helperbit.com/en/2016/12/20/helperbit-supports-legambiente-to-raise-funds-for-the-earthquake-reconstruction/",
+						"guid": "https://blog.helperbit.com/?p=123",
+						"author": "Davide Menegaldo",
+						"comments": "https://blog.helperbit.com/en/2016/12/20/helperbit-supports-legambiente-to-raise-funds-for-the-earthquake-reconstruction/#respond",
+						"origlink": null,
+						"image": {},
+						"source": {},
+						"categories": [
+							"News"
+						],
+						"enclosures": [],
+						"rss:@": {},
+						"rss:title": {
+							"@": {},
+							"#": "Helperbit supports Legambiente to raise funds for the earthquake reconstruction"
+						},
+						"rss:link": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/20/helperbit-supports-legambiente-to-raise-funds-for-the-earthquake-reconstruction/"
+						},
+						"rss:comments": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/20/helperbit-supports-legambiente-to-raise-funds-for-the-earthquake-reconstruction/#respond"
+						},
+						"rss:pubdate": {
+							"@": {},
+							"#": "Tue, 20 Dec 2016 11:39:22 +0000"
+						},
+						"dc:creator": {
+							"@": {},
+							"#": "Davide Menegaldo"
+						},
+						"rss:category": {
+							"@": {},
+							"#": "News"
+						},
+						"rss:guid": {
+							"@": {
+								"ispermalink": "false"
+							},
+							"#": "https://blog.helperbit.com/?p=123"
+						},
+						"rss:description": {
+							"@": {},
+							"#": "On August 24th, the first strong quake hit the central Italy, causing a large number of victims and damages. Immediately Guido, the closest to the epicenter, went to the affected area to help people and report what was going on there, as written here in our post blog. This event definitely shook <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2016/12/20/helperbit-supports-legambiente-to-raise-funds-for-the-earthquake-reconstruction/\">[&#8230;]</a>"
+						},
+						"content:encoded": {
+							"@": {},
+							"#": "<p style=\"text-align: center;\"><a href=\"http://www.legambiente.it/\" target=\"_blank\"><img class=\"alignnone wp-image-124\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/20151121012246Legambiente_logo.png\" alt=\"20151121012246!Legambiente_logo\" width=\"159\" height=\"94\" /></a>           <a href=\"http://www.helperbit.com\" target=\"_blank\"><img class=\"alignnone wp-image-111\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/cropped-hb_s2-1-300x208.png\" alt=\"cropped-hb_s2-1.png\" width=\"140\" height=\"97\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/cropped-hb_s2-1-300x208.png 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/cropped-hb_s2-1.png 400w\" sizes=\"(max-width: 140px) 100vw, 140px\" /></a></p>\n<p>On August 24th, the first strong quake hit the central Italy, causing a large number of victims and damages. Immediately Guido, the closest to the epicenter, went to the affected area to help people and report what was going on there, as written <a href=\"https://blog.helperbit.com/index.php/2016/08/26/il-terremoto-dei-parchi/\" target=\"_blank\">here in our post blog</a>.</p>\n<p>This event definitely shook us emotionally, letting us touch the stark reality, motivating us to increase our effort in the development of the project and further increasing our sensitivity to these issues, key points in the Helperbit’s vision.</p>\n<p>Since that day, our efforts have always been aimed at find the fastest way to make the platform operational; we never accepted the idea of be impassive during this emergency, the unique possible gratification was to truly help the affected population.</p>\n<p>Today, almost four months after that tragic event, we are proud to announce that Legambiente is the first major non-profit organization in Italy to accept donations in Bitcoin and the first NGO in the world to use autonomously the most advanced and secure technology for the management of Bitcoin: the multisignature wallet. It is a 3 of 4 wallet, with 3 keys managed by Legambiente and the backup key by Helperbit. The software has been developed entirely by Helperbit and the team is very proud of it, realizing the sacrifices after two years of hard work.</p>\n<p>We are thrilled to embark on a journey along with an Italian historical charity organization, that has great deal of initiative and that is able to face technological innovations.</p>\n<p>This is only the first step, with the aim of spreading this innovation as much as possible, both on the national and international scene. We will soon open the platform and its analysis and donations’ traceability tools to everyone.</p>\n<p>Now we need the support of the whole community (Bitcoin and not), you are the true value of this project, to demonstrate that the technology, debated for years by the media, is only a tool and, as such, can be used positively.</p>\n<p>You can <a href=\"https://helperbit.com/donateit.php\" target=\"_blank\">donate here</a> to contribute to the cause, but it is also important to share this new opportunity with your friends on social media channels, showing it as a positive example.</p>\n<p>&nbsp;</p>\n<p>Helpebit Team</p>\n<p>&nbsp;</p>\n<p>Press release in Italian: <a href=\"https://blog.helperbit.com/wp-content/uploads/2016/12/ITA-Comunicato-Stampa-Helperbit-Legambiente.pdf\" target=\"_blank\">link</a></p>\n<p>Press release in English: <a href=\"https://blog.helperbit.com/wp-content/uploads/2016/12/ENG-Press-Release-Legambiente-Helperbit.pdf\" target=\"_blank\">link</a></p>\n<p>Press release in Spanish: <a href=\"https://blog.helperbit.com/wp-content/uploads/2016/12/SPA-Comunicado-de-prensa-Legambiente-Helperbit.pdf\" target=\"_blank\">link</a></p>\n<p>Campaign Website: <a href=\"http://rinascitacuoregiovane.it/\" target=\"_blank\">http://rinascitacuoregiovane.it/</a></p>"
+						},
+						"wfw:commentrss": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/20/helperbit-supports-legambiente-to-raise-funds-for-the-earthquake-reconstruction/feed/"
+						},
+						"slash:comments": {
+							"@": {},
+							"#": "0"
+						},
+						"meta": {
+							"#ns": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"@": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"#xml": {
+								"version": "1.0",
+								"encoding": "UTF-8"
+							},
+							"#type": "rss",
+							"#version": "2.0",
+							"title": "Helperbit.com",
+							"description": "P2P Natural Disaster Aid",
+							"date": "2017-02-23T11:22:31.000Z",
+							"pubdate": "2017-02-23T11:22:31.000Z",
+							"pubDate": "2017-02-23T11:22:31.000Z",
+							"link": "https://blog.helperbit.com/en",
+							"xmlurl": "https://blog.helperbit.com/en/feed/",
+							"xmlUrl": "https://blog.helperbit.com/en/feed/",
+							"author": null,
+							"language": "en-US",
+							"favicon": null,
+							"copyright": null,
+							"generator": "https://wordpress.org/?v=4.7.3",
+							"cloud": {},
+							"image": {},
+							"categories": [],
+							"rss:@": {},
+							"rss:title": {
+								"@": {},
+								"#": "Helperbit.com"
+							},
+							"atom:link": {
+								"@": {
+									"href": "https://blog.helperbit.com/en/feed/",
+									"rel": "self",
+									"type": "application/rss+xml"
+								}
+							},
+							"rss:link": {
+								"@": {},
+								"#": "https://blog.helperbit.com/en"
+							},
+							"rss:description": {
+								"@": {},
+								"#": "P2P Natural Disaster Aid"
+							},
+							"rss:lastbuilddate": {
+								"@": {},
+								"#": "Thu, 23 Feb 2017 11:22:31 +0000"
+							},
+							"rss:language": {
+								"@": {},
+								"#": "en-US"
+							},
+							"syn:updateperiod": {
+								"@": {},
+								"#": "hourly"
+							},
+							"syn:updatefrequency": {
+								"@": {},
+								"#": "1"
+							},
+							"rss:generator": {
+								"@": {},
+								"#": "https://wordpress.org/?v=4.7.3"
+							}
+						}
+					},
+					{
+						"title": "The Bitcoin aspect that is appreciated by banks",
+						"description": "<p><span id=\"result_box\" class=\"\" lang=\"en\"><span title=\"Si è svolta oggi, Luned’ 19 Dicembre, a Milano la prima edizione del concorso iBank Challenge 2016 &quot;Idee a? ?? Confront??o&quot; promosso da Associazione Bancaria Italiana e realizzato da ABI Lab. \">Today, Monday 19th December, took place in Milan the first edition of the iBank Challenge 2016 competition &#8220;Idee a Confronto&#8221; promoted by the Italian Banking Association and organized by its own R&amp;D laboratory, ABI Lab.</span></span></p>\n<p><span title=\"Il successo dell’iniziativa è stata resa possibile grazie ad importanti player del settore bancario: Intesa Sanpaolo, Cedacri, ICBPI, Banca Mediolanum, Banca Popolare di Milano, Gruppo BNL, Credem e Consorzio Servizi Bancari. \">The success of this initiative has been possible thanks to major players in the banking sector: Intesa Sanpaolo, Cedacri, ICBPI, Banca Mediolanum, Banca Popolare di Milano, BNL Group, Credem and Consorzio Servizi Bancari.</span></p>\n<p><span title=\"Si sono candidate al concorso 83 idee innovative e solo 38 di queste sono state selezionate per la fase finale, dove erano previsti incontri diretti di approfondimento;\">83 innovate ideas applied for the contest and only 38 were selected for the final event, and durig the day face to face meetings were planned;</span><span title=\"tra le startup scelte era presente anche Helperbit, che ha proposto la sua soluzione di tracciabilità e trasparenza delle donazioni mediante tecnologia Blockchain e Bitcoin. \"> Helperbit was one of the selected startups, proposing its solution for traceability and transparency of donations through Blockchain technology and Bitcoin, </span></p>\n<p><span title=\"La giuria era composta da rappresentanti dell’Università Bocconi, Luiss e di ABI Lab, con in palio un montepremi totale di 62.000€, diviso in un primo premio di 40.000€ e altri due da 11.000€. \">The jury was composed of Bocconi University, LUISS University and ABI Lab representatives, while the total prize was € 62,000, with a first prize of € 40,000 and the other two of 11,000 €.</span></p>\n<p><span title=\"Siamo lieti di essere stati considerati meritevoli di premio e di aver vinto il secondo posto, ricevendo 11.000€! \">We are happy to have been considered worthy of reward and winner of the second place, receiving  11,000 €!</span></p>\n<p><span title=\"Questa novità si aggiunge ad altri aggiornamenti che verranno presto rilasciati, la settimana è appena iniziata, ci attende ancora tanto lavoro!\">Other news will follow this one, this week is just at the beginning and there is still much work to do!</span></p>\n<p><img class=\"alignnone  wp-image-115 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/photo186962907558422900.jpg\" alt=\"photo186962907558422900\" width=\"462\" height=\"259\" /></p>\n<p><img class=\"alignnone  wp-image-116 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/photo186962907558422898.jpg\" alt=\"photo186962907558422898\" width=\"456\" height=\"256\" /></p>\n<p><img class=\"alignnone  wp-image-117 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/photo186962907558422901.jpg\" alt=\"photo186962907558422901\" width=\"454\" height=\"254\" /></p>",
+						"summary": "Today, Monday 19th December, took place in Milan the first edition of the iBank Challenge 2016 competition &#8220;Idee a Confronto&#8221; promoted by the Italian Banking Association and organized by its own R&#38;D laboratory, ABI Lab. The success of this initiative has been possible thanks to major players in the banking sector: Intesa Sanpaolo, Cedacri, ICBPI, <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2016/12/19/the-bitcoin-aspect-that-is-appreciated-by-banks/\">[&#8230;]</a>",
+						"date": "2016-12-19T16:16:17.000Z",
+						"pubdate": "2016-12-19T16:16:17.000Z",
+						"pubDate": "2016-12-19T16:16:17.000Z",
+						"link": "https://blog.helperbit.com/en/2016/12/19/the-bitcoin-aspect-that-is-appreciated-by-banks/",
+						"guid": "https://blog.helperbit.com/?p=113",
+						"author": "Davide Menegaldo",
+						"comments": "https://blog.helperbit.com/en/2016/12/19/the-bitcoin-aspect-that-is-appreciated-by-banks/#respond",
+						"origlink": null,
+						"image": {},
+						"source": {},
+						"categories": [
+							"News"
+						],
+						"enclosures": [],
+						"rss:@": {},
+						"rss:title": {
+							"@": {},
+							"#": "The Bitcoin aspect that is appreciated by banks"
+						},
+						"rss:link": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/19/the-bitcoin-aspect-that-is-appreciated-by-banks/"
+						},
+						"rss:comments": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/19/the-bitcoin-aspect-that-is-appreciated-by-banks/#respond"
+						},
+						"rss:pubdate": {
+							"@": {},
+							"#": "Mon, 19 Dec 2016 16:16:17 +0000"
+						},
+						"dc:creator": {
+							"@": {},
+							"#": "Davide Menegaldo"
+						},
+						"rss:category": {
+							"@": {},
+							"#": "News"
+						},
+						"rss:guid": {
+							"@": {
+								"ispermalink": "false"
+							},
+							"#": "https://blog.helperbit.com/?p=113"
+						},
+						"rss:description": {
+							"@": {},
+							"#": "Today, Monday 19th December, took place in Milan the first edition of the iBank Challenge 2016 competition &#8220;Idee a Confronto&#8221; promoted by the Italian Banking Association and organized by its own R&#38;D laboratory, ABI Lab. The success of this initiative has been possible thanks to major players in the banking sector: Intesa Sanpaolo, Cedacri, ICBPI, <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2016/12/19/the-bitcoin-aspect-that-is-appreciated-by-banks/\">[&#8230;]</a>"
+						},
+						"content:encoded": {
+							"@": {},
+							"#": "<p><span id=\"result_box\" class=\"\" lang=\"en\"><span title=\"Si è svolta oggi, Luned’ 19 Dicembre, a Milano la prima edizione del concorso iBank Challenge 2016 &quot;Idee a? ?? Confront??o&quot; promosso da Associazione Bancaria Italiana e realizzato da ABI Lab. \">Today, Monday 19th December, took place in Milan the first edition of the iBank Challenge 2016 competition &#8220;Idee a Confronto&#8221; promoted by the Italian Banking Association and organized by its own R&amp;D laboratory, ABI Lab.</span></span></p>\n<p><span title=\"Il successo dell’iniziativa è stata resa possibile grazie ad importanti player del settore bancario: Intesa Sanpaolo, Cedacri, ICBPI, Banca Mediolanum, Banca Popolare di Milano, Gruppo BNL, Credem e Consorzio Servizi Bancari. \">The success of this initiative has been possible thanks to major players in the banking sector: Intesa Sanpaolo, Cedacri, ICBPI, Banca Mediolanum, Banca Popolare di Milano, BNL Group, Credem and Consorzio Servizi Bancari.</span></p>\n<p><span title=\"Si sono candidate al concorso 83 idee innovative e solo 38 di queste sono state selezionate per la fase finale, dove erano previsti incontri diretti di approfondimento;\">83 innovate ideas applied for the contest and only 38 were selected for the final event, and durig the day face to face meetings were planned;</span><span title=\"tra le startup scelte era presente anche Helperbit, che ha proposto la sua soluzione di tracciabilità e trasparenza delle donazioni mediante tecnologia Blockchain e Bitcoin. \"> Helperbit was one of the selected startups, proposing its solution for traceability and transparency of donations through Blockchain technology and Bitcoin, </span></p>\n<p><span title=\"La giuria era composta da rappresentanti dell’Università Bocconi, Luiss e di ABI Lab, con in palio un montepremi totale di 62.000€, diviso in un primo premio di 40.000€ e altri due da 11.000€. \">The jury was composed of Bocconi University, LUISS University and ABI Lab representatives, while the total prize was € 62,000, with a first prize of € 40,000 and the other two of 11,000 €.</span></p>\n<p><span title=\"Siamo lieti di essere stati considerati meritevoli di premio e di aver vinto il secondo posto, ricevendo 11.000€! \">We are happy to have been considered worthy of reward and winner of the second place, receiving  11,000 €!</span></p>\n<p><span title=\"Questa novità si aggiunge ad altri aggiornamenti che verranno presto rilasciati, la settimana è appena iniziata, ci attende ancora tanto lavoro!\">Other news will follow this one, this week is just at the beginning and there is still much work to do!</span></p>\n<p><img class=\"alignnone  wp-image-115 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/photo186962907558422900.jpg\" alt=\"photo186962907558422900\" width=\"462\" height=\"259\" /></p>\n<p><img class=\"alignnone  wp-image-116 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/photo186962907558422898.jpg\" alt=\"photo186962907558422898\" width=\"456\" height=\"256\" /></p>\n<p><img class=\"alignnone  wp-image-117 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/12/photo186962907558422901.jpg\" alt=\"photo186962907558422901\" width=\"454\" height=\"254\" /></p>"
+						},
+						"wfw:commentrss": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/12/19/the-bitcoin-aspect-that-is-appreciated-by-banks/feed/"
+						},
+						"slash:comments": {
+							"@": {},
+							"#": "0"
+						},
+						"meta": {
+							"#ns": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"@": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"#xml": {
+								"version": "1.0",
+								"encoding": "UTF-8"
+							},
+							"#type": "rss",
+							"#version": "2.0",
+							"title": "Helperbit.com",
+							"description": "P2P Natural Disaster Aid",
+							"date": "2017-02-23T11:22:31.000Z",
+							"pubdate": "2017-02-23T11:22:31.000Z",
+							"pubDate": "2017-02-23T11:22:31.000Z",
+							"link": "https://blog.helperbit.com/en",
+							"xmlurl": "https://blog.helperbit.com/en/feed/",
+							"xmlUrl": "https://blog.helperbit.com/en/feed/",
+							"author": null,
+							"language": "en-US",
+							"favicon": null,
+							"copyright": null,
+							"generator": "https://wordpress.org/?v=4.7.3",
+							"cloud": {},
+							"image": {},
+							"categories": [],
+							"rss:@": {},
+							"rss:title": {
+								"@": {},
+								"#": "Helperbit.com"
+							},
+							"atom:link": {
+								"@": {
+									"href": "https://blog.helperbit.com/en/feed/",
+									"rel": "self",
+									"type": "application/rss+xml"
+								}
+							},
+							"rss:link": {
+								"@": {},
+								"#": "https://blog.helperbit.com/en"
+							},
+							"rss:description": {
+								"@": {},
+								"#": "P2P Natural Disaster Aid"
+							},
+							"rss:lastbuilddate": {
+								"@": {},
+								"#": "Thu, 23 Feb 2017 11:22:31 +0000"
+							},
+							"rss:language": {
+								"@": {},
+								"#": "en-US"
+							},
+							"syn:updateperiod": {
+								"@": {},
+								"#": "hourly"
+							},
+							"syn:updatefrequency": {
+								"@": {},
+								"#": "1"
+							},
+							"rss:generator": {
+								"@": {},
+								"#": "https://wordpress.org/?v=4.7.3"
+							}
+						}
+					},
+					{
+						"title": "Snapshot from central Italy, the day of rough post-earthquake reality",
+						"description": "<p><img class=\"alignnone size-large wp-image-25 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4005-1024x683.jpg\" alt=\"Retrosi\" width=\"792\" height=\"528\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4005.jpg 1024w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4005-300x200.jpg 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4005-768x512.jpg 768w\" sizes=\"(max-width: 792px) 100vw, 792px\" /></p>\n<p>On August 24th, a strong earthquake with a magnitude greater than 6 Richter struck the center of Italy between the Sibillini Park and the Gran Sasso and Monti della Laga Park. As you know, Helperbit is not yet live, but, while the other team member continued to work on the platform, I decided to go there to help,bringing food, and to tell you what&#8217;s going on.</p>\n<p>Wednesday 24th at night i get a message from my father: &#8220;Earthquake!&#8221;. Only four days before I took my parents on vacation in Sibillini Park, so I rushed immediately on Google Earth to see how much should I have been worried for them: I see that they are 25km far from the epicenter and during the phone call they tell me they&#8217;re fine, but, as all other customers, they will spend the night outside the hotel, as it is damaged.</p>\n<p>The 24th evening, at about 11 pm, I leave for Accumoli, a village perched between the mountains of Rieti. Every minute, along the street of 150km, I see, coming in the opposite direction, ambulances with flashing lights on but with siren off, while in the direction where I am going there is a long caravan of military vehicles, carrying large independent lighting system, in order to facilitate the digging out during the night.</p>\n<p>The first things that stand out, reaching an area affected by an earthquake at night, are the fogged windows of the cars: all survivors are sleeping in their cars for the fear of aftershocks. Come near Accumoli, I walk to Illica, but the street is interrupted due to ruins, here no one is working because it is a small village with 16 people during winter, so everyone knows each other and the count of the survivors is quick: the uninhabitable village recorded 6 deaths.</p>\n<p>I drive then to other villages: Grisciano, Spelonca, Colle, Poggio d&#8217;Api. It is dark, it is 3 am and I&#8217;m going to sleep in the back of my car. After 5 am, I wake up due to a new seismic tremor; the sun is rising so I decide to park the car in order to not be an obstruction for emergency vehicles, which are starting again the relief activities. Two old people, looking in the void, stay warm in their car next to their house; they are aware that there will never live again in that building.</p>\n<p><img class=\"size-large wp-image-56 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3912-1024x684.jpg\" alt=\"IM_P3912\" width=\"792\" height=\"529\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3912.jpg 1024w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3912-300x200.jpg 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3912-768x513.jpg 768w\" sizes=\"(max-width: 792px) 100vw, 792px\" /></p>\n<p>I arrive at Accumuli through the trail “Italia”: the first house is completely gutted, the roof stands on anything. Inside the building I can see mattresses sunken into the lower floors and paintings hanging on the remaining walls, while on one side of the wall there are tiles that suggest that previously there were two different rooms, separated by a wall now collapsed.</p>\n<p>Entering the village, the landscape that appears in front of me leaves me speechless: the luckiest cars are only covered by a thick layer of dust created few hours before due to ruins, the others are totally crushed by rubble. Accumoli increase the number of fatalities with 11 dead people.</p>\n<p>While I walk away, I notice that the Swedish press is asking two old men, who were there on holiday, to pose next to the car where they slept, and with the background of the dawn; perhaps excited to be interviewed, they just make big smiles, while the Swedish journalist does not know how to explain them that she wants a sad look.</p>\n<p>Set aside this scene, I walk out of the village and I am surprised for the geometry of some walls, totally in precarious balance, that stands only thanks to the electric cable that passes around the house.</p>\n<p>There is a deer grazing just few dozen meters from the road, nothing has changed for him. As I walk along the road that leads to Via Salaria, a car stops; the driver is Mattia, a professional photographer arrived from the north of Italy to document the catastrophe, asking me if I want a ride. He said he was in Pescara del Tronto and that the village is totally destroyed, and  talks about his memories of the earthquake in Tibet few years ago, when he lived in China, similarities and differences of such tragedies: in that case the victims were thousands, as there were not sniffer dogs and the epicenter was thousands of kilometers by rescue units.</p>\n<p>Together we go to Amatrice; unlike other cities, here is the maximum of emergency assistance. The hospital is severely damaged and few meters ahead there is a bulldozer digging, surrounded by hundreds of people who watch it; at the beginning the bulldozer tries to remove carefully the ruins, then, once it stops, the dog sniff out a human trail into the debris. The eyes are entirely focused on the dog, but no signal is captured; it is again the turn of the bulldozer.</p>\n<p>Then we go to Prato village, a kilometer in north direction. There are a dozen people outside a house, the owner came back to take the TV and they are watching it on the street. They have not asked for help because they were not in an emergency situation, but now they live in a metal box with inflatable mattresses and blankets. The night was cold with 10 Celsius degrees and Giuseppina explains her drama: they are lucky to be alive, but their home is damaged and, knowing what happened to L’Aquila, they are afraid of the situation in the next winter.</p>\n<p><img class=\"size-large wp-image-66 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3983-1024x684.jpg\" alt=\"IM_P3983\" width=\"792\" height=\"529\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3983.jpg 1024w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3983-300x200.jpg 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3983-768x513.jpg 768w\" sizes=\"(max-width: 792px) 100vw, 792px\" /></p>\n<p>Marta instead is 82 years old, I tighten strongly her hand and keep tightening it during her narrative, her other hand holds a bag of medicine. She says openly: &#8220;I need comfort.&#8221; A disarming request. Needless explain her that, just 3 km away, the civil protection has set up camps where she can receive food, medicines, attention; the lady does not want to get away from there. In that moment it’s very sunny and, for protect herself, she was leaning against the house, visibly unsafe. The love for her home is so strong and I try to understand it, but it&#8217;s hard.</p>\n<p>Another village, another drama: in Retrosi an old lady i scrying and arguing with her daughter, who tries to explain her the luck to be alive; they repeat the same phrases several times, while the husband moves the food into a bin and puts it safe.</p>\n<p>Coming back in Amatrice, I am impressed by the amount of vehicles: all the Italian rescue teams are here and continues to arrive. We talk with Andrea, the head of the communications in the camp; he tells us that only there they have already set up 250 beds and they are finalizing the sewers and the picnic area for children. In a side square there is a dark car with clear damages caused by ruins, but no without rubble, and it has been put in the center of the square for the mass media.</p>\n<p>Almost to street level, we see a mansard; I ask to people in that area how high was the building, they say six floors. The bulldozer works near  the sniffing dogs, while in a public garden under the trees there are groups of the mountain and caving rescue, families without a home, journalists from various nations that write, film and photograph the landscape. In another street there is another group of people, Mattia ask information and come back telling me that is the space for the police, there are families who wait for the identification of bodies. A little further on there is the school: there are two collapsed floors of the school complex Romulus Capranica, classrooms, a hall, the bell on the ground; on the opposite side of the garden there is still the panel that praised the 2012 seismic restructuring, no comment. Let&#8217;s go back to the north, to the villages.</p>\n<p><img class=\"size-large wp-image-43 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4130-1024x683.jpg\" alt=\"IM_P4130\" width=\"792\" height=\"528\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4130.jpg 1024w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4130-300x200.jpg 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4130-768x512.jpg 768w\" sizes=\"(max-width: 792px) 100vw, 792px\" /></p>\n<p>Saletta is appalling, I have no idea how these buildings were high, but the rubble reaches the sky. Here, 50% died, only 22 survived out of 44 inhabitants. A house with the writing “MMXVI” is perfectly in good conditions, showing that proper housing can easily face an earthquake of Richter magnitude equal to 6 in Italy. I sit down, I take off my helmet and get to talk to the forest service, arrived with the dogs and using the helicopter. Then a short but strong seismic tremor suggests us to run away from the walls and reminds us that it is not over yet.</p>\n<p>In Illica i end the travel of the day, while the Association of Italian Chefs are preparing the next meal, a peasant complains about the excess of water and the lack of wine, many people laugh about this conversation and fortunately those affected people have still the desire to joke.</p>\n<p><strong>Guido</strong></p>",
+						"summary": "On August 24th, a strong earthquake with a magnitude greater than 6 Richter struck the center of Italy between the Sibillini Park and the Gran Sasso and Monti della Laga Park. As you know, Helperbit is not yet live, but, while the other team member continued to work on the platform, I decided to go <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2016/08/26/il-terremoto-dei-parchi/\">[&#8230;]</a>",
+						"date": "2016-08-26T14:23:49.000Z",
+						"pubdate": "2016-08-26T14:23:49.000Z",
+						"pubDate": "2016-08-26T14:23:49.000Z",
+						"link": "https://blog.helperbit.com/en/2016/08/26/il-terremoto-dei-parchi/",
+						"guid": "http://blog.helperbit.com/?p=70",
+						"author": "dakk",
+						"comments": null,
+						"origlink": null,
+						"image": {},
+						"source": {},
+						"categories": [
+							"Earthquake",
+							"Event",
+							"Reportage",
+							"accumoli",
+							"amatrice",
+							"Bitcoin",
+							"Protezione Civile",
+							"saletta",
+							"teremoto",
+							"Terremoto"
+						],
+						"enclosures": [],
+						"rss:@": {},
+						"rss:title": {
+							"@": {},
+							"#": "Snapshot from central Italy, the day of rough post-earthquake reality"
+						},
+						"rss:link": {
+							"@": {},
+							"#": "https://blog.helperbit.com/en/2016/08/26/il-terremoto-dei-parchi/"
+						},
+						"rss:pubdate": {
+							"@": {},
+							"#": "Fri, 26 Aug 2016 14:23:49 +0000"
+						},
+						"dc:creator": {
+							"@": {},
+							"#": "dakk"
+						},
+						"rss:category": [
+							{
+								"@": {},
+								"#": "Earthquake"
+							},
+							{
+								"@": {},
+								"#": "Event"
+							},
+							{
+								"@": {},
+								"#": "Reportage"
+							},
+							{
+								"@": {},
+								"#": "accumoli"
+							},
+							{
+								"@": {},
+								"#": "amatrice"
+							},
+							{
+								"@": {},
+								"#": "Bitcoin"
+							},
+							{
+								"@": {},
+								"#": "Protezione Civile"
+							},
+							{
+								"@": {},
+								"#": "saletta"
+							},
+							{
+								"@": {},
+								"#": "teremoto"
+							},
+							{
+								"@": {},
+								"#": "Terremoto"
+							}
+						],
+						"rss:guid": {
+							"@": {
+								"ispermalink": "false"
+							},
+							"#": "http://blog.helperbit.com/?p=70"
+						},
+						"rss:description": {
+							"@": {},
+							"#": "On August 24th, a strong earthquake with a magnitude greater than 6 Richter struck the center of Italy between the Sibillini Park and the Gran Sasso and Monti della Laga Park. As you know, Helperbit is not yet live, but, while the other team member continued to work on the platform, I decided to go <a class=\"read-more\" href=\"https://blog.helperbit.com/en/2016/08/26/il-terremoto-dei-parchi/\">[&#8230;]</a>"
+						},
+						"content:encoded": {
+							"@": {},
+							"#": "<p><img class=\"alignnone size-large wp-image-25 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4005-1024x683.jpg\" alt=\"Retrosi\" width=\"792\" height=\"528\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4005.jpg 1024w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4005-300x200.jpg 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4005-768x512.jpg 768w\" sizes=\"(max-width: 792px) 100vw, 792px\" /></p>\n<p>On August 24th, a strong earthquake with a magnitude greater than 6 Richter struck the center of Italy between the Sibillini Park and the Gran Sasso and Monti della Laga Park. As you know, Helperbit is not yet live, but, while the other team member continued to work on the platform, I decided to go there to help,bringing food, and to tell you what&#8217;s going on.</p>\n<p>Wednesday 24th at night i get a message from my father: &#8220;Earthquake!&#8221;. Only four days before I took my parents on vacation in Sibillini Park, so I rushed immediately on Google Earth to see how much should I have been worried for them: I see that they are 25km far from the epicenter and during the phone call they tell me they&#8217;re fine, but, as all other customers, they will spend the night outside the hotel, as it is damaged.</p>\n<p>The 24th evening, at about 11 pm, I leave for Accumoli, a village perched between the mountains of Rieti. Every minute, along the street of 150km, I see, coming in the opposite direction, ambulances with flashing lights on but with siren off, while in the direction where I am going there is a long caravan of military vehicles, carrying large independent lighting system, in order to facilitate the digging out during the night.</p>\n<p>The first things that stand out, reaching an area affected by an earthquake at night, are the fogged windows of the cars: all survivors are sleeping in their cars for the fear of aftershocks. Come near Accumoli, I walk to Illica, but the street is interrupted due to ruins, here no one is working because it is a small village with 16 people during winter, so everyone knows each other and the count of the survivors is quick: the uninhabitable village recorded 6 deaths.</p>\n<p>I drive then to other villages: Grisciano, Spelonca, Colle, Poggio d&#8217;Api. It is dark, it is 3 am and I&#8217;m going to sleep in the back of my car. After 5 am, I wake up due to a new seismic tremor; the sun is rising so I decide to park the car in order to not be an obstruction for emergency vehicles, which are starting again the relief activities. Two old people, looking in the void, stay warm in their car next to their house; they are aware that there will never live again in that building.</p>\n<p><img class=\"size-large wp-image-56 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3912-1024x684.jpg\" alt=\"IM_P3912\" width=\"792\" height=\"529\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3912.jpg 1024w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3912-300x200.jpg 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3912-768x513.jpg 768w\" sizes=\"(max-width: 792px) 100vw, 792px\" /></p>\n<p>I arrive at Accumuli through the trail “Italia”: the first house is completely gutted, the roof stands on anything. Inside the building I can see mattresses sunken into the lower floors and paintings hanging on the remaining walls, while on one side of the wall there are tiles that suggest that previously there were two different rooms, separated by a wall now collapsed.</p>\n<p>Entering the village, the landscape that appears in front of me leaves me speechless: the luckiest cars are only covered by a thick layer of dust created few hours before due to ruins, the others are totally crushed by rubble. Accumoli increase the number of fatalities with 11 dead people.</p>\n<p>While I walk away, I notice that the Swedish press is asking two old men, who were there on holiday, to pose next to the car where they slept, and with the background of the dawn; perhaps excited to be interviewed, they just make big smiles, while the Swedish journalist does not know how to explain them that she wants a sad look.</p>\n<p>Set aside this scene, I walk out of the village and I am surprised for the geometry of some walls, totally in precarious balance, that stands only thanks to the electric cable that passes around the house.</p>\n<p>There is a deer grazing just few dozen meters from the road, nothing has changed for him. As I walk along the road that leads to Via Salaria, a car stops; the driver is Mattia, a professional photographer arrived from the north of Italy to document the catastrophe, asking me if I want a ride. He said he was in Pescara del Tronto and that the village is totally destroyed, and  talks about his memories of the earthquake in Tibet few years ago, when he lived in China, similarities and differences of such tragedies: in that case the victims were thousands, as there were not sniffer dogs and the epicenter was thousands of kilometers by rescue units.</p>\n<p>Together we go to Amatrice; unlike other cities, here is the maximum of emergency assistance. The hospital is severely damaged and few meters ahead there is a bulldozer digging, surrounded by hundreds of people who watch it; at the beginning the bulldozer tries to remove carefully the ruins, then, once it stops, the dog sniff out a human trail into the debris. The eyes are entirely focused on the dog, but no signal is captured; it is again the turn of the bulldozer.</p>\n<p>Then we go to Prato village, a kilometer in north direction. There are a dozen people outside a house, the owner came back to take the TV and they are watching it on the street. They have not asked for help because they were not in an emergency situation, but now they live in a metal box with inflatable mattresses and blankets. The night was cold with 10 Celsius degrees and Giuseppina explains her drama: they are lucky to be alive, but their home is damaged and, knowing what happened to L’Aquila, they are afraid of the situation in the next winter.</p>\n<p><img class=\"size-large wp-image-66 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3983-1024x684.jpg\" alt=\"IM_P3983\" width=\"792\" height=\"529\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3983.jpg 1024w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3983-300x200.jpg 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P3983-768x513.jpg 768w\" sizes=\"(max-width: 792px) 100vw, 792px\" /></p>\n<p>Marta instead is 82 years old, I tighten strongly her hand and keep tightening it during her narrative, her other hand holds a bag of medicine. She says openly: &#8220;I need comfort.&#8221; A disarming request. Needless explain her that, just 3 km away, the civil protection has set up camps where she can receive food, medicines, attention; the lady does not want to get away from there. In that moment it’s very sunny and, for protect herself, she was leaning against the house, visibly unsafe. The love for her home is so strong and I try to understand it, but it&#8217;s hard.</p>\n<p>Another village, another drama: in Retrosi an old lady i scrying and arguing with her daughter, who tries to explain her the luck to be alive; they repeat the same phrases several times, while the husband moves the food into a bin and puts it safe.</p>\n<p>Coming back in Amatrice, I am impressed by the amount of vehicles: all the Italian rescue teams are here and continues to arrive. We talk with Andrea, the head of the communications in the camp; he tells us that only there they have already set up 250 beds and they are finalizing the sewers and the picnic area for children. In a side square there is a dark car with clear damages caused by ruins, but no without rubble, and it has been put in the center of the square for the mass media.</p>\n<p>Almost to street level, we see a mansard; I ask to people in that area how high was the building, they say six floors. The bulldozer works near  the sniffing dogs, while in a public garden under the trees there are groups of the mountain and caving rescue, families without a home, journalists from various nations that write, film and photograph the landscape. In another street there is another group of people, Mattia ask information and come back telling me that is the space for the police, there are families who wait for the identification of bodies. A little further on there is the school: there are two collapsed floors of the school complex Romulus Capranica, classrooms, a hall, the bell on the ground; on the opposite side of the garden there is still the panel that praised the 2012 seismic restructuring, no comment. Let&#8217;s go back to the north, to the villages.</p>\n<p><img class=\"size-large wp-image-43 aligncenter\" src=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4130-1024x683.jpg\" alt=\"IM_P4130\" width=\"792\" height=\"528\" srcset=\"https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4130.jpg 1024w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4130-300x200.jpg 300w, https://blog.helperbit.com/wp-content/uploads/2016/08/IM_P4130-768x512.jpg 768w\" sizes=\"(max-width: 792px) 100vw, 792px\" /></p>\n<p>Saletta is appalling, I have no idea how these buildings were high, but the rubble reaches the sky. Here, 50% died, only 22 survived out of 44 inhabitants. A house with the writing “MMXVI” is perfectly in good conditions, showing that proper housing can easily face an earthquake of Richter magnitude equal to 6 in Italy. I sit down, I take off my helmet and get to talk to the forest service, arrived with the dogs and using the helicopter. Then a short but strong seismic tremor suggests us to run away from the walls and reminds us that it is not over yet.</p>\n<p>In Illica i end the travel of the day, while the Association of Italian Chefs are preparing the next meal, a peasant complains about the excess of water and the lack of wine, many people laugh about this conversation and fortunately those affected people have still the desire to joke.</p>\n<p><strong>Guido</strong></p>"
+						},
+						"meta": {
+							"#ns": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"@": [
+								{
+									"xmlns:content": "http://purl.org/rss/1.0/modules/content/"
+								},
+								{
+									"xmlns:wfw": "http://wellformedweb.org/CommentAPI/"
+								},
+								{
+									"xmlns:dc": "http://purl.org/dc/elements/1.1/"
+								},
+								{
+									"xmlns:atom": "http://www.w3.org/2005/Atom"
+								},
+								{
+									"xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/"
+								},
+								{
+									"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+								}
+							],
+							"#xml": {
+								"version": "1.0",
+								"encoding": "UTF-8"
+							},
+							"#type": "rss",
+							"#version": "2.0",
+							"title": "Helperbit.com",
+							"description": "P2P Natural Disaster Aid",
+							"date": "2017-02-23T11:22:31.000Z",
+							"pubdate": "2017-02-23T11:22:31.000Z",
+							"pubDate": "2017-02-23T11:22:31.000Z",
+							"link": "https://blog.helperbit.com/en",
+							"xmlurl": "https://blog.helperbit.com/en/feed/",
+							"xmlUrl": "https://blog.helperbit.com/en/feed/",
+							"author": null,
+							"language": "en-US",
+							"favicon": null,
+							"copyright": null,
+							"generator": "https://wordpress.org/?v=4.7.3",
+							"cloud": {},
+							"image": {},
+							"categories": [],
+							"rss:@": {},
+							"rss:title": {
+								"@": {},
+								"#": "Helperbit.com"
+							},
+							"atom:link": {
+								"@": {
+									"href": "https://blog.helperbit.com/en/feed/",
+									"rel": "self",
+									"type": "application/rss+xml"
+								}
+							},
+							"rss:link": {
+								"@": {},
+								"#": "https://blog.helperbit.com/en"
+							},
+							"rss:description": {
+								"@": {},
+								"#": "P2P Natural Disaster Aid"
+							},
+							"rss:lastbuilddate": {
+								"@": {},
+								"#": "Thu, 23 Feb 2017 11:22:31 +0000"
+							},
+							"rss:language": {
+								"@": {},
+								"#": "en-US"
+							},
+							"syn:updateperiod": {
+								"@": {},
+								"#": "hourly"
+							},
+							"syn:updatefrequency": {
+								"@": {},
+								"#": "1"
+							},
+							"rss:generator": {
+								"@": {},
+								"#": "https://wordpress.org/?v=4.7.3"
+							}
+						}
+					}
+				]
+			}

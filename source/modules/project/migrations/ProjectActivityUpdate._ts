@@ -1,0 +1,36 @@
+import log = require('../../../log');
+import moment = require('moment');
+import { Project } from '../project.model';
+import { idToDate } from '../../../helpers/query';
+
+export = () => {
+	log.job.debug('Migration', 'Executing project activity update createdAt & category');
+
+	Project.find({}, (err, projects) => {
+		projects.forEach((p) => {
+			log.job.debug('Migration', `Updating project ${p._id} activity createdAt & category`);
+			let h = 1;
+
+			p.activities = p.activities.map(a => {
+				if ((a as any)._id)
+					a.createdAt = idToDate((a as any)._id);
+				else
+					a.createdAt = moment(p.start).add(h, 'hours').toDate();
+					
+				h += 1;
+
+				a.category = 'update';
+				return a;
+			});
+
+			if (typeof (p.video) != 'string')
+				p.video = '';
+
+			p.save((err) => {
+				if (err)
+					log.job.error('Migration', `Failed to update ${p._id}`);
+			});
+		});
+	});
+};
+

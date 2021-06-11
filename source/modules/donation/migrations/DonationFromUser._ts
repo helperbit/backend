@@ -1,0 +1,45 @@
+import { Wallet } from "../../wallet/wallet.model";
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+const blockchain = require('../../../blockchain');
+
+const Donation = require('../donation.model');
+import { User } from '../../user/user.model';
+
+const donationController = require('../donation.controller');
+
+
+/* Check if a tx is from a know helperbit address */
+const guessAddressFrom = async (address) => {
+	const wallet = await Wallet.findOne({ address: address }, 'owner address').exec();
+	if (wallet === null)
+		return { address: address, from: null, country: null };
+
+	const u = await User.find({ username: wallet.owner }, 'country username').exec();
+	return { address: wallet.address, from: u.username, country: u.country };
+};
+
+export = () => {
+	log.job.debug('Migration', 'Executing migration \'DonationFromUser\'');
+
+	Donation.find({ from: null }, (err, donations) => {
+		log.job.debug('Migration', `Got ${donations.length} donations with null fromuser`);
+
+		donations.forEach((d) => {
+			guessAddressFrom(d.fromaddress)
+				.then(frominfo => {
+					if (frominfo.from != null && d.from == null) {
+						d.from = frominfo.from;
+						d.fromcountry = frominfo.country;
+						d.save(err => {
+							log.job.debug('Migration', `Donation ${d.txid} updated with user ${d.from}`);
+						});
+					}
+				})
+				.catch(err => { });
+		})
+	});
+};
+

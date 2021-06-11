@@ -1,0 +1,58 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Users -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Users
+						li.active= title
+				// Main content
+				section.content
+					.row
+						.col-md-6
+							.info-box
+								span.info-box-icon.bg-green
+									i.fa.fa-users(style="color: #fff")
+								.info-box-content
+									span.info-box-text City / Total 
+									span.info-box-number= users.length + ' / 7926'
+						.col-md-6
+							.info-box
+								span.info-box-icon.bg-yellow
+									i.fa.fa-users(style="color: #fff")
+								.info-box-content
+									span.info-box-text City / Total (%)
+									span.info-box-number= (Math.floor(users.length/7926*10000) / 10000) + '%'
+
+					div.box
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Country
+										+sort(pagination, 'country')
+									th Region
+										+sort(pagination, 'region')
+									th City
+										+sort(pagination, 'city')
+									th Users
+										+sort(pagination, 'count')
+								each u in users
+									tr
+										td= u.country
+										td= u.region
+										td= u.city
+										td= u.count

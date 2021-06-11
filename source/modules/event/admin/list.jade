@@ -1,0 +1,64 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Events -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') Events
+						li.active= title
+				// Main content
+				section.content
+					div.box								
+						.box-header.with-border
+							a.btn.btn-sm.btn-success(href="/admin/event/create") Create new event
+							.box-tools
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Event type
+									th Magnitude
+										+sort(pagination, 'maxmagnitude')
+									th Affected
+										+sort(pagination, 'population.affected')
+									th Countries
+									th Last shake date
+										+sort(pagination, 'lastshakedate')
+									th Datasource
+										+sort(pagination, 'datasource')
+									th Visible
+										+sort(pagination, 'visible')
+									th Affected users
+									th
+								each e in events
+									tr
+										td= e.type
+										td= e.maxmagnitude
+										td= e.population.affected
+										td
+											for c in e.affectedcountries
+												span(style="font-size: 70%")= c
+												br
+										td #{prettyDateTime(e.lastshakedate)}
+										td= e.datasource
+										td= e.visible
+										td= e.affectedusers.length
+										td
+											a.btn.btn-xs.btn-primary(href="/admin/event/"+e._id) Edit
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

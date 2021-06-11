@@ -1,0 +1,291 @@
+include ../../../admin/views/includes/head.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../../admin/views/includes/header.jade
+		include ../../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | User -&nbsp;
+						span= user.username
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li
+							a(href='#') User
+						li.active= user.username
+				// Main content
+				section.content.row
+						div.col-md-3
+							.box.box-primary
+								.box-body.box-profile
+									img.profile-user-img.img-responsive.img-circle(src='/api/v1/user/' + user.username + '/avatar')
+									h3.profile-username.text-center= user.username.substring(0, 20)
+									.list-group.list-group-unbordered
+										.list-group-item
+											b User type
+											a.pull-right= user.usertype
+										//- .list-group-item
+										//- 	b Email
+										//- 	a.pull-right= user.email
+										if user.usertype == 'singleuser'
+											.list-group-item
+												b First Name
+												a.pull-right= user.firstname
+											.list-group-item
+												b Last Name
+												a.pull-right= user.lastname
+										else
+											.list-group-item
+												b Name
+												a.pull-right= user.fullname
+									if (user.location.coordinates.length >= 2)
+										div#map(style="height:150px; width:100%;")
+
+						div.col-md-9
+							.nav-tabs-custom
+								ul.nav.nav-tabs(role="tablist")
+									li.active(role="presentation")
+										a(href="#info" aria-controls="info" role="tab" data-toggle="tab") Info
+									li(role="presentation")
+										a(href="#verification" aria-controls="images" role="tab" data-toggle="tab") Verification
+									li(role="presentation")
+										a(href="#access" aria-controls="access" role="tab" data-toggle="tab") Access
+									li(role="presentation")
+										a(href="#wallet" aria-controls="raw" role="tab" data-toggle="tab") Wallet
+									li(role="presentation")
+										a(href="#ambassador" aria-controls="raw" role="tab" data-toggle="tab") Ambassador
+									li(role="presentation")
+										a(href="#premium" aria-controls="premium" role="tab" data-toggle="tab") Premium
+									if user.usertype != 'singleuser' && user.usertype != 'company'
+										li(role="presentation")
+											a(href="#widget" aria-controls="widget" role="tab" data-toggle="tab") Widget
+									li(role="presentation")
+										a(href="#adminlog" aria-controls="adminlog" role="tab" data-toggle="tab") Admin log
+									li(role="presentation")
+										a(href="#raw" aria-controls="raw" role="tab" data-toggle="tab") Raw
+
+									if locals.checkPriv (locals, 'admin')
+										li(role="presentation")
+											a(href="#danger" aria-controls="danger" role="tab" data-toggle="tab") Danger
+							
+								div.tab-content
+									div.active.tab-pane#info(role="tabpanel")
+										include ./info.jade
+									div.tab-pane#premium(role="tabpanel")
+										include ./premium.jade
+									div.tab-pane#access(role="tabpanel")
+										include ./access.jade
+									div.tab-pane#verification(role="tabpanel")
+										include ./verification.jade
+									div.tab-pane#wallet(role="tabpanel")
+										include ./wallet.jade
+									div.tab-pane#ambassador(role="tabpanel")
+										include ./ambassador.jade
+									div.tab-pane#widget(role="tabpanel")
+										p Insert the following HTML code in the head section of your werbsite.
+										textarea.form-control(rows="4")= '<link rel="stylesheet" href="' + baseurl + '/widgets/donate-button/style.css"><script src="' + baseurl + '/widgets/donate-button/button.min.js"></script><script>helperbit_init (\'user\', \'' + user.username + '\');</script>'
+										br
+										p Insert the following HTML code in your werbsite, where you want to display the donation button.
+										textarea.form-control(rows="4")= '<div class="hbcontainer" id="hbcontainer-user-' + user.username + '"><iframe class="hbdonateframe" id="hbdonateframe-user-' + user.username + '" scrolling="no" href="" src=""></iframe></div><a id="hbdonatebutton-user-' + user.username + '" class="hbdonatebutton">Donate in Bitcoin</a>'
+										
+									div.tab-pane#adminlog(role="tabpanel")
+										include ../../../../modules/admin.log/admin/log.jade
+
+									div.tab-pane#raw(role="tabpanel")
+										textarea.form-control(rows="12")= user
+
+									if locals.checkPriv (locals, 'admin')
+										div.tab-pane#danger(role="tabpanel")
+											h2 Login as this user
+											a.btn.btn-danger(href="/admin/user/#{user.username}/loginasuser", target="_blank") Login
+											br
+											hr
+											br
+											h2 Change User email
+											input.form-control#changeEmail(placeholder='New mail address')
+											br
+											a.btn.btn-danger#submitChangeEmail Change email
+											br
+											hr
+											br
+											h2 Delete user
+											p Warning, this can't be undone!
+											a.btn.btn-danger#submitDelete Delete user
+
+if user.location.coordinates.length >= 2
+	script.
+		var map = L.map('map').setView([36, 0], 5);
+		L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+			subdomains:['mt0','mt1','mt2','mt3'],
+			attribution: '',
+			maxZoom: 18,
+		}).addTo(map);
+
+		try {
+			var marker = L.marker([!{JSON.stringify (user.location.coordinates[1])}, !{JSON.stringify (user.location.coordinates[0])}]).addTo(map);
+			map.panTo(marker.getLatLng ());
+		} catch (e) {}
+
+
+script.
+	$('.verAccept').click (function () {
+		var provider = $(this).attr ('provider');
+		var data = {state: 'accepted', note: $('#vernote' + provider).val () };
+
+		if (provider == 'npo') {
+			data['allowedadmins'] = [
+				$('#inputNPOAdmin1').val (),
+				$('#inputNPOAdmin2').val (),
+				$('#inputNPOAdmin3').val ()
+			];
+		}
+
+		$.ajax({
+			url: '/admin/user/#{user.username}/verify/'+provider,
+			type: 'POST',
+			data: JSON.stringify(data),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(msg) {
+				window.location = '/admin/user/#{user.username}';
+			},
+			failure: function (response, status) {
+				alert ('Error: ' + status + response);
+			}
+		});
+	});
+
+
+	$('.verProgress').click (function () {
+		var provider = $(this).attr ('provider');
+		$.ajax({
+			url: '/admin/user/#{user.username}/verify/'+provider,
+			type: 'POST',
+			data: JSON.stringify({state: 'inprogress', note: $('#vernote' + provider).val()}),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(msg) {
+				window.location = '/admin/user/#{user.username}';
+			},
+			failure: function (response, status) {
+				alert ('Error: ' + status + response);
+			}
+		});
+	});
+
+	$('.verReject').click (function () {
+		var provider = $(this).attr ('provider');
+		$.ajax({
+			url: '/admin/user/#{user.username}/verify/'+provider,
+			type: 'POST',
+			data: JSON.stringify({state: 'rejected', rejectreason: $('#rejectreason' + provider).val(), note: $('#vernote' + provider).val()}),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(msg) {
+				window.location = '/admin/user/#{user.username}';
+			},
+			failure: function (response, status) {
+				alert ('Error: ' + status + response);
+			}
+		});
+	});
+
+	$('#activate').click (function () {
+		$.ajax({
+			url: '/admin/user/#{user.username}/activate',
+			type: 'POST',
+			data: JSON.stringify({}),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(msg) {
+				window.location = '/admin/user/#{user.username}';
+			},
+			failure: function (response, status) {
+				alert ('Error: ' + status + response);
+			}
+		});
+	})
+
+	$('#verManual').click (function () {
+		$.ajax({
+			url: '/admin/user/#{user.username}/verify/inject/manual',
+			type: 'POST',
+			data: JSON.stringify({state: 'accepted', note: ''}),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(msg) {
+				window.location = '/admin/user/#{user.username}';
+			},
+			failure: function (response, status) {
+				alert ('Error: ' + status + response);
+			}
+		});
+	});
+
+	$('#submitDelete').click (function () {
+		if(confirm(`Are you sure to delete #{user.username}`)) {
+			$.ajax({
+				url: '/admin/user/#{user.username}/remove',
+				type: 'POST',
+				data: JSON.stringify({}),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					window.location = '/admin';
+				},
+				failure: function (response, status) {
+					alert ('Error: ' + status + response);
+				}
+			});
+		}
+	});
+
+
+	$('#submitChangeEmail').click (function () {
+		if(confirm(`Are you sure to change email for #{user.username}`)) {
+			$.ajax({
+				url: '/admin/user/#{user.username}/changeemail',
+				type: 'POST',
+				data: JSON.stringify({email: $('#changeEmail').val() }),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(msg) {
+					window.location = window.location + '?a=' + Math.random ();
+				},
+				failure: function (response, status) {
+					alert ('Error: ' + status + response);
+				}
+			});
+		}
+	});
+
+	$('.archiveMedia').click (function () {
+		var imid = $(this).attr ('mid');
+		$.ajax({
+			url: '/admin/medias/' + imid + '/archive',
+			type: 'POST',
+			data: JSON.stringify({}),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(msg) {
+				window.location = window.location + '?a=' + Math.random ();
+			},
+			failure: function (response, status) {
+				alert ('Error: ' + status + response);
+			}
+		});
+	});

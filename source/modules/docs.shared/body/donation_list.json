@@ -1,0 +1,46 @@
+			{
+				"donations": 124.00,
+				"count": 12,
+				"donations":
+				[
+					{ 
+						"_id": "54035340", 
+						"txid": "3r34894", 
+						"value": 5.12, 
+						"from": "username", 
+						"to": [
+							{"user": "user1", "type": "singeluser", "value": 12}
+						], 
+						"event": "relatedeventid", 
+						"fromcountry": "ITA", 
+						"tocountry": "AFG", 
+						"time": "2015-07-13T17:04:09.720Z"
+					},
+					{ 
+						"_id": "54035340", 
+						"txid": "3r34894", 
+						"value": 5.12, 
+						"from": "username", 
+						"to": [
+							{"user": "user1", "type": "singeluser", "value": 12}
+						], 
+						"event": "relatedeventid", 
+						"fromcountry": "ITA", 
+						"tocountry": "AFG", 
+						"time": "2015-07-13T17:04:09.720Z"
+					},
+					{ 
+						"_id": "54035340", 
+						"txid": "3r34894", 
+						"value": 5.12, 
+						"from": "username", 
+						"to": [
+							{"user": "user1", "type": "singeluser", "value": 12}
+						], 
+						"event": "relatedeventid", 
+						"fromcountry": "ITA", 
+						"tocountry": "AFG", 
+						"time": "2015-07-13T17:04:09.720Z"
+					}
+				]
+			}

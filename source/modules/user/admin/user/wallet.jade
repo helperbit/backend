@@ -1,0 +1,24 @@
+br
+p
+	span Receive address:&nbsp;
+	b= user.receiveaddress
+br
+table.table.table-striped
+	tr 
+		th Active
+		th Address
+		th Label
+		th Creation date
+		th Multisig
+		th Admins
+			
+	each w in wallets
+		tr
+			td= (!w.ismultisig || (w.ismultisig && w.multisig.active))
+			td
+				a(target="_blank", href="/admin/wallet/"+w._id)= w.address
+			td= w.label
+			td= locals.formatDate(w.creationdate)
+			td= w.ismultisig
+			td= w.multisig.admins
+				

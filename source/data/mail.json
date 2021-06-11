@@ -1,0 +1,372 @@
+{
+	"welcome": {
+		"en": {
+			"subject": "Welcome to Helperbit!",
+			"body": "Hi {{user}},<br>Thank you for signing up for Helperbit.<br><br>Now you can create a <a href=\"https://app.helperbit.com/me/wallet\">Bitcoin Wallet</a> and start to receive trasparent donations!<br><br>Complete these steps to reach the highest level of verification and use all of Helperbit features:<br><ul><li><a href=\"https://app.helperbit.com/me/verify\">Verify your account</a></li><li><a href=\"https://app.helperbit.com/me/geoloc\">Geolocalize</a></li></ul><br>If you have any questions about the platform, have a look at our useful resources:<ul><li><a href=\"https://app.helperbit.com/about#home\">About page</a></li><li><a href=\"https://app.helperbit.com/about#benefit\">Benefits using Helperbit</a></li><li><a href=\"https://app.helperbit.com/about#faq\">Faq about Helperbit & Bitcoin</a></li><li><a href=\"https://app.helperbit.com/about#privacy\">Privacy & TOS</a></li></ul><br>For inquiries about your Helperbit account please contact us at info@helperbit.com. Our technical support team will pay attention to your needs.<br><br>Check out our <a href=\"https://blog.helperbit.com\">Blog</a> for the latest posts, news and announcements. You can also follow us on <a href=\"https://twitter.com/helperbit\">Twitter</a> and like our page on <a href=\"https://www.facebook.com/helperbit\">Facebook</a> to be updated about what is going on at Helperbit.<br><br>Enjoy yourself and welcome to Helperbit!"
+		},
+		"it": {
+			"subject": "Benvenuto in Helperbit!",
+			"body": "Salve {{user}},<br>Grazie per esserti registrato in Helperbit.<br><br>Ora puoi creare un <a href=\"https://app.helperbit.com/me/wallet\">Portafoglio Bitcoin</a> ed iniziare a ricevere donazioni trasparenti!<br><br>Completa questi passaggi per raggiungere il livello pi&ugrave; alto di verifica e usare tutte le funzionalit&agrave; di Helperbit:<br><ul><li><a href=\"https://app.helperbit.com/me/verify\">Verifica il tuo profilo</a></li><li><a href=\"https://app.helperbit.com/me/geoloc\">Geolocalizzati</a></li></ul><br>Se hai qualche domanda sulla piattaforma dai un'occhiata alle nostre risorse utili:<ul><li><a href=\"https://app.helperbit.com/about#home\">Pagina About</a></li><li><a href=\"https://app.helperbit.com/about#benefit\">Benefici nell'uso di Helperbit</a></li><li><a href=\"https://app.helperbit.com/about#faq\">Faq su Helperbit & Bitcoin</a></li><li><a href=\"https://app.helperbit.com/about#privacy\">Privacy & TOS</a></li></ul><br>Per informazioni sul tuo account Helperbit, contattaci all'indirizzo info@helperbit.com. Il nostro team di supporto tecnico prester&agrave; attenzione alle tue richieste.<br><br>Dai un'occhiata al nostro <a href=\"https://blog.helperbit.com\">Blog</a> per gli ultimi post, notizie e annunci. Seguici anche su <a href=\"https://twitter.com/helperbit\">Twitter</a> e metti like alla pagina <a href=\"https://www.facebook.com/helperbit\">Facebook</a> per rimanere sempre aggiornato su cosa accade in Helperbit.<br><br>Divertiti e benvenuto su Helperbit!"
+		}
+	},
+	"welcomeOrganization": {
+		"en": {
+			"subject": "Welcome to Helperbit!",
+			"body": "Hi {{user}},<br>Thank you for signing up for Helperbit.<br><br>Now you can create a <a href=\"https://app.helperbit.com/me/wallet\">Bitcoin Wallet</a> and start to receive trasparent donations!<br><br>Complete these steps to reach the highest level of verification and use all of Helperbit features:<br><ul><li><a href=\"https://app.helperbit.com/me/verify\">Verify your account</a></li><li><a href=\"https://app.helperbit.com/me/geoloc\">Geolocalize</a></li></ul><br>If you have any question about the platform have a look at our useful resources:<ul><li><a href=\"https://app.helperbit.com/about#home\">About page</a></li><li><a href=\"https://app.helperbit.com/about#benefit\">Benefits using Helperbit</a></li><li><a href=\"https://app.helperbit.com/about#faq\">Faq about Helperbit & Bitcoin</a></li><li><a href=\"https://app.helperbit.com/about#privacy\">Privacy & TOS</a></li></ul><br>For inquiries about your Helperbit account please contact us at info@helperbit.com. Our technical support team will pay attention to your needs.<br><br>Check out our <a href=\"https://blog.helperbit.com\">Blog</a> for the latest posts, news and announcements. You can also follow us on <a href=\"https://twitter.com/helperbit\">Twitter</a> and like our page on <a href=\"https://www.facebook.com/helperbit\">Facebook</a> to be updated about what is going on at Helperbit.<br><br>Enjoy yourself, and welcome to Helperbit!"
+		},
+		"it": {
+			"subject": "Benvenuto in Helperbit!",
+			"body": "Salve {{user}},<br>Grazie per esserti registrato in Helperbit.<br><br>Ora puoi creare un <a href=\"https://app.helperbit.com/me/wallet\">Portafoglio Bitcoin</a> ed iniziare a ricevere donazioni trasparenti!<br><br>Completa questi passaggi per raggiungere il livello pi&ugrave; alto di verifica e usare tutte le funzionalit&agrave; di Helperbit:<br><ul><li><a href=\"https://app.helperbit.com/me/verify\">Verifica il tuo profilo</a></li><li><a href=\"https://app.helperbit.com/me/geoloc\">Geolocalizzati</a></li></ul><br>Se hai qualche domanda sulla piattaforma dai un'occhiata alle nostre risorse utili:<ul><li><a href=\"https://app.helperbit.com/about#home\">Pagina About</a></li><li><a href=\"https://app.helperbit.com/about#benefit\">Benefici nell'uso di Helperbit</a></li><li><a href=\"https://app.helperbit.com/about#faq\">Faq su Helperbit & Bitcoin</a></li><li><a href=\"https://app.helperbit.com/about#privacy\">Privacy & TOS</a></li></ul><br>Per informazioni sul tuo account Helperbit, contattaci all'indirizzo info@helperbit.com. Il nostro team di supporto tecnico prester&agrave; attenzione alle tue richieste.<br><br>Dai un'occhiata al nostro <a href=\"https://blog.helperbit.com\">Blog</a> per gli ultimi post, notizie e annunci. Seguici anche su <a href=\"https://twitter.com/helperbit\">Twitter</a> e metti like alla pagina <a href=\"https://www.facebook.com/helperbit\">Facebook</a> per rimanere sempre aggiornato su cosa accade in Helperbit.<br><br>Divertiti e benvenuto su Helperbit!"
+		}
+	},
+	"feedMultisig": {
+		"en": {
+			"subject": "Helperbit - multisig wallet creation",
+			"body": "The organization {{fullname}} ({{user}}) is creating a wallet called \"{{label}}\" where you are one of the administrators. Please follow this link to complete the procedure: <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - creazione portafoglio multifirma",
+			"body": "L'organizzazione {{fullname}} ({{user}}) sta creando un portafoglio chiamato \"{{label}}\" in cui tu sei uno degli amministratori. Clicca su questo link per completare la procedura: <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"createdMultisig": {
+		"en": {
+			"subject": "Helperbit - multisig wallet created",
+			"body": "All of your admins signed the wallet called \"{{label}}\" and now the wallet is ready to receive donations. <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - portafoglio multifirma creato",
+			"body": "Tutti gli amministratori hanno completato la procedura; il portafoglio chiamato \"{{label}}\" &egrave; attivo ed &egrave; pronto per ricevere donazioni. <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"signVerifyMultisig": {
+		"en": {
+			"subject": "Helperbit - multisig verification to sign",
+			"body": "The organization {{fullname}} ({{email}} {{user}}) wants to verify the keys of the wallet called \"{{label}}\"\n\nVisit the following link to sign the verification, or contact the organization at <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - verifica portafoglio da firmare",
+			"body": "L'organizzazione {{fullname}} ({{email}} {{user}}) vuole verificare le chiavi del portafoglio chiamato \"{{label}}\"\n\nVisita il seguente link per firmare la verifica o contatta l'organizzazione a <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"signMultisig": {
+		"en": {
+			"subject": "Helperbit - multisig transaction to sign",
+			"body": "The organization {{fullname}} ({{email}} {{user}}) wants to broadcast a transaction from the wallet called \"{{label}}\"\n\nDescription: {{description}}\nValue: {{value}}\nTo: {{to}}\nVisit the following link to sign the transaction, or contact the organization at <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - transazione da firmare",
+			"body": "L'organizzazione {{fullname}} ({{email}} {{user}}) vuole inviare una transazione dal portafoglio chiamato \"{{label}}\"\n\nDescrizione: {{description}}\nValore: {{value}}\nA: {{to}}\nVisita il seguente link per firmare la transazione o contatta l'organizzazione a <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"becomeAdmin": {
+		"en": {
+			"subject": "Helperbit - admin of an organization",
+			"body": "You are marked as admin of the organization {{fullname}} ({{user}}) in <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - amministratore di un'organizzazione",
+			"body": "Sei stato assegnato come amministratore dell'organizzazione {{fullname}} ({{user}}) su <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"passwordRecovery": {
+		"en": {
+			"subject": "Helperbit - password recovery",
+			"body": "You have requested a password reset for the user {{user}} in Helperbit. If you didn't request this, please ignore this email.\n\nYour password reset link is: <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - recupero password",
+			"body": "Hai richiesto il reset della password per l'utente {{user}} su Helperbit. Se non sei stato tu, ignora questa email.\n\nIl link per il reset password &egrave;: <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"activateAccount": {
+		"en": {
+			"subject": "Helperbit - account activation",
+			"body": "You created an account in Helperbit.\n\nTo activate the account, <b><a href=\"{{url}}\">click this link</a></b>.\n\nIf you didn't create this profile in Helperbit, it means that someone is trying to use your email. In this case please contact us at info@helperbit.com"
+		},
+		"it": {
+			"subject": "Helperbit - attivazione account",
+			"body": "Hai creato un account su Helperbit.\n\nPer attivare l'account, <b><a href=\"{{url}}\">clicca su questo link</a></b>.\n\nSe non hai creato questo profilo su Helperbit, allora qualcuno sta cercando di usare la tua email. In questo caso contattaci a info@helperbit.com"
+		}
+	},
+	"verificationDone": {
+		"en": {
+			"subject": "Helperbit - account verified",
+			"body": "Your account is now verified"
+		},
+		"it": {
+			"subject": "Helperbit - account verificato",
+			"body": "Il tuo account &egrave; ora verificato"
+		}
+	},
+	"verifyFullyVerified": {
+		"en": {
+			"subject": "Helperbit - account verified",
+			"body": "Your account is now verified"
+		},
+		"it": {
+			"subject": "Helperbit - account verificato",
+			"body": "Il tuo account &egrave; ora verificato"
+		}
+	},
+	"verifyDocumentDone": {
+		"en": {
+			"subject": "Helperbit - documents verified",
+			"body": "Hi {{fullname}}, your documents are now verified."
+		},
+		"it": {
+			"subject": "Helperbit - documenti verificati",
+			"body": "Ciao {{fullname}}, i tuoi documenti sono ora verificati."
+		}
+	},
+	"verifyNPODocumentsDone": {
+		"en": {
+			"subject": "Helperbit - documents verified",
+			"body": "Hi {{fullname}}, your documents are now verified."
+		},
+		"it": {
+			"subject": "Helperbit - documenti verificati",
+			"body": "Ciao {{fullname}}, i tuoi documenti sono ora verificati."
+		}
+	},
+	"verifyNPOMemorandumDone": {
+		"en": {
+			"subject": "Helperbit - documents verified",
+			"body": "Hi {{fullname}}, your memorandum document is now verified."
+		},
+		"it": {
+			"subject": "Helperbit - documenti verificati",
+			"body": "Ciao {{fullname}}, il tuo verbale di assemblea &egrave; ora verificato."
+		}
+	},
+	"verifyNPOAdminsDone": {
+		"en": {
+			"subject": "Helperbit - documents verified",
+			"body": "Hi {{fullname}}, your documents are now verified."
+		},
+		"it": {
+			"subject": "Helperbit - documenti verificati",
+			"body": "Ciao {{fullname}}, i tuoi documenti sono ora verificati."
+		}
+	},
+	"verifyNPOStatuteDone": {
+		"en": {
+			"subject": "Helperbit - documents verified",
+			"body": "Hi {{fullname}}, your statue document is now verified."
+		},
+		"it": {
+			"subject": "Helperbit - documenti verificati",
+			"body": "Ciao {{fullname}}, il tuo statuto &egrave; ora verificato."
+		}
+	},
+	"verifyCompanyDocumentsDone": {
+		"en": {
+			"subject": "Helperbit - documents verified",
+			"body": "Hi {{fullname}}, your documents are now verified."
+		},
+		"it": {
+			"subject": "Helperbit - documenti verificati",
+			"body": "Ciao {{fullname}}, i tuoi documenti sono ora verificati."
+		}
+	},
+	"verifyResidencyDone": {
+		"en": {
+			"subject": "Helperbit - residency document verified",
+			"body": "Hi {{fullname}}, your residency document is now verified."
+		},
+		"it": {
+			"subject": "Helperbit - documento di residenza verificato",
+			"body": "Ciao {{fullname}}, il tuo documento di residenza &egrave; ora verificato."
+		}
+	},
+	"verificationOTCSent": {
+		"en": {
+			"subject": "Helperbit - one time code letter sent",
+			"body": "Hi {{fullname}}, the OTC (One Time Code) letter has been sent to your address, in some days you will receive it. Then you can type the OTC in Helperbit <a href=\"{{url}}\">{{url}}</a> to complete the procedure."
+		},
+		"it": {
+			"subject": "Helperbit - lettera con OTC inviata",
+			"body": "Ciao {{fullname}}, la lettera con il codice OTC (One Time Code) è stata inviata all'indirizzo fornito, tra alcuni giorni la riceverai. Potrai poi inserire il codice in Helperbit <a href=\"{{url}}\">{{url}}</a> per completare la procedura."
+		}
+	},
+	"removedAdmin": {
+		"en": {
+			"subject": "Helperbit - removed from admins of an organization",
+			"body": "You have been removed from admin list of the organization {{fullname}} ({{user}}) in <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - rimosso dagli amiinistratori di un'organizzazione",
+			"body": "Sei stato rimosso dalla lista degli amministratori dell'organizzazione {{fullname}} ({{user}}) su <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"donationReceived": {
+		"en": {
+			"subject": "Helperbit - new donation received",
+			"body": "You have received a donation from {{from}} of {{amount}} BTC; check it at <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - ricevuta nuova donazione",
+			"body": "Hai ricevuto una donazione da {{from}} di {{amount}} BTC; guardala su <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"rorReceived": {
+		"en": {
+			"subject": "Helperbit - new refund claim",
+			"body": "You have received a refund claim from {{from}} of {{value}} {{currency}}; check it at <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - nuova richiesta di rimborso",
+			"body": "Hai ricevuto una richiesta di rimborso da {{from}} di {{value}} {{currency}}; guardala su <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"rorRejected": {
+		"en": {
+			"subject": "Helperbit - rejected refund claim",
+			"body": "Your request of refund to {{to}} amounting to {{value}} {{currency}} has been rejected with this reason: \"{{reason}}\""
+		},
+		"it": {
+			"subject": "Helperbit - richiesta di rimborso respinta",
+			"body": "La tua richiesta di rimborso a {{to}} del valore di {{value}} {{currency}} &egrave; stata respinta per la seguente ragione: \"{{reason}}\""
+		}
+	},
+	"rorAccepted": {
+		"en": {
+			"subject": "Helperbit - accepted refund claim",
+			"body": "Your request of refund to {{to}} amounting to {{value}} {{currency}} has been accepted"
+		},
+		"it": {
+			"subject": "Helperbit - richiesta di rimborso accettata",
+			"body": "La tua richiesta di rimborso a {{to}} del valore di {{value}} {{currency}} &egrave; stata accettata"
+		}
+	},
+	"rorSent": {
+		"en": {
+			"subject": "Helperbit - funds sent to refund claim",
+			"body": "Your refund claim to {{to}} amounting to {{value}} {{currency}} has been accepted and the funds have been sent"
+		},
+		"it": {
+			"subject": "Helperbit - fondi inviati per richiesta di rimborso",
+			"body": "La tua richiesta di rimborso a {{to}} del valore di {{value}} {{currency}} &egrave; stata accettata e i fondi sono stati inviati"
+		}
+	},
+	"signRORMultisig": {
+		"en": {
+			"subject": "Helperbit - multisig transaction to sign",
+			"body": "The organization {{fullname}} ({{email}} {{user}}) wants to send a refund transaction of {{value}} BTC to {{toname}} from the wallet called \"{{label}}\"\n\nDescription: {{description}}\nValue: {{value}}\nTo: {{to}}\nVisit the following link to sign the transaction, or contact the organization at <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - transazione da firmare",
+			"body": "L'organizzazione {{fullname}} ({{email}} {{user}}) vuole inviare una transazione di rimborso del valore di {{value}} BTC a {{toname}} dal portafoglio chiamato \"{{label}}\"\n\nDescrizione: {{description}}\nValore: {{value}}\nA: {{to}}\nVisita il seguente link per firmare la transazione o contatta l'organizzazione a <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"referredUserSignup": {
+		"en": {
+			"subject": "Helperbit - a user signed up for Helperbit using your invitation link",
+			"body": "The user {{user}} signed up for Helperbit using your invitation link"
+		},
+		"it": {
+			"subject": "Helperbit - un utente si &egrave; iscritto ad Helperbit utilizzando il tuo link d'invito",
+			"body": "L'utente {{user}} si &egrave; iscritto ad Helperbit utilizzando il tuo link d'invito"
+		}
+	},
+	"projectApproved": {
+		"en": {
+			"subject": "Helperbit - your project has been approved",
+			"body": "Your project \"{{title}}\" has been approved by Helperbit and it's now visible to other users <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - il tuo progetto &egrave; stato approvato",
+			"body": "Il tuo progetto \"{{title}}\" &egrave; stato approvato da Helperbit ed &egrave; ora visibile agli altri utenti <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"projectRejected": {
+		"en": {
+			"subject": "Helperbit - your project has been rejected",
+			"body": "Your project \"{{title}}\" has been rejected by Helperbit <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - il tuo progetto &egrave; stato rifiutato",
+			"body": "Il tuo progetto \"{{title}}\" &egrave; stato rifiutato da Helperbit <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"verificationRejected": {
+		"en": {
+			"subject": "Helperbit - your documents have been rejected",
+			"body": "Your documents have been rejected with the following reason: \"{{rejectreason}}\": <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - i tuoi documenti sono stati rifiutati",
+			"body": "I tuoi documenti sono stati rifiutati per la seguente ragione: \"{{rejectreason}}\": <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"donationCampaignReceived": {
+		"en": {
+			"subject": "Helperbit - new donation to your Campaign",
+			"body": "You have received a donation of {{amount}} BTC to your Campaign. <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - nuova donazione alla tua Campagna",
+			"body": "Hai ricevuto una donazione di {{amount}} BTC alla tua Campagna. <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"campaignConcluded": {
+		"en": {
+			"subject": "Helperbit - Concluded Campaign",
+			"body": "The Campaign that you have created is now concluded. <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - Campagna conclusa",
+			"body": "La Campagna che hai creato &egrave; ora conclusa. <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"campaignExpired": {
+		"en": {
+			"subject": "Helperbit - Campaign expired",
+			"body": "The Campaign that you have created is now expired. <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - Campagna scaduta",
+			"body": "La Campagna che hai creato &egrave; ora scaduta. <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"campaignDeleted": {
+		"en": {
+			"subject": "Helperbit - deleted Campaign",
+			"body": "Your campaign has been deleted because it violates the terms of service: \"{{reason}}\"<br><a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - Campagna eliminata",
+			"body": "La tua Campagna &egrave; stata eliminata perch&egrave; viola i termini di servizio: \"{{reason}}\"<br><a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"ambassadorMerchandiseAssigment": {
+		"en": {
+			"subject": "Helperbit - Claim your prize!",
+			"body": "Thanks to your recent efforts to expand your network in Helperbit, you helped {{minrefs}} friends and you won a fantastic prize! Click here <a href=\"{{url}}\">{{url}}</a> for more details"
+		},
+		"it": {
+			"subject": "Helperbit - You won a merchandise object",
+			"body": "Grazie ai tuoi recenti sforzi nell'espandere la tua rete su Helperbit, hai aiutato {{minrefs}} amici e hai vinto un fantastico premio! Clicca qui <a href=\"{{url}}\">{{url}}</a> per maggiori informazioni"
+		}
+	},
+	"badgeAchieved": {
+		"en": {
+			"subject": "Helperbit - New badge unlocked",
+			"body": "You unlocked the badge '{{badge}}' in Helperbit. <a href=\"{{url}}\">{{url}}</a>"
+		},
+		"it": {
+			"subject": "Helperbit - Nuovo badge sbloccato",
+			"body": "Hai sbloccato il badge '{{badge}}' su Helperbit. <a href=\"{{url}}\">{{url}}</a>"
+		}
+	},
+	"campaignBirthday": {
+		"en": {
+			"subject": "Celebrate your birthday by creating a fundraising campaign!",
+			"body": "Your birthday is approaching!<br><br><h1><a href=\"https://app.helperbit.com/it/me/campaign\">Open your campaign now</a></h1><br>Do not miss the opportunity to create a fundraising campaign and support a non-profit initiative.<br>Celebrate in an alternative way: create your personalized fundraising page, let your friends know about it on social networks and get donations for your favorite charitable cause. Your contribution can make the difference!<br>More information on <a href=\"https://blog.helperbit.com/en/2018/11/13/helperbit-launches-crypto-fundraising-campaigns-for-individuals-an-alternative-to-facebook-fundraisings/\">fundraising campaigns</a>"
+		},
+		"it": {
+			"subject": "Festeggia il tuo compleanno creando una campagna fundraising!",
+			"body": "Il tuo compleanno si avvicina!<br><br><h1><a href=\"https://app.helperbit.com/it/me/campaign\">Apri ora la tua campagna</a></h1><br>Non perdere l'occasione per creare una campagna fundraising e sostenere una iniziativa non profit.<br>Festeggia in modo alternativo: crea la tua pagina di raccolta fondi personalizzata, fallo sapere agli amici sui social network e ottieni donazioni per la tua causa solidale preferita. Il tuo contributo può fare la differenza!<br>Maggiori informazioni sulle <a href=\"https://blog.helperbit.com/it/2018/11/13/helperbit-launches-crypto-fundraising-campaigns-for-individuals-an-alternative-to-facebook-fundraisings\">campagne fundraising</a>"
+		}
+	}
+}

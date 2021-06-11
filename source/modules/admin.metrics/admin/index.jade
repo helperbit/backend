@@ -1,0 +1,112 @@
+include ../../admin/views/includes/head.jade
+
+style.
+	.info-box-small {
+		min-height: 60px !important;
+		cursor: pointer;
+	}
+	.info-box-small > .info-box-icon {
+		height: 60px !important;
+		width: 60px !important;
+		line-height: 60px !important;
+		font-size: 35px !important;
+	}
+	.info-box-small > .info-box-content {
+		margin-left: 60px !important;
+	}
+	.info-box-small > .info-box-content > .info-box-text {
+		font-size: 13px !important;
+	}
+
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Dashboard
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li.active Dashboard
+				// Main content
+				section.content
+					// Info boxes
+					.row
+						.col-md-12
+							.box.box-success
+								.box-header.with-border
+									h3.box-title Geolocalized Users
+									.box-tools.pull-right
+										button.btn.btn-box-tool(type='button', data-widget='collapse')
+											i.fa.fa-minus
+										button.btn.btn-box-tool(type='button', data-widget='remove')
+											i.fa.fa-times
+								// /.box-header
+								.box-body.no-padding
+									.row
+										.col-md-9.col-sm-8
+											.pad
+												#geolocalized-map(style='height: 325px;')
+										// /.col
+										.col-md-3.col-sm-4
+											.pad.box-pane-right.bg-green(style='min-height: 350px; height: 100%')
+												.description-block.margin-bottom
+													i.fa.fa-users.fa-2x
+													h5.description-header= geolocalized.total
+													span.description-text Geolocalized users
+												// /.description-block
+												.description-block.margin-bottom
+													i.fa.fa-users.fa-2x
+													h5.description-header= geolocalized.average
+													span.description-text Avg users per country
+												// /.description-block
+												.description-block
+													i.fa.fa-users.fa-2x
+													h5.description-header= geolocalized.fillpercentage
+													span.description-text % of populated countries
+													
+					each c in categories
+						.box.box-info.box-success(style="border-left: 1px solid #d2d6de; border-right: 1px solid #d2d6de")
+							.box-header.with-border
+								h3.box-title= c
+								.box-tools.pull-right
+									button.btn.btn-box-tool(type='button', data-widget='collapse')
+										i.fa.fa-minus
+							.box-body(style="background-color: #ecf0f5; padding-bottom: 0px")
+								.row
+									each m in metrics
+										if m.ui.category == c
+											.col-md-2.col-sm-6.col-xs-12
+												.info-box.info-box-small.box-metric(id=m.code, data-toggle="tooltip", title=m.ui.description)
+													span.info-box-icon(style="background-color: "+m.ui.color)
+														i.fa(class=m.ui.icon,style="color: #fff")
+													.info-box-content
+														span.info-box-text= m.ui.name
+														span.info-box-number= m.total
+
+
+
+script.
+	/* Geolocalized map */
+	$('#geolocalized-map').vectorMap({
+		map: 'world_mill_en',
+		backgroundColor: 'transparent',
+
+		series: {
+			regions: [{
+				values: !{JSON.stringify(geolocalized.map)},
+				scale: ['#e0e0e0', '#00a65a'],
+				normalizeFunction: 'polynomial'
+			}]
+		},
+		backgroundColor: '#fff',
+		hoverOpacity: 0.7,
+		hoverColor: false
+	});

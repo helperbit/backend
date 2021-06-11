@@ -1,0 +1,16 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+
+import { User } from '../../user/user.model';
+
+export = async () => {
+	log.job.debug('Migration', 'Executing users banned migration');
+
+	const users = await User.find({ banned: { $exists: false } }).exec();
+	await User.updateMany({ banned: { $exists: false } }, {$set : {banned: false}}).exec();
+
+	log.job.debug('Migration', `Executed users banned migration for ${users.length}`);
+};
+

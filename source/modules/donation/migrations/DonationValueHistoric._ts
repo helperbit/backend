@@ -1,0 +1,22 @@
+import log = require('../../../log');
+const Donation = require('../donation.model');
+
+export = () => {
+	log.job.debug('Migration', 'Executing migration \'DonationFromUser\'');
+
+	Donation.find({ value_historic_usd: { $ne: null } }, (err, donations) => {
+		log.job.debug('Migration', `Got ${donations.length} donations wich need value_historic migration`);
+
+		donations.forEach((d) => {
+			d.value_historic = {
+				usd: d.value_historic_usd,
+				eur: null,
+				gbp: null
+			};
+			d.save((err) => {
+				log.job.debug('Migration', `Migrated ${d.txid} value_historic`);
+			});
+		})
+	});
+};
+

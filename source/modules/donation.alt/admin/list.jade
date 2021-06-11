@@ -1,0 +1,84 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | Alt donations
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li Donations
+						li.active Alt
+				// Main content
+				section.content
+					div.box								
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Time
+										+sort(pagination, 'time')
+									th Donation
+									th Order
+									th Amount
+										+sort(pagination, 'amount')
+									th Expiry
+									th Status
+										+sort(pagination, 'status')
+									th Payment Status
+										+sort(pagination, 'paymentstatus')
+									th
+								each t in altdonations
+									tr
+										td(style="font-size: 90%") #{prettyDateTime(t.time)}
+										td(style="font-size: 70%")= t.donation
+										td(style="font-size: 70%")= t.order
+										td
+											span= t.amount
+											span &nbsp;
+											span= t.currency
+										td(style="font-size: 70%")= t.expiry
+										td
+											if t.status == 'WAITING_FOR_DEPOSIT'
+												span.label.label-warning Waiting deposit
+											
+											if t.status == 'DEPOSIT_RECEIVED'
+												span.label.label-warning Deposit received
+
+											if t.status == 'DEPOSIT_CONFIRMED'
+												span.label.label-info Deposit confirmed
+											
+											if t.status == 'EXECUTED'
+												span.label.label-success Executed
+											
+											if t.status == 'CANCELED'
+												span.label.label-danger Canceled
+
+											if t.status == 'EXPIRED'
+												span.label.label-danger Expired
+
+											if t.status == 'NEEDS_REFUND'
+												span.label.label-danger Needs Refund
+
+											if t.status == 'REFUNDED'
+												span.label.label-success Refunded
+										td
+											span.label.label-info= t.paymentstatus
+										td
+											a.btn.btn-xs.btn-primary(href="/admin/altdonation/"+t._id+"/") Details
+
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade
+

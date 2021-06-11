@@ -1,0 +1,27 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+
+import { User } from '../../user/user.model';
+
+export = () => {
+	log.job.debug('Migration', 'Executing users policy update');
+
+	User.find({}, (err, users) => {
+		log.job.debug('Migration', `Found ${users.length} users for policy update`);
+
+		users.forEach((u) => {
+			u.policyversion = { terms: 2, privacy: 2 };
+
+			u.save(function (err) {
+				if (err != null) {
+					return log.job.error('Migration', `Failed to change policy for ${u.username}`);
+				}
+
+				log.job.debug('Migration', `Changed policy for ${u.username}`);
+			});
+		});
+	});
+};
+

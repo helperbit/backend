@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "allowJs": true,
+        "checkJs": false,
+        "target": "es5",
+        "types" : ["jasmine"]
+    },
+    "include": [ 
+		"./source/helpers/*.spec.ts",
+		"./source/gis/*.spec.ts" 
+	]
+}

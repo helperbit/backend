@@ -1,0 +1,44 @@
+br
+.row
+	.col-md-6
+		.small-box.bg-green
+			.inner
+				h3= ambassador.count
+				p Number of verified users referred
+	.col-md-6
+		.small-box.bg-blue
+			.inner
+				h3= ambassador.refby || "None"
+				p Refby
+
+br
+table.table.table-striped
+	tr 
+		th Username
+		th Email
+		th Regdate
+		th Verified
+			
+	each r in ambassador.referred
+		tr
+			td
+				a(href="/admin/user/" + r.username, target="_blank")= r.username
+			td= r.email
+			td= locals.formatDate(r.regdate)
+			td
+				if r.verified
+					span.label.label-success Verified
+				else
+					span.label.label-danger Not Yet Verified
+				
+
+if user.usertype === 'singleuser'
+	h2 Badges
+	table.table.table-hover.table-striped
+		tr
+			th Code
+			th Time
+		each b in user.badges
+			tr
+				td= b.code
+				td= locals.formatDate(b.time)

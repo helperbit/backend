@@ -1,0 +1,58 @@
+include ../../admin/views/includes/head.jade
+include ../../admin/views/includes/sort.jade
+
+body.hold-transition.skin-blue.sidebar-mini
+	.wrapper
+		include ../../admin/views/includes/header.jade
+		include ../../admin/views/includes/aside.jade
+
+		// Content Wrapper. Contains page content
+		.content-wrapper
+				// Content Header (Page header)
+				section.content-header
+					h1 AdminHB | TimeLock Transactions -&nbsp;
+						span= title
+					ol.breadcrumb
+						li
+							a(href='#')
+								i.fa.fa-dashboard
+								|  Home
+						li TimeLock Transactions
+						li.active= title
+				// Main content
+				section.content
+					div.box							
+						.box-header.with-border
+								include ../../admin/views/includes/pagination.jade
+
+						div.box-body.no-padding.table-responsive
+							table.table.table-hover
+								tr
+									th Time
+										+sort(pagination, 'time')
+									th From
+										+sort(pagination, 'from')
+									th Address
+									th Value Secured
+										+sort(pagination, 'value')
+									th Status
+										+sort(pagination, 'status')
+								each t in txs
+									tr
+										td #{prettyDateTime(t.time)}
+										td= t.from
+										td
+											a(href="/admin/wallet/"+t.wallet.address)= t.wallet.address 
+										td= t.value
+										td
+											if t.status == 'creation'
+													span.label.label-danger Creation
+
+											if t.status == 'signing'
+												span.label.label-warning Signing
+													
+											if t.status == 'signed'
+												span.label.label-success Signed
+											
+						.box-footer
+							include ../../admin/views/includes/pagination.jade

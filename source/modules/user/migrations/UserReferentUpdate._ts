@@ -1,0 +1,36 @@
+
+import error = require('../../../error');
+import log = require('../../../log');
+import conf = require('../../../conf');
+
+import { User } from '../../user/user.model';
+
+export = () => {
+	log.job.debug('Migration', 'Executing user referent update');
+
+	User.find({ usertype: 'npo', 'verification.state': 'accepted', 'verification.provider': 'npo' }, 'verification username usertype referent', (err, users) => {
+		log.job.debug('Migration', `Found ${users.length} users for referent update`);
+
+		users.forEach((u) => {
+			let v = u.verification.filter(vv => vv.state == 'accepted' && vv.provider == 'npo');
+
+			if (v.length == 0)
+				return;
+
+			v = v[0];
+			u.referent.firstname = v.info.refname;
+			u.referent.lastname = v.info.refname;
+			u.referent.email = v.info.refmail;
+			u.referent.idnumber = v.info.refmail;
+
+			u.save(function (err) {
+				if (err != null) {
+					return log.job.error('Migration', `Failed to set referent for ${u.username}`);
+				}
+
+				log.job.debug('Migration', `Changed referent for ${u.username}`);
+			});
+		});
+	});
+};
+

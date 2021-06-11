@@ -1,0 +1,23 @@
+import error = require('../../error');
+import log = require('../../log');
+import conf = require('../../conf');
+import { Project } from '../../project/project.model';
+
+
+export = () => {
+	log.job.debug('Migration', 'Executing project activity update');
+
+	Project.find({}, (err, projects) => {
+		projects.forEach((p) => {
+			log.job.debug('Migration', `Updating project ${p._id} activity`);
+
+			p.activities = [];
+
+			p.save((err) => {
+				if (err)
+					log.job.error('Migration', `Failed to update ${p._id}`);
+			});
+		});
+	});
+};
+

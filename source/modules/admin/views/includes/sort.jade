@@ -1,0 +1,11 @@
+mixin sort(pagination, field)
+	span(style='float: right')
+		if pagination.sort == 'desc' && pagination.by == field
+			a(href="?sort=asc&by="+field)
+				i.fa.fa-sort-desc
+		else if pagination.sort == 'asc' && pagination.by == field
+			a(href="?sort=desc&by="+field)
+				i.fa.fa-sort-asc
+		else
+			a(href="?sort=desc&by="+field)
+				i.fa.fa-sort

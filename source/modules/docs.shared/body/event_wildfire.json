@@ -1,0 +1,90 @@
+			{
+			   "lastshakedate" : "2016-02-22T06:37:03.000Z",
+			   "timezone": "UTC-10:00",
+			   "affectedcities" : 3,
+			   "maxmagnitude" : 6.3,
+
+			   "capital" : {
+			      "population" : 16746491,
+			      "distance" : 408154.657473486,
+			      "name" : "Santiago"
+			   },
+			   "article": {
+			  		"en": "OMG, earthquake! {{mag}}"
+			   },
+			   "news": 
+			   [ { "title": "Messico, terremoto di magnitudo 8,2: allerta tsunami in America centrale. Almeno 5 vittime - Repubblica.it",
+				   "image": "https://www.repstatic.it/content/nazionale/img/2017/09/08/092705397-4d0ae745-0698-4108-a739-502f5de959d0.jpg",
+				   "lang": "it",
+				   "url": "http://www.repubblica.it/esteri/2017/09/08/news/messico_terremoto_di_magnitudo_8_allerta_tsunami-174895579/",
+				   "_id": "59b253b4099bd92135d88a7b" },
+				 { "title": "Terremoto in Messico di magnitudo 8.2, almeno 6 morti - Corriere.itNotizie di esteri del Corriere della Sera",
+				   "image": "http://images2.corriereobjects.it/methode_image/socialshare/2017/09/08/94b228e4-945b-11e7-add3-f41914f12640.jpg",
+				   "lang": "it",
+				   "url": "http://www.corriere.it/esteri/17_settembre_08/messico-terremoto-chiapas-330e35e4-9454-11e7-add3-f41914f12640.shtml",
+				   "_id": "59b253c4099bd92135d88a7c" },
+				 { "title": "Terremoto in Messico 8.4. Almeno 5 vittime. Allerta tsunami - Mondo - ANSA.it",
+				   "image": "http://www.ansa.it/webimages/img_700/2017/9/8/12c0d1cfe271bab970fb106c5d84b529.jpg",
+				   "lang": "it",
+				   "url": "http://www.ansa.it/sito/notizie/mondo/2017/09/08/sisma-8.0-in-messico-allerta-tsunami_425ea755-536b-4360-9029-e0d64a2ecf10.html",
+				   "_id": "59b253e7099bd92135d88a7d" },
+				 { "title": "Mexico earthquake: tsunami confirmed after 8.1 magnitude quake kills five | World news | The Guardian",
+				   "image": "https://i.guim.co.uk/img/media/1dca0cf0c5e84985f23c971734225d9d3d261be9/0_48_3536_2122/master/3536.jpg?w=1200&h=630&q=55&auto=format&usm=12&fit=crop&crop=faces%2Centropy&bm=normal&ba=bottom%2Cleft&blend64=aHR0cHM6Ly91cGxvYWRzLmd1aW0uY28udWsvMjAxNi8wNS8yNS9vdmVybGF5LWxvZ28tMTIwMC05MF9vcHQucG5n&s=3bbc0136619b05d4d73ffc680d718fe5",
+				   "lang": "en",
+				   "url": "https://www.theguardian.com/world/2017/sep/08/mexico-earthquake-warning-tsunami",
+				   "_id": "59b25421099bd92135d88a7e" } ],
+			 
+			   "startdate" : "2016-02-10T00:33:05.000Z",
+			   "historical" : {
+			      "yeardiff" : 13,
+			      "tsunami" : false,
+			      "present" : true,
+			      "magnitude" : 6.8,
+			      "damagecost" : null,
+			      "date" : "2003-06-20T00:00:00.000Z",
+			      "destroyedhouse" : null,
+			      "deaths" : null
+			   },
+			   "type" : "wildfire",
+			   "geometry" : {
+			      "type" : "MultiPolygon",
+			      "coordinates" : []
+			   },
+			   "metatx" : null,
+			   "__v" : 48,
+			   "originid" : "55450",
+			   "dataid" : "us20004z5b",
+			   
+			   "population": {
+				   "deaths": null,
+				   "displaced": null,
+				   "affected": 14325,
+				   "wounded": null
+			   },
+
+			   "donationsvolume" : 0.02111314,
+			   "datasource" : "USGS",
+			   "affectedcountries" : [
+			      "CHL"
+			   ],
+			   "nearcity" : {
+			      "direction" : 276.702089445507,
+			      "population" : 110554,
+			      "distance" : 40476.7945729989,
+			      "name" : "COQUIMBO, LIMARI, OVALLE, N.A., N.A."
+			   },
+			   "epicenter" : {
+			      "coordinates" : [
+			         -71.5925,
+			         -30.5784,
+			         29
+			      ],
+			      "type" : "Point"
+			   },
+			   "_id" : "56bb1735f5226bfe2e8074ed",
+			   "affectedregions" : [
+			      "Coquimbo"
+			   ],
+			   "images" : [],
+			   "donations" : 2
+			}
